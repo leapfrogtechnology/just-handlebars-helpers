@@ -1,0 +1,31 @@
+{
+  "name": "lft-handlebars-helpers",
+  "version": "1.0.0",
+  "description": "Handlebars Helpers",
+  "main": "index.js",
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  },
+  "devDependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.21",
+    "karma-browserify": "^5.0.1",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.4",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kabirbaidhya/HandlebarHelpers.git"
+  },
+  "author": "Kabir Baidhya <kabeer182010@gmail.com>",
+  "license": "MIT"
+}
