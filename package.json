@@ -1,5 +1,5 @@
 {
-  "name": "lft-handlebars-helpers",
+  "name": "just-handlebars-helpers",
   "version": "1.0.0",
   "description": "Handlebars Helpers",
   "main": "index.js",

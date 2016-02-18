@@ -1,6 +1,5 @@
 
 import * as helpers from './helpers.js';
-import {isObject} from './util/utils.js';
 
 class H {
     static registerHelpers(handlebars = window.Handlebars) {
@@ -16,7 +15,7 @@ class H {
     }
 }
 
-if (isObject(window)) {
+if (typeof window === 'object') {
     window.H = H;
 }
 

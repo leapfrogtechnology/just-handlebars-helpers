@@ -24,13 +24,13 @@ describe('helpers', () => {
         expect(helpers.excerpt('just wow', 'random')).toEqual('just wow');
     });
 
-    /* dashCase */
-    it('dashCase should return a normal string as dash case', () => {
-        expect(helpers.dashCase('Just    wow')).toEqual('just-wow');
+    /* sanitize */
+    it('sanitize should return a normal string as dash case', () => {
+        expect(helpers.sanitize('Just    wow')).toEqual('just-wow');
     });
 
-    it('dashCase should return a string with special characters as dash case without special characters', () => {
-        expect(helpers.dashCase('*JuST *#wow#')).toEqual('just-wow');
+    it('sanitize should return a string with special characters as dash case without special characters', () => {
+        expect(helpers.sanitize('*JuST *#wow#')).toEqual('just-wow');
     });
 
     /* capitalizeFirst */

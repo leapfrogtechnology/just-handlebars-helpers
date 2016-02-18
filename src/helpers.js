@@ -24,15 +24,15 @@ function excerpt(string, length) {
 };
 
 /**
- * A dashCase helper to convert a string to dash-case. This helper will also remove
- * special characters and make the string lowercase.
+ * A sanitize helper to convert a string to url friendly dash-case string removing
+ * special characters. This will also make the string lowercase.
  *
  * Example usage:
- *      {{dashCase 'JuSt #Wow'}}
+ *      {{sanitize 'JuSt #Wow'}}
  *
  * @param string param
  */
-function dashCase(param) {
+function sanitize(param) {
     var string = param.replace(/[^\w\s]/gi, '').trim();
 
     return string.replace(/\s+/, '-').toLowerCase();
@@ -246,6 +246,14 @@ function empty(array) {
     return (array.length === 0);
 }
 
+function count(array) {
+    if (!isArray(array)) {
+        return false;
+    }
+
+    return array.length;
+}
+
 export {
     eq,
     eqw,
@@ -255,11 +263,12 @@ export {
     gte,
     ifx,
     not,
+    count,
     empty,
     showIf,
     hideIf,
     excerpt,
-    dashCase,
+    sanitize,
     checkedIf,
     selectedIf,
     capitalizeEach,
