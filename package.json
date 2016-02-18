@@ -4,7 +4,7 @@
   "description": "Handlebars Helpers",
   "main": "index.js",
   "dependencies": {
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.*"
   },
   "devDependencies": {
     "babelify": "^7.2.0",
