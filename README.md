@@ -1,8 +1,7 @@
 # HandlebarHelpers
-HandlebarHelpers
+A lightweight package with common handlebars helpers.
 
 ## TODO
- * count(array)
  * include
  * formatDate (based on moment)
  * sprintf (based on sprintf-js)
@@ -10,12 +9,12 @@ HandlebarHelpers
 ## Testing the helpers
 
 ```bash
+# Install dependencies
+$ npm install
+
 # Compile everything
 $ gulp
 
-# Run the server
-$ python -m SimpleHTTPServer 4321
+# Run all the tests
+$ karma start
 ```
-Now, go to http://127.0.0.1:4321/tests/just-test.html
-
-**TODO**: Write some good automated tests for all the helpers
