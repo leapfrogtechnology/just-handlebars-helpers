@@ -59,7 +59,7 @@ module.exports = function(config) {
     // browserify config
     browserify: {
       debug: true,
-      transform: [ 'babelify' ]
+      transform: ['babelify']
     }
   })
 }

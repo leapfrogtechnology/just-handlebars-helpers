@@ -8,7 +8,7 @@ var source = require('vinyl-source-stream');
 
 gulp.task('compile', function() {
     return browserify({ entries: './src/H.js', debug: true })
-        .transform(babelify, {presets: ['es2015']})
+        .transform(babelify)
         .bundle()
         .pipe(source('h.js'))
         .pipe(gulp.dest('dist'));
