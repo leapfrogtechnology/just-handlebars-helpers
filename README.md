@@ -1,10 +1,10 @@
 # HandlebarHelpers
-A lightweight package with common handlebars helpers.
+A lightweight package with common helpers for [Handlebars](https://github.com/wycats/handlebars.js)
 
 ## Installation
 
 ```bash
-$ npm install just-handlebars-helpers
+$ npm install just-handlebars-helpers --save
 ```
 ## Usage
 
@@ -20,11 +20,13 @@ $ npm install just-handlebars-helpers
 ```
 
 ## TODO
- * Add support for using in node environment
+ * Support using with CommonJS require i.e `var H = require('just-handlebars-helpers');`
  * Add Helpers
-  * include
-  * formatDate (based on moment)
-  * sprintf (based on sprintf-js)
+  * `include`
+  * `formatDate` (based on moment)
+  * `sprintf` (based on sprintf-js)
+  * `join`
+  * `split`
 
 ## Testing the helpers
 
@@ -38,3 +40,8 @@ $ gulp
 # Run all the tests
 $ karma start
 ```
+
+## Inspired by 
+ * [Swag](https://github.com/elving/swag)
+ * [Dashbars](https://github.com/pismute/dashbars)
+ * [Assemble](https://github.com/assemble/handlebars-helpers)
