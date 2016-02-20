@@ -3,7 +3,7 @@
  * Example usage:
  *      {{showIf true}} => ''
  *
- * @param param
+ * @param expression
  * @returns string
  */
 function showIf(expression) {
@@ -15,7 +15,7 @@ function showIf(expression) {
  * Example usage:
  *      {{hideIf true}} => 'hidden'
  *
- * @param param
+ * @param expression
  * @returns string
  */
 function hideIf(expression) {
@@ -23,11 +23,11 @@ function hideIf(expression) {
 }
 
 /**
- * A selectedIf helper for dropdowns and radio boxes.
+ * A selectedIf helper for dropdown and radio boxes.
  * Example usage:
  *      {{selectedIf true}} =>  'selected'
  *
- * @param value
+ * @param expression
  * @returns string
  */
 function selectedIf(expression) {
@@ -39,7 +39,7 @@ function selectedIf(expression) {
  * Example usage:
  *      {{checkedIf true}}  => 'checked'
  *
- * @param value
+ * @param expression
  * @returns string
  */
 function checkedIf(expression) {
@@ -47,9 +47,4 @@ function checkedIf(expression) {
 }
 
 /* Export */
-export {
-    showIf,
-    hideIf,
-    checkedIf,
-    selectedIf
-};
+export {showIf, hideIf, checkedIf, selectedIf};

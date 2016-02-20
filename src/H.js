@@ -1,6 +1,6 @@
-import * as html from './helpers/html.js';
-import * as math from './helpers/math.js';
-import * as strings from './helpers/strings.js';
+import * as html from './helpers/html';
+import * as math from './helpers/math';
+import * as strings from './helpers/strings';
 
 class H {
     static registerHelpers(handlebars = window.Handlebars) {

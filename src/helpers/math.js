@@ -1,4 +1,4 @@
-import {isArray} from '../util/utils.js';
+import {isArray} from '../util/utils';
 
 /**
  * Determine whether or not two values are equal (===).
@@ -128,7 +128,7 @@ function empty(array) {
  *      {{count array}} =>  false | array.length
  *
  * @param array
- * @returns false | number
+ * @returns boolean | number
  */
 function count(array) {
     if (!isArray(array)) {
@@ -139,15 +139,4 @@ function count(array) {
 }
 
 /* Export */
-export {
-    eq,
-    eqw,
-    lt,
-    lte,
-    gt,
-    gte,
-    ifx,
-    not,
-    count,
-    empty
-}
+export {eq, eqw, lt, lte, gt, gte, ifx, not, empty, count}

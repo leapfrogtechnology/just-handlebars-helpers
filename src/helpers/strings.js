@@ -19,7 +19,7 @@ function excerpt(string, length) {
     }
 
     return string.slice(0, length) + '...';
-};
+}
 
 /**
  * Convert a string to url friendly dash-case string removing special characters.
@@ -70,9 +70,4 @@ function capitalizeFirst(string) {
 }
 
 /* Export */
-export {
-    excerpt,
-    sanitize,
-    capitalizeEach,
-    capitalizeFirst
-}
+export {excerpt, sanitize, capitalizeEach, capitalizeFirst}
