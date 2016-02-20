@@ -1,6 +1,6 @@
 import * as html from './helpers/html';
-import * as math from './helpers/math';
 import * as strings from './helpers/strings';
+import * as conditionals from './helpers/conditionals';
 
 class H {
     static registerHelpers(handlebars = window.Handlebars) {
@@ -10,7 +10,7 @@ class H {
         }
 
         // Helpers list
-        let helpers = [html, math, strings];
+        let helpers = [html, strings, conditionals];
 
         helpers.forEach(helper => {
             // Register all the helper functions to Handlebars
