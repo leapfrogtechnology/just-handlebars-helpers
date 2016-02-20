@@ -1,5 +1,6 @@
-
-import * as helpers from './helpers.js';
+import * as html from './helpers/html.js';
+import * as math from './helpers/math.js';
+import * as strings from './helpers/strings.js';
 
 class H {
     static registerHelpers(handlebars = window.Handlebars) {
@@ -8,10 +9,15 @@ class H {
             throw new Error('Handlebars not loaded');
         }
 
-        // Register all the helper functions to Handlebars
-        for (let name in helpers) {
-            handlebars.registerHelper(name, helpers[name]);
-        }
+        // Helpers list
+        let helpers = [html, math, strings];
+
+        helpers.forEach(helper => {
+            // Register all the helper functions to Handlebars
+            for (let name in helper) {
+                handlebars.registerHelper(name, helper[name]);
+            }
+        });
     }
 }
 
