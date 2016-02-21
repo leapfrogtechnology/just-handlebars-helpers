@@ -19,15 +19,6 @@ $ npm install just-handlebars-helpers --save
 </script>
 ```
 
-## TODO
- * Support using with CommonJS require i.e `var H = require('just-handlebars-helpers');`
- * Add Helpers
-  * `include`
-  * `formatDate` (based on moment)
-  * `sprintf` (based on sprintf-js)
-  * `join`
-  * `split`
-
 ## Testing the helpers
 
 ```bash
@@ -38,7 +29,7 @@ $ npm install
 $ gulp
 
 # Run all the tests
-$ karma start
+$ npm test
 ```
 
 ## Inspired by 
