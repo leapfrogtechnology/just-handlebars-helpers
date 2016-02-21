@@ -9,7 +9,12 @@ var source = require('vinyl-source-stream');
 
 // Lint using eslint
 gulp.task('lint', function() {
-    return gulp.src(['**/*.js','!node_modules/**', '!dist/**'])
+    return gulp.src([
+            '**/*.js',
+            '!dist/**',
+            '!coverage/**',
+            '!node_modules/**'
+        ])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
