@@ -18,6 +18,7 @@
     "karma-browserify": "^5.0.1",
     "karma-jasmine": "^0.3.7",
     "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.24",
     "phantomjs-prebuilt": "^2.1.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
