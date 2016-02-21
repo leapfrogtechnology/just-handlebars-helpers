@@ -1,3 +1,6 @@
+var isparta = require('isparta');
+var istanbul = require('browserify-istanbul');
+
 // Karma configuration
 module.exports = function(config) {
   config.set({
@@ -29,7 +32,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
 
     // web server port
     port: 9876,
@@ -59,7 +62,18 @@ module.exports = function(config) {
     // browserify config
     browserify: {
       debug: true,
-      transform: ['babelify']
+      transform: [
+        ['babelify'],
+        istanbul({
+          instrumenter: isparta,
+          ignore: ['**/node_modules/**', '**/tests/**']
+        })
+      ]
+    },
+
+    // coverage reporter config
+    coverageReporter: {
+      type: 'lcov'
     }
   })
 }
