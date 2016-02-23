@@ -1,6 +1,6 @@
 {
   "name": "just-handlebars-helpers",
-  "version": "0.1.0-0",
+  "version": "0.1.1-0",
   "description": "A lightweight package with common helpers for Handlebars",
   "main": "index.js",
   "dependencies": {
@@ -41,7 +41,7 @@
   "contributors": [
     "Saugat Acharya <mesaugat@gmail.com>",
     "Sanjeev Kumar Pandit <binarysanjeev@gmail.com>",
-    "Suman Gurung <gurung.suman15@gmail.com>", 
+    "Suman Gurung <gurung.suman15@gmail.com>",
     "Deepak Pandey <pandey.dip@gmail.com>"
   ],
   "keywords": [
@@ -49,7 +49,7 @@
     "helpers",
     "lightweight",
     "just-handlebars",
-    "just-handlebars-helpers", 
+    "just-handlebars-helpers",
     "handlebars-helpers",
     "mustache",
     "template",
