@@ -1,6 +1,6 @@
 {
   "name": "just-handlebars-helpers",
-  "version": "0.0.1-0",
+  "version": "0.1.0-0",
   "description": "Handlebars Helpers",
   "main": "index.js",
   "dependencies": {
