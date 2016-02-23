@@ -1,7 +1,7 @@
 {
   "name": "just-handlebars-helpers",
   "version": "0.1.0-0",
-  "description": "Handlebars Helpers",
+  "description": "A lightweight package with common helpers for Handlebars",
   "main": "index.js",
   "dependencies": {
     "handlebars": "^4.*"
@@ -37,6 +37,24 @@
     "type": "git",
     "url": "git+https://github.com/leapfrogtechnology/just-handlebars-helpers.git"
   },
-  "author": "Kabir Baidhya <kabeer182010@gmail.com>",
+  "author": "Kabir Baidhya <kabirbaidhya@gmail.com>",
+  "contributors": [
+    "Saugat Acharya <mesaugat@gmail.com>",
+    "Sanjeev Kumar Pandit <binarysanjeev@gmail.com>",
+    "Suman Gurung <gurung.suman15@gmail.com>", 
+    "Deepak Pandey <pandey.dip@gmail.com>"
+  ],
+  "keywords": [
+    "handlebars",
+    "helpers",
+    "lightweight",
+    "just-handlebars",
+    "just-handlebars-helpers", 
+    "handlebars-helpers",
+    "mustache",
+    "template",
+    "templating",
+    "html"
+  ],
   "license": "MIT"
 }
