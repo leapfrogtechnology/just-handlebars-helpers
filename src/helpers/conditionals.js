@@ -26,6 +26,33 @@ function eqw(value1, value2) {
     return (value1 == value2);
 }
 
+
+/**
+ * Determine whether or not two values are not equal (!==).
+ * Example usage:
+ *      {{neq 4 3}}    => true
+ *
+ * @param value1
+ * @param value2
+ * @returns boolean
+ */
+function neq(value1, value2) {
+    return (value1 !== value2);
+}
+
+/**
+ * Determine whether or not two values are not equal (!=) weak checking.
+ * Example usage:
+ *      {{neq '3' 3}}    => false
+ *
+ * @param value1
+ * @param value2
+ * @returns boolean
+ */
+function neqw(value1, value2) {
+    return (value1 != value2);
+}
+
 /**
  * Check for less than condition (a < b).
  * Example usage:
@@ -139,4 +166,4 @@ function count(array) {
 }
 
 /* Export */
-export {eq, eqw, lt, lte, gt, gte, ifx, not, empty, count}
+export {eq, eqw, neq, neqw, lt, lte, gt, gte, ifx, not, empty, count}
