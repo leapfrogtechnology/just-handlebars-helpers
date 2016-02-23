@@ -20,6 +20,32 @@ describe('conditionals', () => {
         expect(conditionals.eqw('1', 1)).toEqual(true);
     });
 
+    /* neq */
+    it('neq should return true if provided params are not equal', () => {
+        expect(conditionals.neq(4, 3)).toEqual(true);
+    });
+
+    it('neq should return false if provided params are equal and of same type', () => {
+        expect(conditionals.neq(3, 3)).toEqual(false);
+    });
+
+    it('neq should return true if provided params are equal but of different types', () => {
+        expect(conditionals.neq('3', 3)).toEqual(true);
+    });
+
+    /* neqw */
+    it('neqw should return true if provided params are not equal', () => {
+        expect(conditionals.neqw(4, 3)).toEqual(true);
+    });
+
+    it('neqw should return false if provided params are equal and of same type', () => {
+        expect(conditionals.neqw(3, 3)).toEqual(false);
+    });
+
+    it('neqw should return false if provided params are equal but of different types', () => {
+        expect(conditionals.neqw('3', 3)).toEqual(false);
+    });
+
     /* lt */
     it('lt should return true if param1 is smaller than param2', () => {
         expect(conditionals.lt(1, 2)).toEqual(true);
@@ -30,7 +56,7 @@ describe('conditionals', () => {
     });
 
     it('lt should return false if param2 is smaller than param1', () => {
-        expect(conditionals.lt('31', '11')).toEqual(false);   // Lexicographical Order
+        expect(conditionals.lt('31', '11')).toEqual(false); // Lexicographical Order
     });
 
     /* lte */
@@ -56,7 +82,7 @@ describe('conditionals', () => {
     });
 
     it('gt should return false if param2 is greater than param1', () => {
-        expect(conditionals.gt('11', '31')).toEqual(false);   // Lexicographical Order
+        expect(conditionals.gt('11', '31')).toEqual(false); // Lexicographical Order
     });
 
     /* gte */
@@ -69,7 +95,7 @@ describe('conditionals', () => {
     });
 
     it('gte should return false if param2 is greater than param1', () => {
-        expect(conditionals.gte(1, 2)).toEqual(false);   // Lexicographical Order
+        expect(conditionals.gte(1, 2)).toEqual(false); // Lexicographical Order
     });
 
     /* ifx */
@@ -106,7 +132,9 @@ describe('conditionals', () => {
 
     /* count */
     it('count should return false if param is not an array', () => {
-        expect(conditionals.count({foo: 'bar'})).toEqual(false);
+        expect(conditionals.count({
+            foo: 'bar'
+        })).toEqual(false);
     });
 
 });
