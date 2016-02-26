@@ -104,7 +104,9 @@ export default {
         var _vsprintf = global.vsprintf;
 
         if (!isFunction(_vsprintf)) {
-            _vsprintf = require('sprintf-js').vsprintf;
+            // Don't let browserify/webpack require that stuff right in here
+            var r = require;
+            _vsprintf = r('sprintf-js').vsprintf;
         }
 
         // Normalize all the parameters before passing it to the
