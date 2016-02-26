@@ -1,4 +1,6 @@
 
+import { isFunction, isObject } from '../util/utils';
+
 export default {
 
     /**
@@ -10,10 +12,10 @@ export default {
      * @param length
      * @returns string
      */
-    excerpt: function (string, length) {
+    excerpt: function(string, length) {
         length = parseInt(length) || 50;
 
-        if (typeof (string) !== 'string' || typeof (length) !== 'number') {
+        if (typeof(string) !== 'string' || typeof(length) !== 'number') {
             return string;
         }
 
@@ -32,7 +34,7 @@ export default {
      * @param string
      * @returns string
      */
-    sanitize: function (string) {
+    sanitize: function(string) {
         string = string.replace(/[^\w\s]/gi, '').trim();
 
         return string.replace(/\s+/, '-').toLowerCase();
@@ -46,9 +48,9 @@ export default {
      * @param string
      * @returns string
      */
-    capitalizeEach: function (string) {
+    capitalizeEach: function(string) {
         if (typeof string === 'string') {
-            return string.toLowerCase().replace(/\w\S*/g, function (match) {
+            return string.toLowerCase().replace(/\w\S*/g, function(match) {
                 return match.charAt(0).toUpperCase() + match.substr(1);
             });
         }
@@ -64,7 +66,7 @@ export default {
      * @param string
      * @returns string
      */
-    capitalizeFirst: function (string) {
+    capitalizeFirst: function(string) {
         if (typeof string === 'string') {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -73,9 +75,44 @@ export default {
     },
 
     /**
+     * A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
      *
+     * NOTE: This helper relies on sprintf() function provided by https://github.com/alexei/sprintf.js
+     * So, make sure you have the sprintf-js package available either as a node module
+     * or have sprintf/vsprintf functions available in the global scope from that package.
+     *
+     *  Syntax:
+     *      {{sprintf format arg1 arg2 arg3....}}
+     *      {{sprintf format object}}
+     *      {{sprintf format key1=value1 key2=value2...}}
+     *
+     *  Example usage:
+     *      {{sprintf '%s %s!' 'Hello' 'Kabir' }}
+     *      {{sprintf '%s %s %d %s %d' 'Foo' 'Bar' 55 'Baz' '20'}}
+     *      {{sprintf '%(greeting)s %(name)s! How are you?' obj }}
+     *      {{sprintf '%(greeting)s %(name)s! ' greeting='Hello' name='Kabir'}}
+     *
+     *  Check this https://github.com/alexei/sprintf.js for more information
+     *
+     * @param format
+     * @param ...args
      */
-    sprintf: function (format, ...args) {
-        return 'Hello world';
+    sprintf: function(format, ...args) {
+        var _vsprintf = global.vsprintf;
+
+        if (!isFunction(_vsprintf)) {
+            _vsprintf = require('sprintf-js').vsprintf;
+        }
+
+        var params = [];
+        args.forEach(arg => {
+            if (isObject(arg) && isObject(arg.hash)) {
+                arg = arg.hash;
+            }
+
+            params.push(arg);
+        });
+
+        return params.length > 0 ? _vsprintf(format, params) : format;
     }
 };
