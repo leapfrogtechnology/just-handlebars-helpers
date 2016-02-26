@@ -10,7 +10,7 @@
 function excerpt(string, length) {
     length = parseInt(length) || 50;
 
-    if (typeof (string) !== 'string' || typeof (length) !== 'number') {
+    if (typeof(string) !== 'string' || typeof(length) !== 'number') {
         return string;
     }
 
@@ -45,7 +45,7 @@ function sanitize(string) {
  */
 function capitalizeEach(string) {
     if (typeof string === 'string') {
-        return string.toLowerCase().replace(/\w\S*/g, function (match) {
+        return string.toLowerCase().replace(/\w\S*/g, function(match) {
             return match.charAt(0).toUpperCase() + match.substr(1);
         });
     }
@@ -69,5 +69,53 @@ function capitalizeFirst(string) {
     return string;
 }
 
+/**
+ * Concat two or more strings.
+ * Example usage:
+ * 	    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
+ *
+ * @param  mixed ...params
+ * @return string
+ */
+function concat(...params) {
+    var resultString = '';
+    for (var i = 0; i < params.length; i++) {
+        resultString += params[i];
+    }
+
+    return resultString;
+}
+
+/**
+ * Join the elements of an array using a delimeter.
+ * Example usage:
+ * 	    {{join ['Hands', 'legs', 'feet'] ' & '}}   => 'Hands & legs & feet'
+ *
+ * @param  array params
+ * @param  string delimeter
+ * @return string
+ */
+function join(params = [], delimeter) {
+    var resultString = '';
+    if (params !== null) {
+        for (var i = 0; i < params.length; i++) {
+            if (i === (params.length - 1)) {
+                resultString += params[i];
+            } else {
+                resultString += params[i] + delimeter;
+            }
+        }
+    }
+
+    return resultString;
+}
+
 /* Export */
-export {excerpt, sanitize, capitalizeEach, capitalizeFirst}
+export {
+    join,
+    concat,
+    excerpt,
+    sanitize,
+    capitalizeEach,
+    capitalizeFirst,
+}
