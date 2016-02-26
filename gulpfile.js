@@ -47,7 +47,3 @@ gulp.task('uglify', ['compile'], function() {
 });
 
 gulp.task('default', ['lint', 'compile', 'just-transpile', 'uglify']);
-
-gulp.task('watch', function() {
-    gulp.watch('./src/**/*.js', ['default']);
-});
