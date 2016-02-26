@@ -1,4 +1,5 @@
-import * as conditionals from '../../src/helpers/conditionals';
+
+import conditionals from '../../src/helpers/conditionals';
 
 describe('conditionals', () => {
 

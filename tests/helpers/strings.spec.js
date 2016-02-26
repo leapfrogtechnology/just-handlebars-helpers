@@ -1,4 +1,5 @@
-import * as strings from '../../src/helpers/strings';
+
+import strings from '../../src/helpers/strings';
 
 describe('strings', () => {
 
@@ -49,6 +50,11 @@ describe('strings', () => {
 
     it('capitalizeEach should return the param if it is not a string', () => {
         expect(strings.capitalizeEach(1)).toEqual(1);
+    });
+
+    /* sprintf */
+    it('sprintf should work as expected', () => {
+        expect(strings.sprintf('Hello %s', 'world')).toEqual('Hello world');
     });
 
 });
