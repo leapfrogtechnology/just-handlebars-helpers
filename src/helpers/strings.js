@@ -98,13 +98,19 @@ export default {
      * @param ...args
      */
     sprintf: (format, ...args) => {
+
+        // Check if the vsprintf function is available globally
+        // if it's not available then try to require() it
         var _vsprintf = global.vsprintf;
 
         if (!isFunction(_vsprintf)) {
             _vsprintf = require('sprintf-js').vsprintf;
         }
 
+        // Normalize all the parameters before passing it to the
+        // sprintf/vsprintf function
         var params = [];
+
         args.forEach(arg => {
             if (isObject(arg) && isObject(arg.hash)) {
                 arg = arg.hash;
@@ -113,6 +119,6 @@ export default {
             params.push(arg);
         });
 
-        return params.length > 0 ? _vsprintf(format, params) : format;
+        return (params.length > 0) ? _vsprintf(format, params) : format;
     }
 };
