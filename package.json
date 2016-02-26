@@ -4,7 +4,7 @@
   "description": "A lightweight package with common helpers for Handlebars",
   "main": "index.js",
   "dependencies": {
-    "handlebars": "^4.*"
+    "handlebars": "^3.*"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
