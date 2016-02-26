@@ -112,4 +112,146 @@ describe('strings', () => {
             })).toEqual('Hello Kabir! How are you?');
         });
     });
+
+    /* lowercase */
+    it('lowercase should return lowercase value of a string param', () => {
+        expect(strings.lowercase('Hello World!')).toEqual('hello world!');
+    });
+
+    it('lowercase should return number for interger param', () => {
+        expect(strings.lowercase('1234')).toEqual('1234');
+    });
+
+    it('lowercase should should work as expected after compilation (Basic Support)', () => {
+        var template = Handlebars.compile('{{lowercase val}}');
+        var obj = {
+            val: 'JUST WOW!!!'
+        };
+
+        expect(template(obj)).toEqual('just wow!!!');
+    });
+
+    /* uppercase */
+    it('uppercase should return uppercase value of a string param', () => {
+        expect(strings.uppercase('hello world!')).toEqual('HELLO WORLD!');
+    });
+
+    it('uppercase should return number for interger param', () => {
+        expect(strings.uppercase('1234')).toEqual('1234');
+    });
+
+    it('uppercase should work as expected after compilation (Basic Support)', () => {
+        var template = Handlebars.compile('{{uppercase val}}');
+        var obj = {
+            val: 'just wow!!!'
+        };
+
+        expect(template(obj)).toEqual('JUST WOW!!!');
+    });
+
+    /* first */
+    it('first should return first element of an array(string)', () => {
+        expect(strings.first(['David', 'Miller', 'Jones'])).toEqual('David');
+    });
+
+    it('first should return first element of an array(int)', () => {
+        expect(strings.first([4, 5, 6])).toEqual(4);
+    });
+
+    it('first should work as expected after compilation (Basic Supprt)', () => {
+        var template = Handlebars.compile('{{first fullName}}');
+        var obj = {
+            fullName: [
+                'David',
+                'Miller',
+                'Jones'
+            ]
+        };
+
+        expect(template(obj)).toEqual('David');
+    });
+
+    /* last */
+    it('last should return last element of an array(string)', () => {
+        expect(strings.last(['David', 'Miller', 'Jones'])).toEqual('Jones');
+    });
+
+    it('last should return last element of an array(int)', () => {
+        expect(strings.last([4, 5, 6])).toEqual(6);
+    });
+
+    it('last should work as expected after compilation (Basic Supprt)', () => {
+        var template = Handlebars.compile('{{last fullName}}');
+        var obj = {
+            fullName: [
+                'David',
+                'Miller',
+                'Jones'
+            ]
+        };
+
+        expect(template(obj)).toEqual('Jones');
+    });
+
+    /* concat */
+    it('concat should return the param value if only one parameter(string) is provided', () => {
+        expect(strings.concat('hello')).toEqual('hello');
+    });
+
+    it('concat should return the param value if only one parameter(integer) is provided', () => {
+        expect(strings.concat(5)).toEqual('5');
+    });
+
+    it('concat should return concatenation of all param values(string)', () => {
+        expect(strings.concat('hello', ' ', 'world', '!!!')).toEqual('hello world!!!');
+    });
+
+    it('concat should return concatenation of all param values(string and integer)', () => {
+        expect(strings.concat('I have got', ' ', 4, ' ', 'apples.')).toEqual('I have got 4 apples.');
+    });
+
+    it('concat should return concatenation of all param values(integer)', () => {
+        expect(strings.concat(1, 2, 3, 4)).toEqual('1234');
+    });
+
+    it('concat should return empty string if no params provided', () => {
+        expect(strings.concat()).toEqual('');
+    });
+
+    it('concat should return concatenation of boolean value if boolean params provided', () => {
+        expect(strings.concat(true, false, true, false)).toEqual('truefalsetruefalse');
+    });
+
+    it('concat should return concatenation of boolean value if null params provided', () => {
+        expect(strings.concat(null, 'abc')).toEqual('nullabc');
+    });
+
+    /* join */
+    it('join should join the values of array using the delimeter provided', () => {
+        expect(strings.join(['Hands', 'legs', 'feet'], ' & ')).toEqual('Hands & legs & feet');
+    });
+
+    it('join should return the first value of array if size of the array is equals to 1', () => {
+        expect(strings.join(['Hands'], ' & ')).toEqual('Hands');
+    });
+
+    it('join should return empty string if size of array is zero', () => {
+        expect(strings.join([], ' & ')).toEqual('');
+    });
+
+    it('join should return empty string if first parameter is null', () => {
+        expect(strings.join(null, ' & ')).toEqual('');
+    });
+
+    it('join should return empty string if both the array and delimeter is null', () => {
+        expect(strings.join(null, null)).toEqual('');
+    });
+
+    it('join should return concatenation of elements of array using null if the delimeter is null', () => {
+        expect(strings.join(['Hands', 'legs', 'feet'], null)).toEqual('Handsnulllegsnullfeet');
+    });
+
+    it('join should return concatenation of elements of array using false if the delimeter is false', () => {
+        expect(strings.join(['Hands', 'legs', 'feet'], false)).toEqual('Handsfalselegsfalsefeet');
+    });
 });

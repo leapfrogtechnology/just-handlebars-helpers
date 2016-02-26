@@ -120,5 +120,94 @@ export default {
         });
 
         return (params.length > 0) ? _vsprintf(format, params) : format;
+    },
+
+    /**
+     * Changes the string to lowercase.
+     * Example usage:
+     * 		{{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
+     *
+     * @param  string param
+     * @return string
+     */
+    lowercase: (param) => {
+        return param.toLowerCase();
+    },
+
+    /**
+     * Changes the string to uppercase.
+     * Example usage:
+     * 		{{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
+     *
+     * @param  string param
+     * @return string
+     */
+    uppercase: (param) => {
+        return param.toUpperCase();
+    },
+
+    /**
+     * Get the first element of a collection/array.
+     * Example usage:
+     * 		{{first ['David', 'Miller', 'Jones']}}   => 'David'
+     *
+     * @param  array collection
+     * @return string
+     */
+    first: (collection) => {
+        return collection[0];
+    },
+
+    /**
+     * Get the last element of a collection/array.
+     * Example usage:
+     * 		{{last ['David', 'Miller', 'Jones']}}   => 'Jones'
+     *
+     * @param  array collection
+     * @return string
+     */
+    last: (collection) => {
+        return collection[collection.length - 1];
+    },
+
+    /**
+     * Concat two or more strings.
+     * Example usage:
+     * 	    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
+     *
+     * @param  mixed ...params
+     * @return string
+     */
+    concat: (...params) => {
+        var resultString = '';
+        for (var i in params) {
+            resultString += params[i];
+        }
+
+        return resultString;
+    },
+
+    /**
+     * Join the elements of an array using a delimeter.
+     * Example usage:
+     * 	    {{join ['Hands', 'legs', 'feet'] ' & '}}   => 'Hands & legs & feet'
+     *
+     * @param  array params
+     * @param  string delimeter
+     * @return string
+     */
+    join: (params = [], delimeter) => {
+        var resultString = '';
+        if (params !== null) {
+            for (var i = 0; i < params.length; i++) {
+                if (i === (params.length - 1)) {
+                    resultString += params[i];
+                } else {
+                    resultString += params[i] + delimeter;
+                }
+            }
+        }
+
+        return resultString;
     }
 };
