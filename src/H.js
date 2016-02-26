@@ -21,8 +21,4 @@ class H {
     }
 }
 
-if (typeof window === 'object') {
-    window.H = H;
-}
-
 export default H;
