@@ -12,7 +12,7 @@ export default {
      * @param length
      * @returns string
      */
-    excerpt: function(string, length) {
+    excerpt: (string, length) => {
         length = parseInt(length) || 50;
 
         if (typeof(string) !== 'string' || typeof(length) !== 'number') {
@@ -34,7 +34,7 @@ export default {
      * @param string
      * @returns string
      */
-    sanitize: function(string) {
+    sanitize: (string) => {
         string = string.replace(/[^\w\s]/gi, '').trim();
 
         return string.replace(/\s+/, '-').toLowerCase();
@@ -48,7 +48,7 @@ export default {
      * @param string
      * @returns string
      */
-    capitalizeEach: function(string) {
+    capitalizeEach: (string) => {
         if (typeof string === 'string') {
             return string.toLowerCase().replace(/\w\S*/g, function(match) {
                 return match.charAt(0).toUpperCase() + match.substr(1);
@@ -66,7 +66,7 @@ export default {
      * @param string
      * @returns string
      */
-    capitalizeFirst: function(string) {
+    capitalizeFirst: (string) => {
         if (typeof string === 'string') {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -97,7 +97,7 @@ export default {
      * @param format
      * @param ...args
      */
-    sprintf: function(format, ...args) {
+    sprintf: (format, ...args) => {
         var _vsprintf = global.vsprintf;
 
         if (!isFunction(_vsprintf)) {

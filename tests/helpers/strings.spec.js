@@ -57,26 +57,24 @@ describe('strings', () => {
     it('sprintf function should work as expected (basic support)', () => {
         // {{sprintf '%(greeting)s %(name)s!' greeting='Hello' name='Kabir' }}
         expect(strings.sprintf('%(greeting)s %(name)s!', {
-            hash: {
-                greeting: 'Hello',
-                name: 'Kabir'
-            }
+            hash: { greeting: 'Hello', name: 'Kabir' }
         })).toEqual('Hello Kabir!');
     });
 
     /* sprintf */
     it('sprintf should work as expected (Basic support)', () => {
-        expect(strings.sprintf('%(greeting)s %(name)s!', {
+        var obj = {
             hash: { greeting: 'Hello', name: 'Kabir' }
-        })).toEqual('Hello Kabir!');
+        };
+        
+        expect(strings.sprintf('%(greeting)s %(name)s!', obj)).toEqual('Hello Kabir!');
     });
 
     it('sprintf should work as expected after compilation (Basic support)', () => {
         var template = Handlebars.compile("{{sprintf '%(greeting)s %(name)s!' greeting=greeting name=name }}");
+        var obj = { greeting: 'Hello', name: 'Kabir' };
 
-        expect(template(
-            { greeting: 'Hello', name: 'Kabir' }
-        )).toEqual('Hello Kabir!');
+        expect(template(obj)).toEqual('Hello Kabir!');
     });
 
     it('sprintf should work as expected after compilation (C-style sprintf)', () => {

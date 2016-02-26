@@ -2,6 +2,7 @@
 import {isArray} from '../util/utils';
 
 export default {
+
     /**
     * Determine whether or not two values are equal (===).
     * Example usage:
@@ -11,7 +12,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    eq: function (value1, value2) {
+    eq: (value1, value2) => {
         return (value1 === value2);
     },
 
@@ -24,7 +25,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    eqw: function (value1, value2) {
+    eqw: (value1, value2) => {
         return (value1 == value2);
     },
 
@@ -37,7 +38,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    neq: function (value1, value2) {
+    neq: (value1, value2) => {
         return (value1 !== value2);
     },
 
@@ -50,7 +51,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    neqw: function (value1, value2) {
+    neqw: (value1, value2) => {
         return (value1 != value2);
     },
 
@@ -63,7 +64,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    lt: function (value1, value2) {
+    lt: (value1, value2) => {
         return (value1 < value2);
     },
 
@@ -76,7 +77,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    lte: function (value1, value2) {
+    lte: (value1, value2) => {
         return (value1 <= value2);
     },
 
@@ -89,7 +90,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    gt: function (value1, value2) {
+    gt: (value1, value2) => {
         return (value1 > value2);
     },
 
@@ -102,7 +103,7 @@ export default {
     * @param value2
     * @returns boolean
     */
-    gte: function (value1, value2) {
+    gte: (value1, value2) => {
         return (value1 >= value2);
     },
 
@@ -117,7 +118,7 @@ export default {
     * @param value2
     * @returns value1 | value2
     */
-    ifx: function (condition, value1, value2) {
+    ifx: (condition, value1, value2) => {
         return !!condition ? value1 :value2;
     },
 
@@ -142,7 +143,7 @@ export default {
     * @param array
     * @returns boolean
     */
-    empty: function (array) {
+    empty: (array) => {
         if (!isArray(array)) {
             return true;
         }
@@ -158,7 +159,7 @@ export default {
     * @param array
     * @returns boolean | number
     */
-    count: function (array) {
+    count: (array) => {
         if (!isArray(array)) {
             return false;
         }

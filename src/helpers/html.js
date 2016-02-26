@@ -8,7 +8,7 @@ export default {
      * @param expression
      * @returns string
      */
-    showIf: function(expression) {
+    showIf: (expression) => {
         return !!expression ? '' : 'hidden';
     },
 
@@ -20,7 +20,7 @@ export default {
      * @param expression
      * @returns string
      */
-    hideIf: function(expression) {
+    hideIf: (expression) => {
         return !!expression ? 'hidden' : '';
     },
 
@@ -32,7 +32,7 @@ export default {
      * @param expression
      * @returns string
      */
-    selectedIf: function(expression) {
+    selectedIf: (expression) => {
         return !!expression ? 'selected' : '';
     },
 
@@ -44,7 +44,7 @@ export default {
      * @param expression
      * @returns string
      */
-    checkedIf: function(expression) {
+    checkedIf: (expression) => {
         return !!expression ? 'checked' : '';
     }
 
