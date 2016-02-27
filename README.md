@@ -1,4 +1,7 @@
-# HandlebarHelpers
+# Just Handlebars Helpers [![NPM Version][npm-image]][npm-url]
+[npm-image]: https://badge.fury.io/js/just-handlebars-helpers.svg
+[npm-url]: https://www.npmjs.com/package/just-handlebars-helpers
+
 A lightweight package with common helpers for [Handlebars](https://github.com/wycats/handlebars.js)
 
 ## Installation
