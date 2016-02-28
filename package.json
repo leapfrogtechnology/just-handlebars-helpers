@@ -4,7 +4,7 @@
   "description": "A lightweight package with common helpers for Handlebars",
   "main": "index.js",
   "dependencies": {
-    "handlebars": "^4.*"
+    "handlebars": "^3.*"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
@@ -14,6 +14,7 @@
     "browserify-istanbul": "^0.2.1",
     "eslint": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-eslint": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.2",
@@ -31,7 +32,8 @@
     "watchify": "^3.7.0"
   },
   "scripts": {
-    "test": "karma start --single-run --browsers PhantomJS"
+    "test": "karma start --single-run --browsers PhantomJS",
+    "prepublish": "gulp --silent"
   },
   "repository": {
     "type": "git",

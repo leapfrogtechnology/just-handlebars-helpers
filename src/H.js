@@ -3,9 +3,11 @@ import * as strings from './helpers/strings';
 import * as conditionals from './helpers/conditionals';
 
 class H {
-    static registerHelpers(handlebars = window.Handlebars) {
+    static registerHelpers(handlebars) {
 
-        if (!handlebars) {
+        if (!handlebars && typeof global.Handlebars !== 'object') {
+            // In case, handlebars is not provided and it's not available
+            // in the global namespace as well throw the error and halt.
             throw new Error('Handlebars not loaded');
         }
 
@@ -19,10 +21,6 @@ class H {
             }
         });
     }
-}
-
-if (typeof window === 'object') {
-    window.H = H;
 }
 
 export default H;
