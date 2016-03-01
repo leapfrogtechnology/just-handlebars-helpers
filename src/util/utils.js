@@ -9,6 +9,16 @@ function isFunction(thing) {
 }
 
 /**
+ * Check if param is a string.
+ *
+ * @param thing
+ * @returns boolean
+ */
+function isString(thing) {
+    return (typeof thing === 'string');
+}
+
+/**
  * Check if param is undefined.
  *
  * @param thing
@@ -48,4 +58,4 @@ function isArray(thing) {
     return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
-export {isFunction, isUndefined, isDefined, isObject, isArray}
+export {isFunction, isUndefined, isDefined, isObject, isArray, isString}
