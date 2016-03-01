@@ -1,7 +1,8 @@
 {
     "parser": "babel-eslint",
     "rules": {
-        "strict": 0
+        "strict": 0,
+        "quotes": [2, "single"]
     },
     "parserOptions": {
         "ecmaVersion": 6,
