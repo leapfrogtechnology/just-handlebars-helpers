@@ -1,4 +1,8 @@
 
+// Utils
+import {isObject} from './util/utils';
+
+// Helpers
 import html from './helpers/html';
 import math from './helpers/math';
 import strings from './helpers/strings';
@@ -8,7 +12,9 @@ class H {
 
     static registerHelpers(handlebars) {
 
-        if (!handlebars && typeof global.Handlebars !== 'object') {
+        handlebars = handlebars || global.Handlebars;
+
+        if (!isObject(handlebars)) {
             // In case, handlebars is not provided and it's not available
             // in the global namespace as well throw the error and halt.
             throw new Error('Handlebars not loaded');
