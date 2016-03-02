@@ -1,5 +1,6 @@
 
 import html from './helpers/html';
+import math from './helpers/math';
 import strings from './helpers/strings';
 import conditionals from './helpers/conditionals';
 
@@ -14,7 +15,7 @@ class H {
         }
 
         // Helpers list
-        let helpers = [html, strings, conditionals];
+        let helpers = [math, html, strings, conditionals];
 
         helpers.forEach(helper => {
             // Register all the helper functions to Handlebars
