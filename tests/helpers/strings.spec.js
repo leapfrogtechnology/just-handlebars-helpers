@@ -233,6 +233,7 @@ describe('strings', () => {
             middle: 'Miller',
             last: 'Jones'
         };
+        
         expect(template(name)).toEqual('David Miller Jones');
     });
 
@@ -270,6 +271,7 @@ describe('strings', () => {
         var obj = {
             fruits: ['Apple', 'Banana', 'Mango']
         };
+
         expect(template(obj)).toEqual('Apple Banana Mango');
     });
 });
