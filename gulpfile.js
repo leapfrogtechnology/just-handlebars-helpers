@@ -16,7 +16,8 @@ var shimify = (function() {
         evaluateArguments: true,
         jsFilesOnly: true
     };
-        // A flexible shim transform for browserify
+
+    // A flexible shim transform for browserify
     return transformTools.makeRequireTransform(
         'shimify', config,
         function(args, opts, cb) {

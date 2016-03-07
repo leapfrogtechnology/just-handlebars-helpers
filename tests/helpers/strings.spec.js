@@ -55,13 +55,11 @@ describe('strings', () => {
 
     /* sprintf */
     it('sprintf function should work as expected (basic support)', () => {
-        // {{sprintf '%(greeting)s %(name)s!' greeting='Hello' name='Kabir' }}
         expect(strings.sprintf('%(greeting)s %(name)s!', {
             hash: { greeting: 'Hello', name: 'Kabir' }
         })).toEqual('Hello Kabir!');
     });
 
-    /* sprintf */
     it('sprintf should work as expected (Basic support)', () => {
         var obj = {
             hash: { greeting: 'Hello', name: 'Kabir' }
