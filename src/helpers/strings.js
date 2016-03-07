@@ -181,7 +181,9 @@ export default {
     concat: (...params) => {
         var resultString = '';
         for (var i in params) {
-            resultString += params[i];
+            if (!isObject(params[i])) {
+                resultString += params[i];
+            }
         }
 
         return resultString;

@@ -223,7 +223,17 @@ describe('strings', () => {
     });
 
     it('concat should return concatenation of boolean value if null params provided', () => {
-        expect(strings.concat(null, 'abc')).toEqual('nullabc');
+        expect(strings.concat(null, 'abc')).toEqual('abc');
+    });
+
+    it('concat should work as expected after compilation (Basic Support)', () => {
+        var template = Handlebars.compile('{{concat first \' \' middle \' \' last}}');
+        var name = {
+            first: 'David',
+            middle: 'Miller',
+            last: 'Jones'
+        };
+        expect(template(name)).toEqual('David Miller Jones');
     });
 
     /* join */
@@ -253,5 +263,13 @@ describe('strings', () => {
 
     it('join should return concatenation of elements of array using false if the delimeter is false', () => {
         expect(strings.join(['Hands', 'legs', 'feet'], false)).toEqual('Handsfalselegsfalsefeet');
+    });
+
+    it('join should work as expected after compilation (Basic Support)', () => {
+        var template = Handlebars.compile('{{join fruits \' \'}}')
+        var obj = {
+            fruits: ['Apple', 'Banana', 'Mango']
+        };
+        expect(template(obj)).toEqual('Apple Banana Mango');
     });
 });
