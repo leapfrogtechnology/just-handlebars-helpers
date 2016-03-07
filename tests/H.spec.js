@@ -1,13 +1,14 @@
+
 import H from '../src/H';
-import handlebars from 'handlebars';
+import Handlebars from 'handlebars';
 
 describe('H.registerHelpers', () => {
 
     it('check if handlebars helpers are registered from each module', () => {
-        H.registerHelpers(handlebars);
-        spyOn(handlebars.helpers, 'ifx');
-        spyOn(handlebars.helpers, 'excerpt');
-        spyOn(handlebars.helpers, 'checkedIf');
+        H.registerHelpers(Handlebars);
+        spyOn(Handlebars.helpers, 'ifx');
+        spyOn(Handlebars.helpers, 'excerpt');
+        spyOn(Handlebars.helpers, 'checkedIf');
     });
-    
+
 });

@@ -1,4 +1,6 @@
-import * as strings from '../../src/helpers/strings';
+
+import Handlebars from 'handlebars';
+import strings from '../../src/helpers/strings';
 
 describe('strings', () => {
 
@@ -49,6 +51,47 @@ describe('strings', () => {
 
     it('capitalizeEach should return the param if it is not a string', () => {
         expect(strings.capitalizeEach(1)).toEqual(1);
+    });
+
+    /* sprintf */
+    it('sprintf function should work as expected (basic support)', () => {
+        expect(strings.sprintf('%(greeting)s %(name)s!', {
+            hash: { greeting: 'Hello', name: 'Kabir' }
+        })).toEqual('Hello Kabir!');
+    });
+
+    it('sprintf should work as expected (Basic support)', () => {
+        var obj = {
+            hash: { greeting: 'Hello', name: 'Kabir' }
+        };
+
+        expect(strings.sprintf('%(greeting)s %(name)s!', obj)).toEqual('Hello Kabir!');
+    });
+
+    it('sprintf should work as expected after compilation (Basic support)', () => {
+        var template = Handlebars.compile('{{sprintf "%(greeting)s %(name)s!" greeting=greeting name=name }}');
+        var obj = { greeting: 'Hello', name: 'Kabir' };
+
+        expect(template(obj)).toEqual('Hello Kabir!');
+    });
+
+    it('sprintf should work as expected after compilation (C-style sprintf)', () => {
+        var template = Handlebars.compile('{{sprintf "%s %s!" "Hello" "Kabir" }}');
+
+        expect(template()).toEqual('Hello Kabir!');
+    });
+
+    it('sprintf should work as expected after compilation (C-style sprintf) with arbitrary number of parameters', () => {
+        var template = Handlebars.compile('{{sprintf "This is a test: %s %s %d %s %d" "Foo" "Bar" 55 "Baz" "20"}}');
+
+        expect(template()).toEqual('This is a test: Foo Bar 55 Baz 20');
+    });
+
+    it('sprintf should work as expected after compilation if an object is passed dynamically', () => {
+        var template = Handlebars.compile('{{sprintf "%(greeting)s %(name)s! How are you?" obj }}');
+        var obj = { greeting: 'Hello', name: 'Kabir' };
+
+        expect(template({obj})).toEqual('Hello Kabir! How are you?');
     });
 
 });

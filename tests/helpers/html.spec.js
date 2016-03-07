@@ -1,4 +1,5 @@
-import * as html from '../../src/helpers/html';
+
+import html from '../../src/helpers/html';
 
 describe('html', () => {
 

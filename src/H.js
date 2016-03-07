@@ -1,8 +1,10 @@
-import * as html from './helpers/html';
-import * as strings from './helpers/strings';
-import * as conditionals from './helpers/conditionals';
+
+import html from './helpers/html';
+import strings from './helpers/strings';
+import conditionals from './helpers/conditionals';
 
 class H {
+
     static registerHelpers(handlebars) {
 
         if (!handlebars && typeof global.Handlebars !== 'object') {

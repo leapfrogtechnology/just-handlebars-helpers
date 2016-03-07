@@ -8,6 +8,32 @@ var rename = require('gulp-rename');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
+// TODO: Move this to separate module
+var shimify = (function() {
+    var transformTools = require('browserify-transform-tools');
+
+    var config = {
+        evaluateArguments: true,
+        jsFilesOnly: true
+    };
+
+    // A flexible shim transform for browserify
+    return transformTools.makeRequireTransform(
+        'shimify', config,
+        function(args, opts, cb) {
+            var shimmedModules = opts.config || {};
+            var moduleName = args[0];
+            var shim = shimmedModules[moduleName];
+
+            if (typeof shim === 'undefined') {
+                return cb();
+            } else {
+                return cb(null, '(' + shim + ')');
+            }
+        }
+    );
+})();
+
 // Lint using eslint
 gulp.task('lint', function() {
     return gulp.src([
@@ -24,8 +50,20 @@ gulp.task('lint', function() {
 
 // Compile ES6
 gulp.task('compile', ['lint'], function() {
-    return browserify({ entries: './src/H.js', standalone: 'H', debug: true })
+
+    var config = {
+        entries: './src/H.js',
+        standalone: 'H',
+        debug: true
+    };
+
+    var shimifyConfig = {
+        'sprintf-js': '{sprintf: window.sprintf, vsprintf: window.vsprintf}',
+    };
+
+    return browserify(config)
         .transform(babelify)
+        .transform(shimify.configure(shimifyConfig))
         .bundle()
         .pipe(source('h.js'))
         .pipe(gulp.dest('dist'));
@@ -34,14 +72,16 @@ gulp.task('compile', ['lint'], function() {
 // Build for NPM
 gulp.task('just-transpile', function() {
     gulp.src('src/**/*.js')
-      .pipe(babel())
-      .pipe(gulp.dest('lib'));
+        .pipe(babel())
+        .pipe(gulp.dest('lib'));
 });
 
 // Uglify
 gulp.task('uglify', ['compile'], function() {
     return gulp.src('dist/h.js')
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
