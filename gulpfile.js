@@ -59,6 +59,7 @@ gulp.task('compile', ['lint'], function() {
 
     var shimifyConfig = {
         'sprintf-js': '{sprintf: window.sprintf, vsprintf: window.vsprintf}',
+        'moment': 'window.moment'
     };
 
     return browserify(config)
