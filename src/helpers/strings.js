@@ -1,5 +1,7 @@
-
-import { isFunction, isObject } from '../util/utils';
+import {
+    isFunction,
+    isObject
+} from '../util/utils';
 
 export default {
 
@@ -131,7 +133,15 @@ export default {
      * @return string
      */
     lowercase: (param) => {
-        return param.toLowerCase();
+        if (typeof param === 'undefined' || param === null) {
+            return '';
+        }
+
+        if (typeof param === 'string') {
+            return param.toLowerCase();
+        }
+
+        return param;
     },
 
     /**
@@ -143,7 +153,15 @@ export default {
      * @return string
      */
     uppercase: (param) => {
-        return param.toUpperCase();
+        if (typeof param === 'undefined' || param === null) {
+            return '';
+        }
+
+        if (typeof param === 'string') {
+            return param.toUpperCase();
+        }
+
+        return param;
     },
 
     /**
@@ -155,6 +173,10 @@ export default {
      * @return string
      */
     first: (collection) => {
+        if (typeof collection === 'undefined' || collection === null || collection.length === 0) {
+            return '';
+        }
+
         return collection[0];
     },
 
@@ -167,6 +189,10 @@ export default {
      * @return string
      */
     last: (collection) => {
+        if (typeof collection === 'undefined' || collection === null || collection.length === 0) {
+            return '';
+        }
+
         return collection[collection.length - 1];
     },
 
@@ -200,6 +226,11 @@ export default {
      */
     join: (params = [], delimeter) => {
         var resultString = '';
+
+        if (typeof delimeter === 'undefined' || delimeter === null || isObject(delimeter)) {
+            delimeter = '';
+        }
+
         if (params !== null) {
             for (var i = 0; i < params.length; i++) {
                 if (i === (params.length - 1)) {
