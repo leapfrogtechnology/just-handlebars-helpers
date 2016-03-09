@@ -1,7 +1,4 @@
-import {
-    isFunction,
-    isObject
-} from '../util/utils';
+import { isFunction, isObject } from '../util/utils';
 
 export default {
 
