@@ -7,32 +7,7 @@ var eslint = require('gulp-eslint');
 var rename = require('gulp-rename');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-
-// TODO: Move this to separate module
-var shimify = (function() {
-    var transformTools = require('browserify-transform-tools');
-
-    var config = {
-        evaluateArguments: true,
-        jsFilesOnly: true
-    };
-
-    // A flexible shim transform for browserify
-    return transformTools.makeRequireTransform(
-        'shimify', config,
-        function(args, opts, cb) {
-            var shimmedModules = opts.config || {};
-            var moduleName = args[0];
-            var shim = shimmedModules[moduleName];
-
-            if (typeof shim === 'undefined') {
-                return cb();
-            } else {
-                return cb(null, '(' + shim + ')');
-            }
-        }
-    );
-})();
+var shimify = require('browserify-shimify');
 
 // Lint using eslint
 gulp.task('lint', function() {
