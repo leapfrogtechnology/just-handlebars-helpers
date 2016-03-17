@@ -3,56 +3,59 @@ import html from '../../src/helpers/html';
 
 describe('html', () => {
 
-    /* showIf */
-    it('showIf should return empty if param is false', () => {
-        expect(html.showIf(false)).toEqual('hidden');
+    describe('showIf', () => {
+        it('should return empty if param is false', () => {
+            expect(html.showIf(false)).toEqual('hidden');
+        });
+
+        it('should return hidden if param is true', () => {
+            expect(html.showIf(true)).toEqual('');
+        });
+
+        it('should return empty for a random param', () => {
+            expect(html.showIf('random')).toEqual('');
+        });
     });
 
-    it('showIf should return hidden if param is true', () => {
-        expect(html.showIf(true)).toEqual('');
+    describe('hideIf', () => {
+        it('should return empty if param is false', () => {
+            expect(html.hideIf(false)).toEqual('');
+        });
+
+        it('should return hidden if param is true', () => {
+            expect(html.hideIf(true)).toEqual('hidden');
+        });
+
+        it('should return hidden for a random param', () => {
+            expect(html.hideIf('random')).toEqual('hidden');
+        });
     });
 
-    it('showIf should return empty for a random param', () => {
-        expect(html.showIf('random')).toEqual('');
+    describe('selectedIf', () => {
+        it('should return empty if param is false', () => {
+            expect(html.selectedIf(false)).toEqual('');
+        });
+
+        it('should return hidden if param is true', () => {
+            expect(html.selectedIf(true)).toEqual('selected');
+        });
+
+        it('should return empty for a random param', () => {
+            expect(html.selectedIf('random')).toEqual('selected');
+        });
     });
 
-    /* hideIf */
-    it('hideIf should return empty if param is false', () => {
-        expect(html.hideIf(false)).toEqual('');
-    });
+    describe('checkedIf', () => {
+        it('should return empty if param is false', () => {
+            expect(html.checkedIf(false)).toEqual('');
+        });
 
-    it('hideIf should return hidden if param is true', () => {
-        expect(html.hideIf(true)).toEqual('hidden');
-    });
+        it('should return hidden if param is true', () => {
+            expect(html.checkedIf(true)).toEqual('checked');
+        });
 
-    it('hideIf should return hidden for a random param', () => {
-        expect(html.hideIf('random')).toEqual('hidden');
+        it('should return empty for a random param', () => {
+            expect(html.checkedIf('random')).toEqual('checked');
+        });
     });
-
-    /* selectedIf */
-    it('selectedIf should return empty if param is false', () => {
-        expect(html.selectedIf(false)).toEqual('');
-    });
-
-    it('selectedIf should return hidden if param is true', () => {
-        expect(html.selectedIf(true)).toEqual('selected');
-    });
-
-    it('selectedIf should return empty for a random param', () => {
-        expect(html.selectedIf('random')).toEqual('selected');
-    });
-
-    /* checkedIf */
-    it('checkedIf should return empty if param is false', () => {
-        expect(html.checkedIf(false)).toEqual('');
-    });
-
-    it('checkedIf should return hidden if param is true', () => {
-        expect(html.checkedIf(true)).toEqual('checked');
-    });
-
-    it('checkedIf should return empty for a random param', () => {
-        expect(html.checkedIf('random')).toEqual('checked');
-    });
-
 });
