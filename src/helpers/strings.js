@@ -1,5 +1,5 @@
 
-import { isFunction, isObject } from '../util/utils';
+import { isFunction, isObject, isString, isArray } from '../util/utils';
 
 export default {
 
@@ -120,5 +120,102 @@ export default {
         });
 
         return (params.length > 0) ? _vsprintf(format, params) : format;
+    },
+
+    /**
+     * Changes the string to lowercase.
+     * Example usage:
+     * 		{{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
+     *
+     * @param  string param
+     * @return string
+     */
+    lowercase: (param) => {
+        return isString(param) ? param.toLowerCase() : param;
+    },
+
+    /**
+     * Changes the string to uppercase.
+     * Example usage:
+     * 		{{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
+     *
+     * @param  string param
+     * @return string
+     */
+    uppercase: (param) => {
+        return isString(param) ? param.toUpperCase() : param;
+    },
+
+    /**
+     * Get the first element of a collection/array.
+     * Example usage:
+     * 		var someArray = ['David', 'Miller', 'Jones'];
+     * 		{{first someArray}}   => 'David'
+     *
+     * @param  array collection
+     * @return string
+     */
+    first: (collection) => {
+        if(!isArray(collection) || collection.length === 0) {
+            return '';
+        }
+
+        return collection[0];
+    },
+
+    /**
+     * Get the last element of a collection/array.
+     * Example usage:
+     * 		var someArray = ['David', 'Miller', 'Jones'];
+     * 		{{last someArray}}   => 'Jones'
+     *
+     * @param  array collection
+     * @return string
+     */
+    last: (collection) => {
+        if(!isArray(collection) || collection.length === 0) {
+            return '';
+        }
+
+        return collection[collection.length - 1];
+    },
+
+    /**
+     * Concat two or more strings.
+     * Example usage:
+     * 	    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
+     *
+     * @param  mixed ...params
+     * @return string
+     */
+    concat: (...params) => {
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
+        }
+
+        return params.join('');
+    },
+
+    /**
+     * Join the elements of an array using a delimeter.
+     * Example usage:
+     * 		var someArray = ['Hands', 'legs', 'feet'];
+     * 	    {{join someArray ' & '}}   => 'Hands & legs & feet'
+     *
+     * @param  array params
+     * @param  string delimeter
+     * @return string
+     */
+    join: (params, delimeter) => {
+        if (!delimeter || isObject(delimeter)) {
+            delimeter = '';
+        }
+
+        if (!isArray(params)) {
+            return false;
+        }
+
+        return params.join(delimeter);
     }
 };
