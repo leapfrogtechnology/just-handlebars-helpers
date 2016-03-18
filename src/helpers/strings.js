@@ -1,4 +1,5 @@
-import { isFunction, isObject } from '../util/utils';
+
+import { isFunction, isObject, isString, isArray } from '../util/utils';
 
 export default {
 
@@ -130,15 +131,7 @@ export default {
      * @return string
      */
     lowercase: (param) => {
-        if (typeof param === 'undefined' || param === null) {
-            return '';
-        }
-
-        if (typeof param === 'string') {
-            return param.toLowerCase();
-        }
-
-        return param;
+        return isString(param) ? param.toLowerCase() : param;
     },
 
     /**
@@ -150,27 +143,20 @@ export default {
      * @return string
      */
     uppercase: (param) => {
-        if (typeof param === 'undefined' || param === null) {
-            return '';
-        }
-
-        if (typeof param === 'string') {
-            return param.toUpperCase();
-        }
-
-        return param;
+        return isString(param) ? param.toUpperCase() : param;
     },
 
     /**
      * Get the first element of a collection/array.
      * Example usage:
-     * 		{{first ['David', 'Miller', 'Jones']}}   => 'David'
+     * 		var someArray = ['David', 'Miller', 'Jones'];
+     * 		{{first someArray}}   => 'David'
      *
      * @param  array collection
      * @return string
      */
     first: (collection) => {
-        if (typeof collection === 'undefined' || collection === null || collection.length === 0) {
+        if(!isArray(collection) || collection.length === 0) {
             return '';
         }
 
@@ -180,13 +166,14 @@ export default {
     /**
      * Get the last element of a collection/array.
      * Example usage:
-     * 		{{last ['David', 'Miller', 'Jones']}}   => 'Jones'
+     * 		var someArray = ['David', 'Miller', 'Jones'];
+     * 		{{last someArray}}   => 'Jones'
      *
      * @param  array collection
      * @return string
      */
     last: (collection) => {
-        if (typeof collection === 'undefined' || collection === null || collection.length === 0) {
+        if(!isArray(collection) || collection.length === 0) {
             return '';
         }
 
@@ -202,42 +189,33 @@ export default {
      * @return string
      */
     concat: (...params) => {
-        var resultString = '';
-        for (var i in params) {
-            if (!isObject(params[i])) {
-                resultString += params[i];
-            }
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
         }
 
-        return resultString;
+        return params.join('');
     },
 
     /**
      * Join the elements of an array using a delimeter.
      * Example usage:
-     * 	    {{join ['Hands', 'legs', 'feet'] ' & '}}   => 'Hands & legs & feet'
+     * 		var someArray = ['Hands', 'legs', 'feet'];
+     * 	    {{join someArray ' & '}}   => 'Hands & legs & feet'
      *
      * @param  array params
      * @param  string delimeter
      * @return string
      */
-    join: (params = [], delimeter) => {
-        var resultString = '';
-
-        if (typeof delimeter === 'undefined' || delimeter === null || isObject(delimeter)) {
+    join: (params, delimeter) => {
+        if (!delimeter || isObject(delimeter)) {
             delimeter = '';
         }
 
-        if (params !== null) {
-            for (var i = 0; i < params.length; i++) {
-                if (i === (params.length - 1)) {
-                    resultString += params[i];
-                } else {
-                    resultString += params[i] + delimeter;
-                }
-            }
+        if (!isArray(params)) {
+            return false;
         }
 
-        return resultString;
+        return params.join(delimeter);
     }
 };

@@ -114,11 +114,11 @@ describe('strings', () => {
     });
 
     describe('lowercase', () => {
-        it('lowercase should return lowercase value of a string param', () => {
+        it('should return lowercase value of a string param', () => {
             expect(strings.lowercase('Hello World!')).toEqual('hello world!');
         });
 
-        it('lowercase should should work as expected after compilation (Basic Support)', () => {
+        it('should should work as expected after compilation (Basic Support)', () => {
             var template = compile('{{lowercase val}}');
             var obj = {
                 val: 'JUST WOW!!!'
@@ -129,11 +129,11 @@ describe('strings', () => {
     });
 
     describe('uppercase', () => {
-        it('uppercase should return uppercase value of a string param', () => {
+        it('should return uppercase value of a string param', () => {
             expect(strings.uppercase('hello world!')).toEqual('HELLO WORLD!');
         });
 
-        it('uppercase should work as expected after compilation (Basic Support)', () => {
+        it('should work as expected after compilation (Basic Support)', () => {
             var template = compile('{{uppercase val}}');
             var obj = {
                 val: 'just wow!!!'
@@ -144,11 +144,11 @@ describe('strings', () => {
     });
 
     describe('first', () => {
-        it('first should return first element of an array(string)', () => {
+        it('should return first element of an array(string)', () => {
             expect(strings.first(['David', 'Miller', 'Jones'])).toEqual('David');
         });
 
-        it('first should work as expected after compilation (Basic Supprt)', () => {
+        it('should work as expected after compilation (Basic Supprt)', () => {
             var template = compile('{{first fullName}}');
             var obj = {
                 fullName: [
@@ -163,11 +163,11 @@ describe('strings', () => {
     });
 
     describe('last', ()=> {
-        it('last should return last element of an array(string)', () => {
+        it('should return last element of an array(string)', () => {
             expect(strings.last(['David', 'Miller', 'Jones'])).toEqual('Jones');
         });
 
-        it('last should work as expected after compilation (Basic Supprt)', () => {
+        it('should work as expected after compilation (Basic Supprt)', () => {
             var template = compile('{{last fullName}}');
             var obj = {
                 fullName: [
@@ -181,18 +181,17 @@ describe('strings', () => {
         });
     });
 
-
     describe('concat', () => {
-        it('concat should return concatenation of all param values(string)', () => {
+        it('should return concatenation of all param values(string)', () => {
             expect(strings.concat('hello', ' ', 'world', '!!!')).toEqual('hello world!!!');
         });
 
-        it('concat should return concatenation of all param values(string and integer)', () => {
+        it('should return concatenation of all param values(string and integer)', () => {
             expect(strings.concat('I have got', ' ', 4, ' ', 'apples.')).toEqual('I have got 4 apples.');
         });
 
-        it('concat should work as expected for string params after compilation (Basic Support)', () => {
-            var template = compile('{{concat first \' \' middle \' \' last}}');
+        it('should work as expected for string params after compilation (Basic Support)', () => {
+            var template = compile('{{concat first " " middle " " last}}');
             var name = {
                 first: 'David',
                 middle: 'Miller',
@@ -202,7 +201,7 @@ describe('strings', () => {
             expect(template(name)).toEqual('David Miller Jones');
         });
 
-        it('concat should work as expected for string and integer params after compilation (Basic Support)', () => {
+        it('should work as expected for string and integer params after compilation (Basic Support)', () => {
             var template = compile('{{concat s1 amount s2}}');
             var sentence = {
                 s1: 'I have got ',
@@ -214,18 +213,17 @@ describe('strings', () => {
         });
     });
 
-    /* join */
     describe('join', () => {
-        it('join should join the values of array of strings using the delimeter provided', () => {
+        it('should join the values of array of strings using the delimeter provided', () => {
             expect(strings.join(['Hands', 'legs', 'feet'], ' & ')).toEqual('Hands & legs & feet');
         });
 
-        it('join should return concatenation of elements of array using empty string if no delimeter provided', () => {
+        it('should return concatenation of elements of array using empty string if no delimeter provided', () => {
             expect(strings.join(['Hands', 'legs', 'feet'])).toEqual('Handslegsfeet');
         });
 
-        it('join should work as expected for array of strings after compilation (Basic Support)', () => {
-            var template = compile('{{join fruits \' \'}}');
+        it('should work as expected for array of strings after compilation (Basic Support)', () => {
+            var template = compile('{{join fruits " "}}');
             var obj = {
                 fruits: ['Apple', 'Banana', 'Mango']
             };
@@ -233,7 +231,7 @@ describe('strings', () => {
             expect(template(obj)).toEqual('Apple Banana Mango');
         });
 
-        it('join should work as expected for some array and no delimeter after compilation (Basic Support)', () => {
+        it('should work as expected for some array and no delimeter after compilation (Basic Support)', () => {
             var template = compile('{{join fruits}}')
             var obj = {
                 fruits: ['Mango', 'Apple', 'Banana']
