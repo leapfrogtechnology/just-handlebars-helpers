@@ -13,7 +13,7 @@
     "browserify": "^13.0.0",
     "browserify-istanbul": "^0.2.1",
     "browserify-shimify": "*",
-    "eslint": "^2.2.0",
+    "eslint": "2.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^2.0.0",
