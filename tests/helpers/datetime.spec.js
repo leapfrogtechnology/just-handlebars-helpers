@@ -2,6 +2,7 @@ import {compile} from 'handlebars';
 import datetime from '../../src/helpers/datetime';
 
 describe('datetime', () => {
+
     describe('formatDate', () => {
         it('should return formatted date (MM/DD/YYYY) even if date is not provided', () => {
             expect(datetime.formatDate('MM/DD/YYYY')).toMatch(/^\d{2}\/\d{2}\/\d{4}$/);
@@ -59,4 +60,5 @@ describe('datetime', () => {
             expect(datetime.formatDate('YYYY-MM-DD')).toEqual(expected);
         });
     });
+
 });

@@ -1,4 +1,3 @@
-
 import {compile} from 'handlebars';
 import strings from '../../src/helpers/strings';
 
@@ -25,6 +24,12 @@ describe('strings', () => {
         it('should return the string if the length parameter is not a number', () => {
             expect(strings.excerpt('just wow', 'random')).toEqual('just wow');
         });
+
+        it('should work as expected after compilation', () => {
+            var template = compile('{{excerpt string 10}}');
+
+            expect(template({string: 'That can only mean one thing'})).toEqual('That can o...');
+        });
     });
 
     describe('sanitize', () => {
@@ -34,6 +39,12 @@ describe('strings', () => {
 
         it('should return a string with special characters as dash case without special characters', () => {
             expect(strings.sanitize('*JuST *#wow#')).toEqual('just-wow');
+        });
+
+        it('should work as expected after compilation', () => {
+            var template = compile('{{sanitize string}}')
+
+            expect(template({string: '*JuST *#wow#'})).toEqual('just-wow');
         });
     });
 
@@ -45,6 +56,12 @@ describe('strings', () => {
         it('should return the param if it is not a string', () => {
             expect(strings.capitalizeFirst(1.1)).toEqual(1.1);
         });
+
+        it('should work as expected after compilation', () => {
+            var template = compile('{{capitalizeFirst string}}')
+
+            expect(template({string: 'just wow'})).toEqual('Just wow');
+        });
     });
 
     describe('capitalizeEach', () => {
@@ -54,6 +71,12 @@ describe('strings', () => {
 
         it('should return the param if it is not a string', () => {
             expect(strings.capitalizeEach(1)).toEqual(1);
+        });
+
+        it('should work as expected after compilation', () => {
+            var template = compile('{{capitalizeEach string}}')
+
+            expect(template({string: 'just wow'})).toEqual('Just Wow');
         });
     });
 
@@ -162,7 +185,7 @@ describe('strings', () => {
         });
     });
 
-    describe('last', ()=> {
+    describe('last', () => {
         it('should return last element of an array(string)', () => {
             expect(strings.last(['David', 'Miller', 'Jones'])).toEqual('Jones');
         });
@@ -240,4 +263,5 @@ describe('strings', () => {
             expect(template(obj)).toEqual('MangoAppleBanana');
         });
     });
+
 });

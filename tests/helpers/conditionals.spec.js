@@ -1,4 +1,4 @@
-
+import {compile} from 'handlebars';
 import conditionals from '../../src/helpers/conditionals';
 
 describe('conditionals', () => {
@@ -11,6 +11,12 @@ describe('conditionals', () => {
         it('should return false if provided params are equal but not of same type', () => {
             expect(conditionals.eq('1', 1)).toEqual(false);
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{eq value 1}}');
+
+            expect(template({value: '1'})).toEqual('false');
+        });
     });
 
     describe('eqw', () => {
@@ -20,6 +26,12 @@ describe('conditionals', () => {
 
         it('should also return true if provided params are equal but not of same type', () => {
             expect(conditionals.eqw('1', 1)).toEqual(true);
+        });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{eqw value 1}}');
+
+            expect(template({value: '1'})).toEqual('true');
         });
     });
 
@@ -35,6 +47,12 @@ describe('conditionals', () => {
         it('should return true if provided params are equal but of different types', () => {
             expect(conditionals.neq('3', 3)).toEqual(true);
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{neq value 1}}');
+
+            expect(template({value: 1})).toEqual('false');
+        });
     });
 
     describe('neqw', () => {
@@ -48,6 +66,12 @@ describe('conditionals', () => {
 
         it('should return false if provided params are equal but of different types', () => {
             expect(conditionals.neqw('3', 3)).toEqual(false);
+        });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{neqw value 1}}');
+
+            expect(template({value: '1'})).toEqual('false');
         });
     });
 
@@ -63,6 +87,12 @@ describe('conditionals', () => {
         it('should return false if param2 is smaller than param1', () => {
             expect(conditionals.lt('31', '11')).toEqual(false); // Lexicographical Order
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{lt value 1}}');
+
+            expect(template({value: 2})).toEqual('false');
+        });
     });
 
     describe('lte', () => {
@@ -77,6 +107,12 @@ describe('conditionals', () => {
         it('should return false if param2 is smaller than param1', () => {
             expect(conditionals.lte(2, 1)).toEqual(false);
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{lte value 1}}');
+
+            expect(template({value: 2})).toEqual('false');
+        });
     });
 
     describe('gt', () => {
@@ -90,6 +126,12 @@ describe('conditionals', () => {
 
         it('should return false if param2 is greater than param1', () => {
             expect(conditionals.gt('11', '31')).toEqual(false); // Lexicographical Order
+        });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{gt value 2}}');
+
+            expect(template({value: 1})).toEqual('false');
         });
     });
 
@@ -106,6 +148,12 @@ describe('conditionals', () => {
         it('should return false if param2 is greater than param1', () => {
             expect(conditionals.gte(1, 2)).toEqual(false); // Lexicographical Order
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{gte value 1}}');
+
+            expect(template({value: 1})).toEqual('true');
+        });
     });
 
     describe('ifx', () => {
@@ -115,6 +163,36 @@ describe('conditionals', () => {
 
         it('should return value2 if the condition results to false', () => {
             expect(conditionals.ifx(2 < 1, 'value 1', 'value 2')).toEqual('value 2');
+        });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{ifx condition 1 0}}');
+
+            expect(template({condition: true})).toEqual('1');
+        });
+
+        it('helper should work as expected with any other conditional helper', () => {
+            var template = compile('{{ifx (eq value 1) 5 6}}');
+
+            expect(template({value: 1})).toEqual('5');
+        });
+
+        it('helper should work as expected with any other conditional helper with false condition', () => {
+            var template = compile('{{ifx (eq value 1) 5 6}}');
+
+            expect(template({value: 2})).toEqual('6');
+        });
+
+        it('helper should work as expected with multiple level of nested helpers', () => {
+            var template = compile('{{ifx (not (eq value 1)) 5 6}}');
+
+            expect(template({value: 1})).toEqual('6');
+        });
+
+        it('helper should work as expected with multiple level of nested helpers with false condition', () => {
+            var template = compile('{{ifx (not (eq value 1)) 5 6}}');
+
+            expect(template({value: 2})).toEqual('5');
         });
     });
 
@@ -126,6 +204,12 @@ describe('conditionals', () => {
         it('should return false if true is passed', () => {
             expect(conditionals.not(true)).toEqual(false);
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{not boolean}}');
+
+            expect(template({boolean: false})).toEqual('true');
+        });
     });
 
     describe('empty', () => {
@@ -136,6 +220,12 @@ describe('conditionals', () => {
         it('should return false for a non-empty array', () => {
             expect(conditionals.empty([5, 6, 7])).toEqual(false);
         });
+
+        it('helper should work as expected after compilation', () => {
+            var template = compile('{{empty array}}');
+
+            expect(template({array: []})).toEqual('true');
+        });
     });
 
     describe('count', () => {
@@ -144,9 +234,13 @@ describe('conditionals', () => {
         });
 
         it('should return false if param is not an array', () => {
-            expect(conditionals.count({
-                foo: 'bar'
-            })).toEqual(false);
+            expect(conditionals.count({foo: 'bar'})).toEqual(false);
+        });
+
+        it('helper should work as expected after compilation', () => {
+            let template = compile('{{count array}}');
+
+            expect(template({array: [5,6,7]})).toEqual('3');
         });
     });
 });

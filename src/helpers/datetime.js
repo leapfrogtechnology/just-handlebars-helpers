@@ -1,4 +1,3 @@
-
 import {isString} from '../util/utils';
 
 export default {

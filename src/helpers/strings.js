@@ -1,4 +1,3 @@
-
 import { isFunction, isObject, isString, isArray } from '../util/utils';
 
 export default {

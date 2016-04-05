@@ -1,4 +1,4 @@
-
+import {compile} from 'handlebars';
 import html from '../../src/helpers/html';
 
 describe('html', () => {
@@ -15,6 +15,12 @@ describe('html', () => {
         it('should return empty for a random param', () => {
             expect(html.showIf('random')).toEqual('');
         });
+        
+        it('helper should work as expected after compilation', () => {
+            let template = compile('{{showIf boolean}}');
+
+            expect(template({boolean: false})).toEqual('hidden');
+        });
     });
 
     describe('hideIf', () => {
@@ -28,6 +34,12 @@ describe('html', () => {
 
         it('should return hidden for a random param', () => {
             expect(html.hideIf('random')).toEqual('hidden');
+        });
+
+        it('helper should work as expected after compilation', () => {
+            let template = compile('{{hideIf boolean}}');
+
+            expect(template({boolean: false})).toEqual('');
         });
     });
 
@@ -43,6 +55,12 @@ describe('html', () => {
         it('should return empty for a random param', () => {
             expect(html.selectedIf('random')).toEqual('selected');
         });
+
+        it('helper should work as expected after compilation', () => {
+            let template = compile('{{selectedIf boolean}}');
+
+            expect(template({boolean: true})).toEqual('selected');
+        });
     });
 
     describe('checkedIf', () => {
@@ -56,6 +74,12 @@ describe('html', () => {
 
         it('should return empty for a random param', () => {
             expect(html.checkedIf('random')).toEqual('checked');
+        });
+
+        it('helper should work as expected after compilation', () => {
+            let template = compile('{{checkedIf boolean}}');
+
+            expect(template({boolean: true})).toEqual('checked');
         });
     });
 });
