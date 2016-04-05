@@ -170,6 +170,30 @@ describe('conditionals', () => {
 
             expect(template({condition: true})).toEqual('1');
         });
+
+        it('helper should work as expected with any other conditional helper', () => {
+            var template = compile('{{ifx (eq value 1) 5 6}}');
+
+            expect(template({value: 1})).toEqual('5');
+        });
+
+        it('helper should work as expected with any other conditional helper with false condition', () => {
+            var template = compile('{{ifx (eq value 1) 5 6}}');
+
+            expect(template({value: 2})).toEqual('6');
+        });
+
+        it('helper should work as expected with multiple level of nested helpers', () => {
+            var template = compile('{{ifx (not (eq value 1)) 5 6}}');
+
+            expect(template({value: 1})).toEqual('6');
+        });
+
+        it('helper should work as expected with multiple level of nested helpers with false condition', () => {
+            var template = compile('{{ifx (not (eq value 1)) 5 6}}');
+
+            expect(template({value: 2})).toEqual('5');
+        });
     });
 
     describe('not', () => {
@@ -212,7 +236,7 @@ describe('conditionals', () => {
         it('should return false if param is not an array', () => {
             expect(conditionals.count({foo: 'bar'})).toEqual(false);
         });
-        
+
         it('helper should work as expected after compilation', () => {
             let template = compile('{{count array}}');
 
