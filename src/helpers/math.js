@@ -1,4 +1,3 @@
-
 export default {
     /**
      * A sum helper calculating the sum of two numbers.

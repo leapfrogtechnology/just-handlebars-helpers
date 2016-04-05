@@ -1,4 +1,3 @@
-
 import {isArray} from '../util/utils';
 
 export default {
