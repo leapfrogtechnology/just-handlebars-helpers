@@ -1,8 +1,9 @@
-# Just Handlebars Helpers [![NPM Version][npm-image]][npm-url]
+# Just Handlebars Helpers 
+[![NPM Version][npm-image]][npm-url]
 [npm-image]: https://badge.fury.io/js/just-handlebars-helpers.svg
 [npm-url]: https://www.npmjs.com/package/just-handlebars-helpers
 
-A lightweight package with common helpers for [Handlebars](https://github.com/wycats/handlebars.js)
+A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
 
 ## Installation
 
@@ -11,7 +12,8 @@ $ npm install just-handlebars-helpers --save
 ```
 ## Usage
 
-Browsers:
+#### Browsers:
+
 ```html
 <!-- Load Handlebars -->
 <script type="text/javascript" src="/path/to/handlebars/dist/handlebars.min.js"></script>
@@ -21,8 +23,10 @@ Browsers:
     // Register helpers for Handlebars
     H.registerHelpers(Handlebars);
 </script>
+
 ```
-Node:
+#### Node:
+
 ```javascript
 // Load Handlebars
 var Handlebars = require('handlebars');
