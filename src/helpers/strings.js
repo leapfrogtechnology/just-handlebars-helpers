@@ -4,7 +4,7 @@ export default {
 
     /**
      * Extract a few characters from a string. Default number of characters is 50.
-     * Example usage:
+     * @example
      *      {{excerpt 'Just Wow' 4}}    => 'Just'
      *
      * @param string
@@ -27,7 +27,7 @@ export default {
 
     /**
      * Convert a string to url friendly dash-case string removing special characters.
-     * Example usage:
+     * @example
      *      {{sanitize 'JuSt #Wow'}}    => 'just-wow'
      *
      * @param string
@@ -41,7 +41,7 @@ export default {
 
     /**
      * Capitalize each letter of a string.
-     * Example usage:
+     * @example
      *      {{capitalizeEach 'just wow'}}   => 'Just Wow'
      *
      * @param string
@@ -59,7 +59,7 @@ export default {
 
     /**
      * Capitalize the first letter of a string.
-     * Example usage:
+     * @example
      *      {{capitalizeFirst 'just wow'}}   => 'Just wow'
      *
      * @param string
@@ -80,21 +80,22 @@ export default {
      * So, make sure you have the sprintf-js package available either as a node module
      * or have sprintf/vsprintf functions available in the global scope from that package.
      *
-     *  Syntax:
+     * Syntax:
      *      {{sprintf format arg1 arg2 arg3....}}
      *      {{sprintf format object}}
      *      {{sprintf format key1=value1 key2=value2...}}
      *
-     *  Example usage:
+     *  @example
      *      {{sprintf '%s %s!' 'Hello' 'Kabir' }}
      *      {{sprintf '%s %s %d %s %d' 'Foo' 'Bar' 55 'Baz' '20'}}
      *      {{sprintf '%(greeting)s %(name)s! How are you?' obj }}
      *      {{sprintf '%(greeting)s %(name)s! ' greeting='Hello' name='Kabir'}}
      *
-     *  Check this https://github.com/alexei/sprintf.js for more information
+     * Check this https://github.com/alexei/sprintf.js for more information
      *
      * @param format
      * @param ...args
+     * @returns string
      */
     sprintf: (format, ...args) => {
 
@@ -123,8 +124,8 @@ export default {
 
     /**
      * Changes the string to lowercase.
-     * Example usage:
-     * 		{{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
+     * @example
+     * 	{{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
      *
      * @param  string param
      * @return string
@@ -135,8 +136,8 @@ export default {
 
     /**
      * Changes the string to uppercase.
-     * Example usage:
-     * 		{{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
+     * @example
+     * 	{{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
      *
      * @param  string param
      * @return string
@@ -147,9 +148,9 @@ export default {
 
     /**
      * Get the first element of a collection/array.
-     * Example usage:
-     * 		var someArray = ['David', 'Miller', 'Jones'];
-     * 		{{first someArray}}   => 'David'
+     * @example
+     * 	var someArray = ['David', 'Miller', 'Jones'];
+     *  	{{first someArray}}   => 'David'
      *
      * @param  array collection
      * @return string
@@ -164,9 +165,9 @@ export default {
 
     /**
      * Get the last element of a collection/array.
-     * Example usage:
-     * 		var someArray = ['David', 'Miller', 'Jones'];
-     * 		{{last someArray}}   => 'Jones'
+     * @example
+     * 	var someArray = ['David', 'Miller', 'Jones'];
+     *  	{{last someArray}}   => 'Jones'
      *
      * @param  array collection
      * @return string
@@ -181,8 +182,8 @@ export default {
 
     /**
      * Concat two or more strings.
-     * Example usage:
-     * 	    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
+     * @example
+     * 	{{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
      *
      * @param  mixed ...params
      * @return string
@@ -198,9 +199,10 @@ export default {
 
     /**
      * Join the elements of an array using a delimeter.
-     * Example usage:
-     * 		var someArray = ['Hands', 'legs', 'feet'];
-     * 	    {{join someArray ' & '}}   => 'Hands & legs & feet'
+     *
+     * @example
+     * 	var someArray = ['Hands', 'legs', 'feet'];
+     *   	{{join someArray ' & '}}   => 'Hands & legs & feet'
      *
      * @param  array params
      * @param  string delimeter

@@ -1,8 +1,8 @@
 export default {
     /**
      * A showIf helper for showing any html element.
-     * Example usage:
-     *      {{showIf true}} => ''
+     * @example
+     *      {{showIf true}}     => ''
      *
      * @param expression
      * @returns string
@@ -13,8 +13,8 @@ export default {
 
     /**
      * A hideIf helper for hiding any html element.
-     * Example usage:
-     *      {{hideIf true}} => 'hidden'
+     * @example
+     *      {{hideIf true}}     => 'hidden'
      *
      * @param expression
      * @returns string
@@ -25,7 +25,7 @@ export default {
 
     /**
      * A selectedIf helper for dropdown and radio boxes.
-     * Example usage:
+     * @example
      *      {{selectedIf true}} =>  'selected'
      *
      * @param expression
@@ -37,7 +37,7 @@ export default {
 
     /**
      * A checkedIf helper for checkboxes.
-     * Example usage:
+     * @example
      *      {{checkedIf true}}  => 'checked'
      *
      * @param expression
