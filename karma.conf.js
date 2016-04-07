@@ -63,11 +63,10 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [
-        ['babelify'],
         istanbul({
           instrumenter: isparta,
           ignore: ['**/node_modules/**', '**/tests/**']
-        })
+        }), 'babelify'
       ]
     },
 
