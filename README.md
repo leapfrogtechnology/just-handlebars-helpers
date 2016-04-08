@@ -135,7 +135,7 @@ Usage:
 {{lt 2 3}}   => true
 
 // Could be also used in if
-{{#if (lt foo 'bar')}}
+{{#if (lt 2 5)}}
 	Hello
 {{/if}}
 ```
@@ -155,7 +155,7 @@ Usage:
 {{lte 2 3}}   => true
 
 // Could be also used in if
-{{#if (lte foo 'bar')}}
+{{#if (lte 5 6)}}
 	Hello
 {{/if}}
 ```
@@ -175,7 +175,7 @@ Usage:
 {{gt 2 3}}   => false
 
 // Could be also used in if
-{{#if (gt foo 'bar')}}
+{{#if (gt 10 7)}}
 	Hello
 {{/if}}
 ```
@@ -195,7 +195,7 @@ Usage:
 {{gte 3 3}}   => true
 
 // Could be also used in if
-{{#if (gte foo 'bar')}}
+{{#if (gte 10 2)}}
 	Hello
 {{/if}}
 ```

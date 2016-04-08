@@ -17,6 +17,12 @@ describe('conditionals', () => {
 
             expect(template({value: '1'})).toEqual('false');
         });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (eq value "1")}}Just Wow{{/if}}');
+
+            expect(template({value: '1'})).toEqual('Just Wow');
+        });
     });
 
     describe('eqw', () => {
@@ -32,6 +38,12 @@ describe('conditionals', () => {
             var template = compile('{{eqw value 1}}');
 
             expect(template({value: '1'})).toEqual('true');
+        });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (eqw value 1)}}Just Wow{{/if}}');
+
+            expect(template({value: '1'})).toEqual('Just Wow');
         });
     });
 
@@ -53,6 +65,12 @@ describe('conditionals', () => {
 
             expect(template({value: 1})).toEqual('false');
         });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (neq value 1)}}Just Wow{{/if}}');
+
+            expect(template({value: '1'})).toEqual('Just Wow');
+        });
     });
 
     describe('neqw', () => {
@@ -72,6 +90,12 @@ describe('conditionals', () => {
             var template = compile('{{neqw value 1}}');
 
             expect(template({value: '1'})).toEqual('false');
+        });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (neqw value 2)}}Just Wow{{/if}}');
+
+            expect(template({value: '1'})).toEqual('Just Wow');
         });
     });
 
@@ -93,6 +117,12 @@ describe('conditionals', () => {
 
             expect(template({value: 2})).toEqual('false');
         });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (lt value 5)}}Just Wow{{/if}}');
+
+            expect(template({value: '1'})).toEqual('Just Wow');
+        });
     });
 
     describe('lte', () => {
@@ -112,6 +142,12 @@ describe('conditionals', () => {
             var template = compile('{{lte value 1}}');
 
             expect(template({value: 2})).toEqual('false');
+        });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (lte value 4)}}Just Wow{{/if}}');
+
+            expect(template({value: 2})).toEqual('Just Wow');
         });
     });
 
@@ -133,6 +169,12 @@ describe('conditionals', () => {
 
             expect(template({value: 1})).toEqual('false');
         });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (gt value 2)}}Just Wow{{/if}}');
+
+            expect(template({value: 6})).toEqual('Just Wow');
+        });
     });
 
 
@@ -153,6 +195,12 @@ describe('conditionals', () => {
             var template = compile('{{gte value 1}}');
 
             expect(template({value: 1})).toEqual('true');
+        });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (gte value 1)}}Just Wow{{/if}}');
+
+            expect(template({value: 1})).toEqual('Just Wow');
         });
     });
 
@@ -210,6 +258,12 @@ describe('conditionals', () => {
 
             expect(template({boolean: false})).toEqual('true');
         });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (not (eq value 4))}}Just Wow{{/if}}');
+
+            expect(template({value: 5})).toEqual('Just Wow');
+        });
     });
 
     describe('empty', () => {
@@ -225,6 +279,12 @@ describe('conditionals', () => {
             var template = compile('{{empty array}}');
 
             expect(template({array: []})).toEqual('true');
+        });
+
+        it('helper could be used in if', () => {
+            var template = compile('{{#if (empty arr)}}Just Wow{{/if}}');
+
+            expect(template({arr: []})).toEqual('Just Wow');
         });
     });
 
