@@ -53,8 +53,11 @@ Returns `boolean`
 Usage:
 ```
 {{eq '3' 3}}    => false
-{{eq 3 3}}    => true
-{{eq 'hello' 'hello'}}    => true
+
+// Could be also used in if
+{{#if (eq foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### eqw
@@ -70,6 +73,11 @@ Returns `boolean`
 Usage:
 ```
 {{eqw '3' 3}}   => true
+
+// Could be also used in if
+{{#if (eqw foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### neq
@@ -85,6 +93,11 @@ Returns `boolean`
 Usage:
 ```
 {{neq 4 3}}    => true
+
+// Could be also used in if
+{{#if (neq foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### neqw
@@ -100,6 +113,11 @@ Returns `boolean`
 Usage:
 ```
 {{neqw '3' 3}}    => false
+
+// Could be also used in if
+{{#if (neqw foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### lt
@@ -115,6 +133,11 @@ Returns `boolean`
 Usage:
 ```
 {{lt 2 3}}   => true
+
+// Could be also used in if
+{{#if (lt foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### lte
@@ -130,6 +153,11 @@ Returns `boolean`
 Usage:
 ```
 {{lte 2 3}}   => true
+
+// Could be also used in if
+{{#if (lte foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### gt
@@ -145,6 +173,11 @@ Returns `boolean`
 Usage:
 ```
 {{gt 2 3}}   => false
+
+// Could be also used in if
+{{#if (gt foo 'bar')}}
+	Hello
+{{/if}}
 ```
 
 #### gte
@@ -160,6 +193,31 @@ Returns `boolean`
 Usage:
 ```
 {{gte 3 3}}   => true
+
+// Could be also used in if
+{{#if (gte foo 'bar')}}
+	Hello
+{{/if}}
+```
+
+#### not
+Logical NOT of any expression. Equivalent to `!` operator.
+
+Parameters:
+```
+expression [mixed] Any expression.
+```
+Returns `boolean`
+
+Usage:
+```
+{{not true}}    => false
+{{not false}}   => true
+
+// Could be also used in if
+{{#if (not (eq foo 'bar'))}}
+	Hello
+{{/if}}
 ```
 
 #### ifx
@@ -181,21 +239,6 @@ Usage:
 {{ifx (not (eq value 1)) 5 6}}  => 6    // return (value !== 1) ? 5 : 6
 ```
 
-#### not
-Logical NOT of any expression. Equivalent to `!` operator.
-
-Parameters:
-```
-expression [mixed] Any expression.
-```
-Returns `boolean`
-
-Usage:
-```
-{{not true}}    => false
-{{not false}}   => true
-```
-
 #### empty
 Check if an array is empty.
 
@@ -207,11 +250,14 @@ Returns `boolean`
 
 Usage:
 ```
-var array = [];         // An array.
-{{empty array}} => true
-
 var array = [5, 6];     // An array.
 {{empty array}} => false
+
+
+// Could be also used in if
+{{#if (empty array)}}
+	Hello
+{{/if}}
 ```
 
 #### count
@@ -221,12 +267,12 @@ Parameters:
 ```
 array [array] Array whose elements to be counted. (Required)
 ```
-Returns `boolean | number`
+Returns `number|false`
 
 Usage:
 ```
-var array = [] | [5, 6];    // An array.
-{{count array}} =>  false | array.length;
+var array = [5, 6];    // An array.
+{{count array}} =>  2;
 ```
 
 ### Strings
