@@ -207,6 +207,7 @@ Usage:
 ```
 var array = [];         // An array.
 {{empty array}} => true
+
 var array = [5, 6];     // An array.
 {{empty array}} => false
 ```
@@ -477,7 +478,7 @@ A showIf helper for showing any html element.
 
 Parameters:
 ```
-expression [mixed] Value to be checked. (Required)
+expression [boolean] Condition to be checked. (Required)
 ```
 Returns `string`
 
@@ -492,7 +493,7 @@ A hideIf helper for hiding any html element.
 
 Parameters:
 ```
-expression [mixed] Value to be checked. (Required)
+expression [boolean] Condition to be checked. (Required)
 ```
 Returns `string`
 
@@ -507,7 +508,7 @@ A selectedIf helper for dropdown and radio boxes.
 
 Parameters:
 ```
-expression [mixed] Value to be checked. (Required)
+expression [boolean] Condition to be checked. (Required)
 ```
 Returns `string`
 
@@ -521,7 +522,7 @@ A checkedIf helper for checkboxes.
 
 Parameters:
 ```
-expression [mixed] Value to be checked. (Required)
+expression [boolean] Condition to be checked. (Required)
 ```
 Returns `string`
 
