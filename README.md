@@ -2,6 +2,7 @@
 [![NPM Version](https://img.shields.io/npm/v/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/leapfrogtechnology/just-handlebars-helpers)
+[![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
 [![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
 A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
