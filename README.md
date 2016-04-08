@@ -1,7 +1,8 @@
 # Just Handlebars Helpers
-[![NPM Version][npm-image]][npm-url]
-[npm-image]: https://badge.fury.io/js/just-handlebars-helpers.svg
-[npm-url]: https://www.npmjs.com/package/just-handlebars-helpers
+[![NPM Version](https://img.shields.io/npm/v/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
+[![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
+[![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/leapfrogtechnology/just-handlebars-helpers)
+[![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
 A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
 
