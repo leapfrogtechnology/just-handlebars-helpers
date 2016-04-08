@@ -5,7 +5,7 @@ export default {
     /**
      * A formatDate helper to format date using moment js.
      *
-     * Example usage:
+     * @example
      *      {{formatDate 'MM/DD/YYYY' date}}
      *
      * @param formatString based on moment.js

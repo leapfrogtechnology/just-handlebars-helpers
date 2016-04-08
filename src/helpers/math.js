@@ -1,8 +1,8 @@
 export default {
     /**
      * A sum helper calculating the sum of two numbers.
-     * Example usage:
-     *      {{sum 1 2}} => 3
+     * @example
+     *      {{sum 1 2}}     => 3
      *
      * @param value1
      * @param value2
@@ -14,8 +14,8 @@ export default {
 
     /**
      * A difference helper calculating the difference of two numbers.
-     * Example usage:
-     *      {{difference 5 2}} => 3
+     * @example
+     *      {{difference 5 2}}  => 3
      *
      * @param value1
      * @param value2
@@ -26,9 +26,9 @@ export default {
     },
 
     /**
-     * A ceil helper to find the ceil value of the number
-     * Example usage:
-     *      {{ceil 5.6}} => 6
+     * A ceil helper to find the ceil value of the number.
+     * @example
+     *      {{ceil 5.6}}    => 6
      *
      * @param value
      * @returns number
@@ -38,8 +38,8 @@ export default {
     },
 
     /**
-     * A floor helper to find the floor value of the number
-     * Example usage:
+     * A floor helper to find the floor value of the number.
+     * @example
      *      {{floor 5.6}} => 5
      *
      * @param value

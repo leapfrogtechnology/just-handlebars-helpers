@@ -4,7 +4,7 @@ export default {
 
     /**
     * Determine whether or not two values are equal (===).
-    * Example usage:
+    * @example
     *      {{eq '3' 3}}    => false
     *
     * @param value1
@@ -17,7 +17,7 @@ export default {
 
     /**
     * Determine whether or not two values are equal (==) i.e weak checking.
-    * Example usage:
+    * @example
     *      {{eqw '3' 3}}   => true
     *
     * @param value1
@@ -30,7 +30,7 @@ export default {
 
     /**
     * Determine whether or not two values are not equal (!==).
-    * Example usage:
+    * @example
     *      {{neq 4 3}}    => true
     *
     * @param value1
@@ -43,8 +43,8 @@ export default {
 
     /**
     * Determine whether or not two values are not equal (!=) weak checking.
-    * Example usage:
-    *      {{neq '3' 3}}    => false
+    * @example
+    *      {{neqw '3' 3}}    => false
     *
     * @param value1
     * @param value2
@@ -56,7 +56,7 @@ export default {
 
     /**
     * Check for less than condition (a < b).
-    * Example usage:
+    * @example
     *      {{lt 2 3}}   => true
     *
     * @param value1
@@ -69,7 +69,7 @@ export default {
 
     /**
     * Check for less than or equals condition (a <= b).
-    * Example usage:
+    * @example
     *      {{lte 2 3}}   => true
     *
     * @param value1
@@ -82,7 +82,7 @@ export default {
 
     /**
     * Check for greater than condition (a > b).
-    * Example usage:
+    * @example
     *      {{gt 2 3}}   => false
     *
     * @param value1
@@ -95,7 +95,7 @@ export default {
 
     /**
     * Check for greater than or equals condition (a >= b).
-    * Example usage:
+    * @example
     *      {{gte 3 3}}   => true
     *
     * @param value1
@@ -108,7 +108,7 @@ export default {
 
     /**
     * Helper to imitate the ternary conditional operator ?:
-    * Example usage:
+    * @example
     *      {{ifx true 'Foo' 'Bar'}}    => Foo
     *      {{ifx false 'Foo' 'Bar'}}   => Foo
     *
@@ -123,7 +123,7 @@ export default {
 
     /**
     * Logical NOT of any expression.
-    * Example usage:
+    * @example
     *      {{not true}}    => false
     *      {{not false}}   => true
     *
@@ -136,7 +136,7 @@ export default {
 
     /**
     * Check if an array is empty.
-    * Example usage:
+    * @example
     *      {{empty array}} => true | false
     *
     * @param array
@@ -152,7 +152,7 @@ export default {
 
     /**
     * Determine the length of an array.
-    * Example usage:
+    * @example
     *      {{count array}} =>  false | array.length
     *
     * @param array
