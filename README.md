@@ -306,7 +306,7 @@ Usage:
 ```
 
 #### newLineToBr
-Replace \\n with <br> tags.
+Replace `\n` with `<br>` tags.
 
 Parameters:
 ```
