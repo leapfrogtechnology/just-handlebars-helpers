@@ -42,9 +42,21 @@ describe('strings', () => {
         });
 
         it('should work as expected after compilation', () => {
-            var template = compile('{{sanitize string}}')
+            var template = compile('{{sanitize string}}');
 
             expect(template({string: '*JuST *#wow#'})).toEqual('just-wow');
+        });
+    });
+
+    describe('newLineToBr', () => {
+        it('should replace \\n with <br> tags', () => {
+            expect(strings.newLineToBr('newLineToBr helper \n is very \n useful.')).toEqual('newLineToBr helper <br> is very <br> useful.');
+        });
+
+        it('should replace \\n with <br> tags after compilation', () => {
+            var template = compile('{{{newLineToBr string}}}');
+
+            expect(template({string: 'newLineToBr helper \n is very \n useful.'})).toEqual('newLineToBr helper <br> is very <br> useful.');
         });
     });
 
@@ -58,7 +70,7 @@ describe('strings', () => {
         });
 
         it('should work as expected after compilation', () => {
-            var template = compile('{{capitalizeFirst string}}')
+            var template = compile('{{capitalizeFirst string}}');
 
             expect(template({string: 'just wow'})).toEqual('Just wow');
         });
@@ -74,7 +86,7 @@ describe('strings', () => {
         });
 
         it('should work as expected after compilation', () => {
-            var template = compile('{{capitalizeEach string}}')
+            var template = compile('{{capitalizeEach string}}');
 
             expect(template({string: 'just wow'})).toEqual('Just Wow');
         });
@@ -255,7 +267,7 @@ describe('strings', () => {
         });
 
         it('should work as expected for some array and no delimeter after compilation (Basic Support)', () => {
-            var template = compile('{{join fruits}}')
+            var template = compile('{{join fruits}}');
             var obj = {
                 fruits: ['Mango', 'Apple', 'Banana']
             };
