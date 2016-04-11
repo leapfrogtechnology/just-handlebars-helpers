@@ -1,4 +1,4 @@
-import {isArray} from '../util/utils';
+import {isArray, isObject} from '../util/utils';
 
 export default {
 
@@ -118,7 +118,7 @@ export default {
     * @returns value1 | value2
     */
     ifx: (condition, value1, value2) => {
-        return !!condition ? value1 :value2;
+        return !!condition ? value1 : value2;
     },
 
     /**
@@ -164,5 +164,57 @@ export default {
         }
 
         return array.length;
+    },
+
+    /**
+    * Return true if all the param values are true.
+    * @example
+    *     var value1 = value2 = true;
+    *     {{and value1 value2}}    => true
+    *     var value1 = false, value2 = true;
+    *     {{and value1 value2}}    => false
+    *
+    * @param params
+    * @returns boolean
+    */
+    and: (...params) => {
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
+        }
+
+        for (var index in params) {
+            if (!params[index]) {
+                return false;
+            }
+        }
+
+        return true;
+    },
+
+    /**
+    * Return true if any of the param value is true.
+    * @example
+    *     var value1 = true, value2 = false;
+    *     {{or value1 value2}}    => true
+    *     var value = value2 = false;
+    *     {{or value1 value2}}    => false
+    *
+    * @param params
+    * @returns boolean
+    */
+    or: (...params) => {
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
+        }
+
+        for (var index in params) {
+            if (params[index]) {
+                return true;
+            }
+        }
+
+        return false;
     }
 };
