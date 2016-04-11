@@ -305,6 +305,20 @@ Usage:
 {{sanitize 'JuSt #Wow'}} => 'just-wow'
 ```
 
+#### newLineToBr
+Replace \\n with <br> tags.
+
+Parameters:
+```
+string [string] The string that needs replacement of \n by <br> tags. (Required)
+```
+Returns `string`
+
+Usage:
+```
+{{{newLineToBr 'newLineToBr helper \n is very \n useful.'}}}    => newLineToBr helper <br> is very <br> useful.
+```
+
 #### capitalizeEach
 Capitalize each letter of every words in a string.
 

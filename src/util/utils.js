@@ -58,4 +58,4 @@ function isArray(thing) {
     return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
-export {isFunction, isUndefined, isDefined, isObject, isArray, isString}
+export {isFunction, isUndefined, isDefined, isObject, isArray, isString};

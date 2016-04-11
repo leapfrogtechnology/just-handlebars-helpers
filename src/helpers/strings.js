@@ -40,6 +40,18 @@ export default {
     },
 
     /**
+     * Replace \n with <br> tags.
+     * @example
+     *     {{newLineToBr 'newLineToBr helper \n is very \n useful.'}}    => newLineToBr helper <br> is very <br> useful.
+     *
+     * @param  {string}
+     * @return {string}
+     */
+    newLineToBr: (string) => {
+        return string.replace(/\r?\n|\r/g, '<br>');
+    },
+
+    /**
      * Capitalize each letter of a string.
      * @example
      *      {{capitalizeEach 'just wow'}}   => 'Just Wow'
