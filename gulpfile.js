@@ -23,11 +23,17 @@ gulp.task('lint', function() {
         .pipe(eslint.failAfterError());
 });
 
-// Compile ES6
-gulp.task('compile', ['lint'], function() {
+// Transpile ES6 to ES5
+gulp.task('transpile', ['lint'], function() {
+    return gulp.src('src/**/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('lib'));
+});
 
+// Bundle things up
+gulp.task('bundle', ['transpile'], function() {
     var config = {
-        entries: './src/H.js',
+        entries: './index.js',
         standalone: 'H',
         debug: true
     };
@@ -38,22 +44,15 @@ gulp.task('compile', ['lint'], function() {
     };
 
     return browserify(config)
-        .transform(babelify)
         .transform(shimify.configure(shimifyConfig))
         .bundle()
         .pipe(source('h.js'))
         .pipe(gulp.dest('dist'));
 });
 
-// Build for NPM
-gulp.task('just-transpile', function() {
-    gulp.src('src/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('lib'));
-});
 
 // Uglify
-gulp.task('uglify', ['compile'], function() {
+gulp.task('uglify', ['bundle'], function() {
     return gulp.src('dist/h.js')
         .pipe(rename({
             suffix: '.min'
@@ -62,4 +61,4 @@ gulp.task('uglify', ['compile'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['lint', 'compile', 'just-transpile', 'uglify']);
+gulp.task('default', ['lint', 'transpile', 'bundle', 'uglify']);
