@@ -1,4 +1,4 @@
-import { isFunction, isObject, isString, isArray } from '../util/utils';
+import {isFunction, isObject, isString, isArray} from '../util/utils';
 
 export default {
 
@@ -61,7 +61,7 @@ export default {
      */
     capitalizeEach: (string) => {
         if (typeof string === 'string') {
-            return string.toLowerCase().replace(/\w\S*/g, function(match) {
+            return string.toLowerCase().replace(/\w\S*/g, function (match) {
                 return match.charAt(0).toUpperCase() + match.substr(1);
             });
         }
@@ -137,7 +137,7 @@ export default {
     /**
      * Changes the string to lowercase.
      * @example
-     * 	{{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
+     *    {{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
      *
      * @param  string param
      * @return string
@@ -149,7 +149,7 @@ export default {
     /**
      * Changes the string to uppercase.
      * @example
-     * 	{{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
+     *    {{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
      *
      * @param  string param
      * @return string
@@ -161,14 +161,14 @@ export default {
     /**
      * Get the first element of a collection/array.
      * @example
-     * 	var someArray = ['David', 'Miller', 'Jones'];
-     *  	{{first someArray}}   => 'David'
+     *    var someArray = ['David', 'Miller', 'Jones'];
+     *    {{first someArray}}   => 'David'
      *
      * @param  array collection
      * @return string
      */
     first: (collection) => {
-        if(!isArray(collection) || collection.length === 0) {
+        if (!isArray(collection) || collection.length === 0) {
             return '';
         }
 
@@ -178,14 +178,14 @@ export default {
     /**
      * Get the last element of a collection/array.
      * @example
-     * 	var someArray = ['David', 'Miller', 'Jones'];
-     *  	{{last someArray}}   => 'Jones'
+     *    var someArray = ['David', 'Miller', 'Jones'];
+     *    {{last someArray}}   => 'Jones'
      *
      * @param  array collection
      * @return string
      */
     last: (collection) => {
-        if(!isArray(collection) || collection.length === 0) {
+        if (!isArray(collection) || collection.length === 0) {
             return '';
         }
 
@@ -195,7 +195,7 @@ export default {
     /**
      * Concat two or more strings.
      * @example
-     * 	{{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
+     *    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
      *
      * @param  mixed ...params
      * @return string
@@ -213,8 +213,8 @@ export default {
      * Join the elements of an array using a delimeter.
      *
      * @example
-     * 	var someArray = ['Hands', 'legs', 'feet'];
-     *   	{{join someArray ' & '}}   => 'Hands & legs & feet'
+     *    var someArray = ['Hands', 'legs', 'feet'];
+     *    {{join someArray ' & '}}   => 'Hands & legs & feet'
      *
      * @param  array params
      * @param  string delimeter
