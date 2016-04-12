@@ -25,6 +25,10 @@ describe('strings', () => {
             expect(strings.excerpt('just wow', 'random')).toEqual('just wow');
         });
 
+        it('should return the parameter as it is if it is not a string', () => {
+            expect(strings.excerpt(45)).toEqual(45);
+        });
+
         it('should work as expected after compilation', () => {
             var template = compile('{{excerpt string 10}}');
 
@@ -183,6 +187,10 @@ describe('strings', () => {
             expect(strings.first(['David', 'Miller', 'Jones'])).toEqual('David');
         });
 
+        it('should return empty string if the array is empty', () => {
+            expect(strings.first([])).toEqual('');
+        });
+
         it('should work as expected after compilation (Basic Supprt)', () => {
             var template = compile('{{first fullName}}');
             var obj = {
@@ -200,6 +208,10 @@ describe('strings', () => {
     describe('last', () => {
         it('should return last element of an array(string)', () => {
             expect(strings.last(['David', 'Miller', 'Jones'])).toEqual('Jones');
+        });
+
+        it('should return empty string if the array is empty', () => {
+            expect(strings.last([])).toEqual('');
         });
 
         it('should work as expected after compilation (Basic Supprt)', () => {
@@ -255,6 +267,10 @@ describe('strings', () => {
 
         it('should return concatenation of elements of array using empty string if no delimeter provided', () => {
             expect(strings.join(['Hands', 'legs', 'feet'])).toEqual('Handslegsfeet');
+        });
+
+        it('should return false if the parameter is not an array', () => {
+            expect(strings.join('hello')).toEqual(false);
         });
 
         it('should work as expected for array of strings after compilation (Basic Support)', () => {
