@@ -300,7 +300,59 @@ describe('conditionals', () => {
         it('helper should work as expected after compilation', () => {
             let template = compile('{{count array}}');
 
-            expect(template({array: [5,6,7]})).toEqual('3');
+            expect(template({array: [5, 6, 7]})).toEqual('3');
+        });
+    });
+
+    describe('and', () => {
+        it('should return true if all the parameters are true', () => {
+            var value1 = true, value2 = true, value3 = true;
+
+            expect(conditionals.and(value1, value2, value3)).toEqual(true);
+        });
+
+        it('should return false if any of the parameters is false', () => {
+            var value1 = false, value2 = true, value3 = true;
+
+            expect(conditionals.and(value1, value2, value3)).toEqual(false);
+        });
+
+        it('should return true if all the parameters are true after compilation', () => {
+            var template = compile('{{and condition1 condition2 condition3}}');
+
+            expect(template({condition1: true, condition2: true, condition3: true})).toEqual('true');
+        });
+
+        it('should return false if any of the parameters is false after compilation', () => {
+            var template = compile('{{and condition1 condition2 condition3}}');
+
+            expect(template({condition1: true, condition2: false, condition3: true})).toEqual('false');
+        });
+    });
+
+    describe('or', () => {
+        it('should return false if all the parameters are false', () => {
+            var value1 = false, value2 = false, value3 = false;
+
+            expect(conditionals.or(value1, value2, value3)).toEqual(false);
+        });
+
+        it('should return true if any of the param value is true', () => {
+            var value1 = false, value2 = false, value3 = true;
+
+            expect(conditionals.or(value1, value2, value3)).toEqual(true);
+        });
+
+        it('should return false if all the parameters are false after compilation', () => {
+            var template = compile('{{or condition1 condition2 condition3}}');
+
+            expect(template({condition1: false, condition2: false, condition3: false})).toEqual('false');
+        });
+
+        it('should return true if any of the param value is true after compilation', () => {
+            var template = compile('{{or condition1 condition2 condition3}}');
+
+            expect(template({condition1: true, condition2: false, condition3: true})).toEqual('true');
         });
     });
 });

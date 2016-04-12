@@ -275,6 +275,56 @@ var array = [5, 6];    // An array.
 {{count array}} =>  2;
 ```
 
+#### and
+Returns the boolean AND of two or more parameters passed i.e
+it is true iff all the parameters are true.
+
+Parameters:
+```
+params [mixed] Any number of boolean parameters. (Required)
+```
+Returns `boolean`
+
+Usage:
+```
+var value1 = value2 = true;
+{{and value1 value2}}    => true
+
+var value1 = false, value2 = true;
+{{and value1 value2}}    => false
+
+{{#if (and value1 value2)}}
+    // do something
+{{else}}
+    // do something else
+{{/if}}
+```
+
+#### or
+Returns the boolean OR of two or more parameters passed i.e
+it is true if any of the parameters is true.
+
+Parameters:
+```
+params [mixed] Any number of boolean parameters. (Required)
+```
+Returns `boolean`
+
+Usage:
+```
+var value1 = true, value2 = false;
+{{or value1 value2}}    => true
+
+var value = value2 = false;
+{{or value1 value2}}    => false
+
+{{#if (or value1 value2)}}
+    // do something
+{{else}}
+    // do something else
+{{/if}}
+```
+
 ### Strings
 #### excerpt
 Extract a sub-string from a string.
