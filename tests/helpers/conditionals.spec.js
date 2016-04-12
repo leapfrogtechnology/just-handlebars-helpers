@@ -275,6 +275,10 @@ describe('conditionals', () => {
             expect(conditionals.empty([5, 6, 7])).toEqual(false);
         });
 
+        it('should return true for a non-array', () => {
+            expect(conditionals.empty('Foo Bar')).toEqual(true);
+        });
+
         it('helper should work as expected after compilation', () => {
             var template = compile('{{empty array}}');
 
