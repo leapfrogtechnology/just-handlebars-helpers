@@ -167,10 +167,13 @@ export default {
     },
 
     /**
-    * Return true if all the param values are true.
+    * Returns the boolean AND of two or more parameters passed i.e
+    * it is true iff all the parameters are true.
+    *
     * @example
     *     var value1 = value2 = true;
     *     {{and value1 value2}}    => true
+    *
     *     var value1 = false, value2 = true;
     *     {{and value1 value2}}    => false
     *
@@ -193,10 +196,13 @@ export default {
     },
 
     /**
-    * Return true if any of the param value is true.
+    * Returns the boolean OR of two or more parameters passed i.e
+    * it is true if any of the parameters is true.
+    *
     * @example
     *     var value1 = true, value2 = false;
     *     {{or value1 value2}}    => true
+    *
     *     var value = value2 = false;
     *     {{or value1 value2}}    => false
     *

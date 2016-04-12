@@ -276,7 +276,8 @@ var array = [5, 6];    // An array.
 ```
 
 #### and
-Returns true if all the param values are true.
+Returns the boolean AND of two or more parameters passed i.e
+it is true iff all the parameters are true.
 
 Parameters:
 ```
@@ -300,7 +301,8 @@ var value1 = false, value2 = true;
 ```
 
 #### or
-Returns true if any of the param value is true.
+Returns the boolean OR of two or more parameters passed i.e
+it is true if any of the parameters is true.
 
 Parameters:
 ```
