@@ -376,7 +376,7 @@ describe('conditionals', () => {
         it('should return first non-false parameter after compilation', () => {
             var template = compile('{{coalesce fullName nickName "Unknown"}}');
 
-            expect(template({fullName: null, nickName: null})).toEqual('Unknown');
+            expect(template({fullName: '', nickName: null})).toEqual('Unknown');
         });
 
         it('should ignore rest of the parameters if a true value is found', () => {
@@ -389,6 +389,12 @@ describe('conditionals', () => {
             var template = compile('{{coalesce fullName}}');
 
             expect(template({fullName: 'Foo Bar'})).toEqual('Foo Bar');
+        });
+
+        it('should return the last parameter if all the parameters are falsy', () => {
+            var template = compile('{{coalesce fullName nickName}}');
+
+            expect(template({fullName: null, nickName: ''})).toEqual('');
         });
     });
 });

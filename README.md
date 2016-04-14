@@ -325,6 +325,26 @@ var value = value2 = false;
 {{/if}}
 ```
 
+#### coalesce
+Returns the first non-falsy value from the parameter list.
+Works quite similar to the SQL's COALESCE() function, but unlike this
+checks for the first non-false parameter.
+
+Parameters:
+```
+params [mixed] Any number of parameters. (Required)
+```
+Returns `mixed`
+
+Usage:
+```
+var fullName = 'Foo Bar', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'Foo Bar'
+
+var fullName = '', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'foob'
+```
+
 ### Strings
 #### excerpt
 Extract a sub-string from a string.

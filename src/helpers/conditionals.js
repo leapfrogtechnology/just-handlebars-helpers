@@ -224,6 +224,21 @@ export default {
         return false;
     },
 
+    /**
+     * Returns the first non-falsy value from the parameter list.
+     * Works quite similar to the SQL's COALESCE() function, but unlike this
+     * checks for the first non-false parameter.
+     *
+     * @example
+     *     var fullName = 'Foo Bar', nickName = 'foob';
+     *     {{coalesce fullName nickName 'Unknown'}}    => 'Foo Bar'
+     *
+     *     var fullName = '', nickName = 'foob';
+     *     {{coalesce fullName nickName 'Unknown'}}    => 'foob'
+     *
+     * @param params
+     * @returns mixed
+     */
     coalesce: (...params) => {
         // Ignore the object appended by handlebars.
         if (isObject(params[params.length - 1])) {
