@@ -222,5 +222,20 @@ export default {
         }
 
         return false;
+    },
+
+    coalesce: (...params) => {
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
+        }
+
+        for(var i in params) {
+            if(params[i]) {
+                return params[i];
+            }
+        }
+
+        return params.pop();
     }
 };

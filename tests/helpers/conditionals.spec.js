@@ -359,4 +359,36 @@ describe('conditionals', () => {
             expect(template({condition1: true, condition2: false, condition3: true})).toEqual('true');
         });
     });
+
+    describe('coalesce', () => {
+        it('should return first non-false parameter', () => {
+            expect(conditionals.coalesce(null, undefined, false, 0, 'Hello', 'world')).toEqual('Hello');
+        });
+
+        it('should work with only two parameters', () => {
+            expect(conditionals.coalesce(null, 'Hello')).toEqual('Hello');
+        });
+
+        it('should work with a single parameter', () => {
+            expect(conditionals.coalesce('Hello')).toEqual('Hello');
+        });
+
+        it('should return first non-false parameter after compilation', () => {
+            var template = compile('{{coalesce fullName nickName "Unknown"}}');
+
+            expect(template({fullName: null, nickName: null})).toEqual('Unknown');
+        });
+
+        it('should ignore rest of the parameters if a true value is found', () => {
+            var template = compile('{{coalesce fullName nickName "Unknown"}}');
+
+            expect(template({fullName: 'Foo Bar', nickName: 'foob'})).toEqual('Foo Bar');
+        });
+
+        it('should work with a single parameter after compilation', () => {
+            var template = compile('{{coalesce fullName}}');
+
+            expect(template({fullName: 'Foo Bar'})).toEqual('Foo Bar');
+        });
+    });
 });
