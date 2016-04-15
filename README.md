@@ -3,7 +3,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/leapfrogtechnology/just-handlebars-helpers)
 [![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
-[![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
 A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
 
@@ -325,6 +325,26 @@ var value = value2 = false;
 {{/if}}
 ```
 
+#### coalesce
+Returns the first non-falsy value from the parameter list.
+Works quite similar to the SQL's COALESCE() function, but unlike this
+checks for the first non-false parameter.
+
+Parameters:
+```
+params [mixed] Any number of parameters. (Required)
+```
+Returns `mixed`
+
+Usage:
+```
+var fullName = 'Foo Bar', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'Foo Bar'
+
+var fullName = '', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'foob'
+```
+
 ### Strings
 #### excerpt
 Extract a sub-string from a string.
@@ -399,6 +419,10 @@ Usage:
 
 #### sprintf
 A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
+
+**Note:** To use sprintf helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
+
+``` npm install sprintf-js --save ```
 
 Parameters:
 ```
@@ -564,7 +588,12 @@ Usage:
 {{floor 5.6}} => 5
 ```
 
-### Date-time
+### DateTime
+
+**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment)
+
+``` npm install moment --save ```
+
 #### formatDate
 A formatDate helper to format date using moment js.
 
