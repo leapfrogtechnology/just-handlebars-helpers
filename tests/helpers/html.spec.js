@@ -15,7 +15,7 @@ describe('html', () => {
         it('should return empty for a random param', () => {
             expect(html.showIf('random')).toEqual('');
         });
-        
+
         it('helper should work as expected after compilation', () => {
             let template = compile('{{showIf boolean}}');
 
@@ -80,6 +80,80 @@ describe('html', () => {
             let template = compile('{{checkedIf boolean}}');
 
             expect(template({boolean: true})).toEqual('checked');
+        });
+    });
+
+    describe('options', () => {
+        it('should return a list of <option> tags according to the data.', () => {
+            let template = compile('{{{options data}}}');
+            let data = [
+                {
+                    id: 1,
+                    description: 'Foo'
+                },
+                {
+                    id: 2,
+                    description: 'Bar'
+                },
+                {
+                    id: 3,
+                    description: 'Foo Bar'
+                }
+            ];
+
+            let html = '<option value="1">Foo</option>' +
+                '<option value="2">Bar</option>' +
+                '<option value="3">Foo Bar</option>';
+
+            expect(template({data})).toEqual(html);
+        });
+
+        it('should return a list of <option> tags along with selected value.', () => {
+            let template = compile('{{{options data selected=sel}}}');
+            let data = [
+                {
+                    id: 1,
+                    description: 'Foo'
+                },
+                {
+                    id: 2,
+                    description: 'Bar'
+                },
+                {
+                    id: 3,
+                    description: 'Foo Bar'
+                }
+            ];
+
+            let html = '<option value="1">Foo</option>' +
+                '<option value="2" selected>Bar</option>' +
+                '<option value="3">Foo Bar</option>';
+
+            expect(template({data, sel: '2'})).toEqual(html);
+        });
+
+        it('should allow overriding the default keys for the options.', () => {
+            let template = compile('{{{options data selected="2" id="key" text="label"}}}');
+            let data = [
+                {
+                    key: 1,
+                    label: 'Foo'
+                },
+                {
+                    key: 2,
+                    label: 'Bar'
+                },
+                {
+                    key: 3,
+                    label: 'Foo Bar'
+                }
+            ];
+
+            let html = '<option value="1">Foo</option>' +
+                '<option value="2" selected>Bar</option>' +
+                '<option value="3">Foo Bar</option>';
+
+            expect(template({data})).toEqual(html);
         });
     });
 });
