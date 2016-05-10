@@ -113,7 +113,6 @@ export default {
             let selected = (value == selectedId) ? ' selected': '';
 
             return `<option value="${value}"${selected}>${innerText}</option>`;
-        }).join('');
+        }).join('\n');
     }
-
 };

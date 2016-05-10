@@ -1,7 +1,6 @@
 import {isFunction, isObject, isString, isArray} from '../util/utils';
 
 export default {
-
     /**
      * Extract a few characters from a string. Default number of characters is 50.
      * @example

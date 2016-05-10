@@ -101,9 +101,11 @@ describe('html', () => {
                 }
             ];
 
-            let html = '<option value="1">Foo</option>' +
-                '<option value="2">Bar</option>' +
-                '<option value="3">Foo Bar</option>';
+            let html = [
+                '<option value="1">Foo</option>',
+                '<option value="2">Bar</option>',
+                '<option value="3">Foo Bar</option>'
+            ].join('\n');
 
             expect(template({data})).toEqual(html);
         });
@@ -125,9 +127,11 @@ describe('html', () => {
                 }
             ];
 
-            let html = '<option value="1">Foo</option>' +
-                '<option value="2" selected>Bar</option>' +
-                '<option value="3">Foo Bar</option>';
+            let html = [
+                '<option value="1">Foo</option>',
+                '<option value="2" selected>Bar</option>',
+                '<option value="3">Foo Bar</option>'
+            ].join('\n');
 
             expect(template({data, sel: '2'})).toEqual(html);
         });
@@ -149,9 +153,11 @@ describe('html', () => {
                 }
             ];
 
-            let html = '<option value="1">Foo</option>' +
-                '<option value="2" selected>Bar</option>' +
-                '<option value="3">Foo Bar</option>';
+            let html = [
+                '<option value="1">Foo</option>',
+                '<option value="2" selected>Bar</option>',
+                '<option value="3">Foo Bar</option>'
+            ].join('\n');
 
             expect(template({data})).toEqual(html);
         });
