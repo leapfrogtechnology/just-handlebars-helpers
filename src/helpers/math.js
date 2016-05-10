@@ -48,5 +48,4 @@ export default {
     floor: (value) => {
         return Math.floor(Number(value));
     }
-
 };

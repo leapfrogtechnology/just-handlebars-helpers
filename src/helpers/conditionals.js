@@ -1,7 +1,6 @@
 import {isArray, isObject} from '../util/utils';
 
 export default {
-
     /**
      * Determine whether or not two values are equal (===).
      * @example
