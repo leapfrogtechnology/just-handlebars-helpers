@@ -48,7 +48,7 @@ export default {
     },
 
     /**
-     * A options helper for generating <option> list for <select> dropdowns.
+     * An options helper for generating <option> list for <select> dropdowns.
      *
      * @example
      * A simple example:
