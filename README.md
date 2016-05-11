@@ -672,11 +672,18 @@ Usage:
 {{checkedIf true}}  => 'checked'
 ```
 
-### options
-An options helper for generating <option> list for <select> dropdowns.
+#### options
+An options helper for generating `<option>` list for `<select>` dropdowns.
 
-Common Usages:
+Parameters:
+```
+data [array] List of data (Required)
+id [string] Name of identifier key from the data list, defaults to id (Optional)
+text [string] Name of description key from the data list, defaults to description (Optional)
+selected [string] Id to be set as selected (Optional)
+```
 
+Usage:
 ```
 {{{options data}}}
 {{{options data selected="value"}}}
@@ -684,7 +691,6 @@ Common Usages:
 ```
 
 A simple example:
-
 ```
 let data = [
     {
