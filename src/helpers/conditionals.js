@@ -107,16 +107,26 @@ export default {
 
     /**
      * Helper to imitate the ternary conditional operator ?:
+     *
      * @example
      *      {{ifx true 'Foo' 'Bar'}}    => Foo
      *      {{ifx false 'Foo' 'Bar'}}   => Foo
      *
      * @param condition
-     * @param value1
-     * @param value2
-     * @returns value1 | value2
+     * @param value1    Value to return when the condition holds true
+     * @param value2    Value to return when the condition is false (Optional)
+     * @returns mixed
      */
     ifx: (condition, value1, value2) => {
+        // Check if user has omitted the last parameter
+        // if that's the case, it would be the handlebars's options object
+        // which it sends always as the last parameter.
+        if (isObject(value2) && value2.name === 'ifx' && value2.hasOwnProperty('hash')) {
+            // This means the user has skipped the last parameter,
+            // so we should return an empty string ('') in the else case instead.
+            value2 = '';
+        }
+
         return !!condition ? value1 : value2;
     },
 
@@ -129,7 +139,7 @@ export default {
      * @param expression
      * @returns boolean
      */
-    not: function (expression) {
+    not: function(expression) {
         return !expression;
     },
 
@@ -244,8 +254,8 @@ export default {
             params.pop();
         }
 
-        for(var i in params) {
-            if(params[i]) {
+        for (var i in params) {
+            if (params[i]) {
                 return params[i];
             }
         }

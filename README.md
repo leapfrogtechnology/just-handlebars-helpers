@@ -227,9 +227,9 @@ Parameters:
 ```
 condition [boolean] Satisfying condition for getting first value. Either true of false. (Required)
 value1 [mixed] First value to be displayed as result. (Required)
-value2 [mixed] Second value to be displayed as result. (Required)
+value2 [mixed] Second value to be displayed as result. Defaults to an empty string (Optional)
 ```
-Returns `value1 | value2`
+Returns `mixed`
 
 Usage:
 ```
@@ -237,6 +237,10 @@ Usage:
 {{ifx false 'Foo' 'Bar'}}       => Foo  // return (false) ? 'Foo' : 'Bar'
 {{ifx (eq value 1) 5 6}}        => 6    // return (value === 1) ? 5 : 6
 {{ifx (not (eq value 1)) 5 6}}  => 6    // return (value !== 1) ? 5 : 6
+
+<!-- The third parameter is optional, and by default it will be blank string ('') -->
+{{ifx true 'active'}}  => 'active'
+{{ifx false 'active'}}  => ''
 ```
 
 #### empty
