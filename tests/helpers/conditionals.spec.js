@@ -242,6 +242,18 @@ describe('conditionals', () => {
 
             expect(template({value: 2})).toEqual('5');
         });
+
+        it('allows to skip the third parameter', () => {
+            var template = compile('{{ifx isActive "active"}}');
+
+            expect(template({isActive: true})).toEqual('active');
+        });
+
+        it('returns a blank string by default for the false case if third parameter is omitted', () => {
+            var template = compile('{{ifx isActive "active"}}');
+
+            expect(template({isActive: false})).toEqual('');
+        });
     });
 
     describe('not', () => {
