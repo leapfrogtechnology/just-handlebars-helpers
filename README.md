@@ -54,7 +54,6 @@ Usage:
 ```
 {{eq '3' 3}}    => false
 
-// Could be also used in if
 {{#if (eq foo 'bar')}}
 	Hello
 {{/if}}
@@ -74,7 +73,6 @@ Usage:
 ```
 {{eqw '3' 3}}   => true
 
-// Could be also used in if
 {{#if (eqw foo 'bar')}}
 	Hello
 {{/if}}
@@ -94,7 +92,6 @@ Usage:
 ```
 {{neq 4 3}}    => true
 
-// Could be also used in if
 {{#if (neq foo 'bar')}}
 	Hello
 {{/if}}
@@ -114,7 +111,6 @@ Usage:
 ```
 {{neqw '3' 3}}    => false
 
-// Could be also used in if
 {{#if (neqw foo 'bar')}}
 	Hello
 {{/if}}
@@ -134,7 +130,6 @@ Usage:
 ```
 {{lt 2 3}}   => true
 
-// Could be also used in if
 {{#if (lt 2 5)}}
 	Hello
 {{/if}}
@@ -154,7 +149,6 @@ Usage:
 ```
 {{lte 2 3}}   => true
 
-// Could be also used in if
 {{#if (lte 5 6)}}
 	Hello
 {{/if}}
@@ -174,7 +168,6 @@ Usage:
 ```
 {{gt 2 3}}   => false
 
-// Could be also used in if
 {{#if (gt 10 7)}}
 	Hello
 {{/if}}
@@ -194,7 +187,6 @@ Usage:
 ```
 {{gte 3 3}}   => true
 
-// Could be also used in if
 {{#if (gte 10 2)}}
 	Hello
 {{/if}}
@@ -214,7 +206,6 @@ Usage:
 {{not true}}    => false
 {{not false}}   => true
 
-// Could be also used in if
 {{#if (not (eq foo 'bar'))}}
 	Hello
 {{/if}}
@@ -257,8 +248,6 @@ Usage:
 var array = [5, 6];     // An array.
 {{empty array}} => false
 
-
-// Could be also used in if
 {{#if (empty array)}}
 	Hello
 {{/if}}
