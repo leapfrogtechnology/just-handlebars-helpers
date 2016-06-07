@@ -177,7 +177,6 @@ describe('conditionals', () => {
         });
     });
 
-
     describe('gte', () => {
         it('should return true if param1 is greater than param2', () => {
             expect(conditionals.gte(2, 1)).toEqual(true);
@@ -407,6 +406,40 @@ describe('conditionals', () => {
             var template = compile('{{coalesce fullName nickName}}');
 
             expect(template({fullName: null, nickName: ''})).toEqual('');
+        });
+    });
+
+    describe('includes', () => {
+        it('should return true if array strictly includes the element after compilation', () => {
+            var value = 3;
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('true');
+        });
+
+        it('should return false if array strictly does not include the element after compilation', () => {
+            var value = '3';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return true if array non-strictly includes the element after compilation', () => {
+            var value = '3';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value false}}');
+
+            expect(template({array: array, value: value})).toEqual('true');
+        });
+
+        it('should return false if array non-strictly does not include the element after compilation', () => {
+            var value = '6';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value false}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
         });
     });
 });

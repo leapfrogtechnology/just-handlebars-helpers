@@ -139,7 +139,7 @@ export default {
      * @param expression
      * @returns boolean
      */
-    not: function(expression) {
+    not: function (expression) {
         return !expression;
     },
 
@@ -261,5 +261,39 @@ export default {
         }
 
         return params.pop();
+    },
+
+    /**
+     * Returns boolean if the array contains the element strictly or non-strictly.
+     * @example
+     *     var array = [1, 2, 3, 4];
+     *     var value1 = 2, value2 = 10, value3 = '3';
+     *     {{includes array value1}}        => true
+     *     {{includes array value2}}        => false
+     *     {{includes array value3}}        => false
+     *     {{includes array value3 false}}  => false
+     *
+     * @param array
+     * @param value
+     * @returns boolean
+     */
+    includes: (array, value, strict = true) => {
+        if (!Array.isArray(array) || array.length === 0) {
+            return false;
+        }
+
+        for (let index in array) {
+            if (strict) {
+                if (array[index] === value) {
+                    return true;
+                }
+            } else {
+                if (array[index] == value) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 };
