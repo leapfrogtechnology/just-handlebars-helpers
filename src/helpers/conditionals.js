@@ -278,19 +278,13 @@ export default {
      * @returns boolean
      */
     includes: (array, value, strict = true) => {
-        if (!Array.isArray(array) || array.length === 0) {
+        if (!isArray(array) || array.length === 0) {
             return false;
         }
 
         for (let index in array) {
-            if (strict) {
-                if (array[index] === value) {
-                    return true;
-                }
-            } else {
-                if (array[index] == value) {
-                    return true;
-                }
+            if ((strict && array[index] === value) || (!strict && array[index] == value)) {
+                return true;
             }
         }
 

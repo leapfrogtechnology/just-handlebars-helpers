@@ -346,7 +346,7 @@ Can check non-strictly(value only) by sending third argument as false.
 Parameters:
 ```
 params [array] The array. (Required)
-params [mixed] The value to checked for existence in the array. (Required)
+params [mixed] The value to be checked for existence in the array. (Required)
 params [boolean] FALSE for non-strict checking. TRUE by default. (Optional)
 ```
 Returns `boolean`
@@ -356,20 +356,18 @@ Usage:
 var array = [1, 2, 3];
 var value = 2;
 
-{{includes array value}}        => TRUE
+{{includes array value}}        => true
 
-value = '2'
-{{includes array value}}        => FALSE
-{{includes array value true}}   => FALSE
-{{includes array value false}}  => TRUE
-
-// Since it returns a boolean, we can use it in any conditional helpers like:
+var value = '2'
+{{includes array value}}        => false
+{{includes array value true}}   => false
+{{includes array value false}}  => true
 
 {{#if (includes array value)}}
    <!-- Do something -->
 {{/if}}
 
-Includes = {{ifx (includes array value) 'Yes' 'No'}}
+{{ifx (includes array value) 'Yes' 'No'}}
 ```
 
 ### Strings

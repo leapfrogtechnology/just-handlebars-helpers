@@ -441,5 +441,37 @@ describe('conditionals', () => {
 
             expect(template({array: array, value: value})).toEqual('false');
         });
+
+        it('should return false if array argument is not an array', () => {
+            var value = 2;
+            var array = 3;
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array argument is an empty array', () => {
+            var value = 2;
+            var array = [];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array argument is not an array', () => {
+            var value = 2;
+            var array = 3;
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array checks for existence of an empty string', () => {
+            var value = '';
+            var array = [5, 6, 7];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
     });
 });
