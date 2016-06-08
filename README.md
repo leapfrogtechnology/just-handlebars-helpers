@@ -338,6 +338,38 @@ var fullName = '', nickName = 'foob';
 {{coalesce fullName nickName 'Unknown'}}    => 'foob'
 ```
 
+#### includes
+Returns true if an array includes a value.
+It checks for the existence of the value in array strictly(value + data type) by default.
+Can check non-strictly(value only) by sending third argument as false.
+
+Parameters:
+```
+params [array] The array. (Required)
+params [mixed] The value to be checked for existence in the array. (Required)
+params [boolean] FALSE for non-strict checking. TRUE by default. (Optional)
+```
+Returns `boolean`
+
+Usage:
+```
+var array = [1, 2, 3];
+var value = 2;
+
+{{includes array value}}        => true
+
+var value = '2'
+{{includes array value}}        => false
+{{includes array value true}}   => false
+{{includes array value false}}  => true
+
+{{#if (includes array value)}}
+   <!-- Do something -->
+{{/if}}
+
+{{ifx (includes array value) 'Yes' 'No'}}
+```
+
 ### Strings
 #### excerpt
 Extract a sub-string from a string.
