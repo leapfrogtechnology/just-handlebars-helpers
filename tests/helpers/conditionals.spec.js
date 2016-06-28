@@ -369,6 +369,12 @@ describe('conditionals', () => {
 
             expect(template({condition1: true, condition2: false, condition3: true})).toEqual('true');
         });
+        
+        it('should work fine with direct boolean values', () => {
+            var template = compile('{{concat "The or operator: " (or false false)}}');
+
+            expect(template()).toEqual('The or operator: false');
+        });
     });
 
     describe('coalesce', () => {
