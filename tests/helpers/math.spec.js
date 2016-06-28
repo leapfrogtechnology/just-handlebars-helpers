@@ -1,3 +1,4 @@
+import '../misc';
 import {compile} from 'handlebars';
 import math from '../../src/helpers/math';
 

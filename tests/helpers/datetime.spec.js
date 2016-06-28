@@ -1,3 +1,4 @@
+import '../misc';
 import {compile} from 'handlebars';
 import datetime from '../../src/helpers/datetime';
 

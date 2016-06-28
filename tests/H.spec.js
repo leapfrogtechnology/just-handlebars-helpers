@@ -1,4 +1,5 @@
 
+import './misc';
 import H from '../src/H';
 import Handlebars from 'handlebars';
 
@@ -10,5 +11,4 @@ describe('H.registerHelpers', () => {
         spyOn(Handlebars.helpers, 'excerpt');
         spyOn(Handlebars.helpers, 'checkedIf');
     });
-
 });

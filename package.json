@@ -38,7 +38,9 @@
   "scripts": {
     "test": "karma start --single-run --browsers PhantomJS",
     "codecov": "cat coverage/*/lcov.info | codecov",
-    "prepublish": "gulp --silent"
+    "start:testing": "karma start",
+    "build": "gulp",
+    "prepublish": "npm run build --silent"
   },
   "repository": {
     "type": "git",
