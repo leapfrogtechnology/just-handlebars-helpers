@@ -1,3 +1,4 @@
+import '../misc';
 import {compile} from 'handlebars';
 import html from '../../src/helpers/html';
 

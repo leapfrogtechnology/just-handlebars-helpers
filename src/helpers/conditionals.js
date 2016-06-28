@@ -195,8 +195,8 @@ export default {
             params.pop();
         }
 
-        for (var index in params) {
-            if (!params[index]) {
+        for (let i = 0; i < params.length; i++) {
+            if (!params[i]) {
                 return false;
             }
         }
@@ -224,8 +224,8 @@ export default {
             params.pop();
         }
 
-        for (var index in params) {
-            if (params[index]) {
+        for (let i = 0; i < params.length; i++) {
+            if (params[i]) {
                 return true;
             }
         }
@@ -254,7 +254,7 @@ export default {
             params.pop();
         }
 
-        for (var i in params) {
+        for (let i = 0; i < params.length; i++) {
             if (params[i]) {
                 return params[i];
             }
@@ -282,8 +282,8 @@ export default {
             return false;
         }
 
-        for (let index in array) {
-            if ((strict && array[index] === value) || (!strict && array[index] == value)) {
+        for (let i = 0; i < array.length; i++) {
+            if ((strict && array[i] === value) || (!strict && array[i] == value)) {
                 return true;
             }
         }

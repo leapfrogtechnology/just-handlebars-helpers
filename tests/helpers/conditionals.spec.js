@@ -1,3 +1,4 @@
+import '../misc';
 import {compile} from 'handlebars';
 import conditionals from '../../src/helpers/conditionals';
 
@@ -369,7 +370,7 @@ describe('conditionals', () => {
 
             expect(template({condition1: true, condition2: false, condition3: true})).toEqual('true');
         });
-        
+
         it('should work fine with direct boolean values', () => {
             var template = compile('{{concat "The or operator: " (or false false)}}');
 
