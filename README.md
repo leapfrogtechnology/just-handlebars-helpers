@@ -12,6 +12,12 @@ A lightweight package with common [Handlebars](https://github.com/wycats/handleb
 ```bash
 $ npm install just-handlebars-helpers --save
 ```
+
+or
+
+```bash
+$ yarn add just-handlebars-helpers
+```
 ## Usage
 
 #### Browsers:
@@ -652,7 +658,7 @@ Returns `integer`
 
 Usage:
 ```
-{{floor 5.6}} => 5
+{{floor 5.6}}   => 5
 ```
 
 ### DateTime
@@ -708,7 +714,7 @@ Returns `string`
 Usage:
 ```
 {{hideIf true}}     => 'hidden'
-{{hideIf false}}     => ''
+{{hideIf false}}    => ''
 ```
 
 #### selectedIf
@@ -722,7 +728,7 @@ Returns `string`
 
 Usage:
 ```
-{{selectedIf true}} =>  'selected'
+{{selectedIf true}}     => 'selected'
 ```
 
 #### checkedIf
@@ -736,7 +742,7 @@ Returns `string`
 
 Usage:
 ```
-{{checkedIf true}}  => 'checked'
+{{checkedIf true}}      => 'checked'
 ```
 
 #### options
