@@ -7,12 +7,12 @@
     "handlebars": "^3.*"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^6.0.0",
     "babel-preset-es2015": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "browserify-istanbul": "^0.2.1",
-    "browserify-shimify": "*",
+    "browserify-shimify": "0.1.0-0",
     "codecov": "^1.0.1",
     "eslint": "2.2.0",
     "gulp": "^3.9.1",
