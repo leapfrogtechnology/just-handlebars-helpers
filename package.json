@@ -14,6 +14,7 @@
     "browserify-istanbul": "^0.2.1",
     "browserify-shimify": "*",
     "codecov": "^1.0.1",
+    "currency-formatter": "^1.1.1",
     "eslint": "2.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",

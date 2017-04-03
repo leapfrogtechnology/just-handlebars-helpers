@@ -1,4 +1,3 @@
-
 // Utils
 import {isObject} from './util/utils';
 
@@ -7,6 +6,7 @@ import html from './helpers/html';
 import math from './helpers/math';
 import strings from './helpers/strings';
 import datetime from './helpers/datetime';
+import formatters from './helpers/formatters';
 import conditionals from './helpers/conditionals';
 
 class H {
@@ -22,7 +22,7 @@ class H {
         }
 
         // Helpers list
-        let helpers = [math, html, strings, conditionals, datetime];
+        let helpers = [math, html, strings, conditionals, datetime, formatters];
 
         helpers.forEach(helper => {
             // Register all the helper functions to Handlebars
