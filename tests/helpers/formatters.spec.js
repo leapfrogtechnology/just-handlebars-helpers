@@ -49,5 +49,11 @@ describe('formatters', () => {
 
             expect(template()).toEqual('0.00');
         });
+
+        it('should return 0.00 for no currency value after compilation', () => {
+            let template = compile('{{currency}}');
+
+            expect(template()).toEqual('0.00');
+        });
     });
 });

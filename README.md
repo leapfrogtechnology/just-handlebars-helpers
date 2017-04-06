@@ -819,7 +819,7 @@ Format the currency value according to country.
 
 Parameters:
 ```
-value [number] The numerical value of currency to be formatters. (Required)
+value [number] The numerical value of currency. (Required)
 args [arbitrary arguments] The currency formatting parameters. (Optional)
 ```
 
@@ -831,6 +831,8 @@ Usage:
 {{currency 1000000 code='USD' precision=2}}  => $1,000,000.00
 {{currency 1000000 code='EUR' precision=2}}  => 1 000 000,00 €
 ```
+
+Note: The currency formatting parameters is used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
 
 ## Testing the helpers
 
