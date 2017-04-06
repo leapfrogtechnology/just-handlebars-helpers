@@ -832,7 +832,7 @@ Usage:
 {{currency 1000000 code='EUR' precision=2}}  => 1 000 000,00 €
 ```
 
-Note: The currency formatting parameters is used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
+Note: The currency formatting parameters are used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
 
 ## Testing the helpers
 
