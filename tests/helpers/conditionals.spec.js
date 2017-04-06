@@ -1,3 +1,4 @@
+import '../misc';
 import {compile} from 'handlebars';
 import conditionals from '../../src/helpers/conditionals';
 
@@ -177,7 +178,6 @@ describe('conditionals', () => {
         });
     });
 
-
     describe('gte', () => {
         it('should return true if param1 is greater than param2', () => {
             expect(conditionals.gte(2, 1)).toEqual(true);
@@ -241,6 +241,18 @@ describe('conditionals', () => {
             var template = compile('{{ifx (not (eq value 1)) 5 6}}');
 
             expect(template({value: 2})).toEqual('5');
+        });
+
+        it('allows to skip the third parameter', () => {
+            var template = compile('{{ifx isActive "active"}}');
+
+            expect(template({isActive: true})).toEqual('active');
+        });
+
+        it('returns a blank string by default for the false case if third parameter is omitted', () => {
+            var template = compile('{{ifx isActive "active"}}');
+
+            expect(template({isActive: false})).toEqual('');
         });
     });
 
@@ -357,6 +369,116 @@ describe('conditionals', () => {
             var template = compile('{{or condition1 condition2 condition3}}');
 
             expect(template({condition1: true, condition2: false, condition3: true})).toEqual('true');
+        });
+
+        it('should work fine with direct boolean values', () => {
+            var template = compile('{{concat "The or operator: " (or false false)}}');
+
+            expect(template()).toEqual('The or operator: false');
+        });
+    });
+
+    describe('coalesce', () => {
+        it('should return first non-false parameter', () => {
+            expect(conditionals.coalesce(null, undefined, false, 0, 'Hello', 'world')).toEqual('Hello');
+        });
+
+        it('should work with only two parameters', () => {
+            expect(conditionals.coalesce(null, 'Hello')).toEqual('Hello');
+        });
+
+        it('should work with a single parameter', () => {
+            expect(conditionals.coalesce('Hello')).toEqual('Hello');
+        });
+
+        it('should return first non-false parameter after compilation', () => {
+            var template = compile('{{coalesce fullName nickName "Unknown"}}');
+
+            expect(template({fullName: '', nickName: null})).toEqual('Unknown');
+        });
+
+        it('should ignore rest of the parameters if a true value is found', () => {
+            var template = compile('{{coalesce fullName nickName "Unknown"}}');
+
+            expect(template({fullName: 'Foo Bar', nickName: 'foob'})).toEqual('Foo Bar');
+        });
+
+        it('should work with a single parameter after compilation', () => {
+            var template = compile('{{coalesce fullName}}');
+
+            expect(template({fullName: 'Foo Bar'})).toEqual('Foo Bar');
+        });
+
+        it('should return the last parameter if all the parameters are falsy', () => {
+            var template = compile('{{coalesce fullName nickName}}');
+
+            expect(template({fullName: null, nickName: ''})).toEqual('');
+        });
+    });
+
+    describe('includes', () => {
+        it('should return true if array strictly includes the element after compilation', () => {
+            var value = 3;
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('true');
+        });
+
+        it('should return false if array strictly does not include the element after compilation', () => {
+            var value = '3';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return true if array non-strictly includes the element after compilation', () => {
+            var value = '3';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value false}}');
+
+            expect(template({array: array, value: value})).toEqual('true');
+        });
+
+        it('should return false if array non-strictly does not include the element after compilation', () => {
+            var value = '6';
+            var array = [1, 2, 3, 4, 5];
+            var template = compile('{{includes array value false}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array argument is not an array', () => {
+            var value = 2;
+            var array = 3;
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array argument is an empty array', () => {
+            var value = 2;
+            var array = [];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array argument is not an array', () => {
+            var value = 2;
+            var array = 3;
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
+        });
+
+        it('should return false if array checks for existence of an empty string', () => {
+            var value = '';
+            var array = [5, 6, 7];
+            var template = compile('{{includes array value}}');
+
+            expect(template({array: array, value: value})).toEqual('false');
         });
     });
 });

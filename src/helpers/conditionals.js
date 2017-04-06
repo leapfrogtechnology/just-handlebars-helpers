@@ -1,7 +1,6 @@
 import {isArray, isObject} from '../util/utils';
 
 export default {
-
     /**
      * Determine whether or not two values are equal (===).
      * @example
@@ -108,16 +107,26 @@ export default {
 
     /**
      * Helper to imitate the ternary conditional operator ?:
+     *
      * @example
      *      {{ifx true 'Foo' 'Bar'}}    => Foo
      *      {{ifx false 'Foo' 'Bar'}}   => Foo
      *
      * @param condition
-     * @param value1
-     * @param value2
-     * @returns value1 | value2
+     * @param value1    Value to return when the condition holds true
+     * @param value2    Value to return when the condition is false (Optional)
+     * @returns mixed
      */
     ifx: (condition, value1, value2) => {
+        // Check if user has omitted the last parameter
+        // if that's the case, it would be the handlebars's options object
+        // which it sends always as the last parameter.
+        if (isObject(value2) && value2.name === 'ifx' && value2.hasOwnProperty('hash')) {
+            // This means the user has skipped the last parameter,
+            // so we should return an empty string ('') in the else case instead.
+            value2 = '';
+        }
+
         return !!condition ? value1 : value2;
     },
 
@@ -186,8 +195,8 @@ export default {
             params.pop();
         }
 
-        for (var index in params) {
-            if (!params[index]) {
+        for (let i = 0; i < params.length; i++) {
+            if (!params[i]) {
                 return false;
             }
         }
@@ -215,8 +224,66 @@ export default {
             params.pop();
         }
 
-        for (var index in params) {
-            if (params[index]) {
+        for (let i = 0; i < params.length; i++) {
+            if (params[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    },
+
+    /**
+     * Returns the first non-falsy value from the parameter list.
+     * Works quite similar to the SQL's COALESCE() function, but unlike this
+     * checks for the first non-false parameter.
+     *
+     * @example
+     *     var fullName = 'Foo Bar', nickName = 'foob';
+     *     {{coalesce fullName nickName 'Unknown'}}    => 'Foo Bar'
+     *
+     *     var fullName = '', nickName = 'foob';
+     *     {{coalesce fullName nickName 'Unknown'}}    => 'foob'
+     *
+     * @param params
+     * @returns mixed
+     */
+    coalesce: (...params) => {
+        // Ignore the object appended by handlebars.
+        if (isObject(params[params.length - 1])) {
+            params.pop();
+        }
+
+        for (let i = 0; i < params.length; i++) {
+            if (params[i]) {
+                return params[i];
+            }
+        }
+
+        return params.pop();
+    },
+
+    /**
+     * Returns boolean if the array contains the element strictly or non-strictly.
+     * @example
+     *     var array = [1, 2, 3, 4];
+     *     var value1 = 2, value2 = 10, value3 = '3';
+     *     {{includes array value1}}        => true
+     *     {{includes array value2}}        => false
+     *     {{includes array value3}}        => false
+     *     {{includes array value3 false}}  => false
+     *
+     * @param array
+     * @param value
+     * @returns boolean
+     */
+    includes: (array, value, strict = true) => {
+        if (!isArray(array) || array.length === 0) {
+            return false;
+        }
+
+        for (let i = 0; i < array.length; i++) {
+            if ((strict && array[i] === value) || (!strict && array[i] == value)) {
                 return true;
             }
         }

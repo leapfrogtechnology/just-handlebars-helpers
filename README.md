@@ -3,7 +3,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/leapfrogtechnology/just-handlebars-helpers)
 [![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
-[![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
 A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
 
@@ -11,6 +11,12 @@ A lightweight package with common [Handlebars](https://github.com/wycats/handleb
 
 ```bash
 $ npm install just-handlebars-helpers --save
+```
+
+or
+
+```bash
+$ yarn add just-handlebars-helpers
 ```
 ## Usage
 
@@ -39,6 +45,48 @@ var H = require('just-handlebars-helpers');
 H.registerHelpers(Handlebars);
 ```
 ## Helpers
+
+| Helper                                | Description                                             |
+|---------------------------------------|---------------------------------------------------------|
+| [eq](#eq)                             | Strict equality `===`                                   |
+| [eqw](#eqw)                           | Equality `==`                                           |
+| [neq](#neq)                           | Strict inequality `!==`                                 |
+| [neqw](#neqw)                         | Inequality `!=`                                         |
+| [lt](#lt)                             | Less than `<`                                           |
+| [lte](#lte)                           | Less than or equal `<=`                                 |
+| [gt](#gt)                             | Greater than `>`                                        |
+| [gte](#gte)                           | Greater than or equal `>=`                              |
+| [not](#not)                           | Not `!`                                                 |
+| [ifx](#ifx)                           | Imitates conditional operator `?:`                      |
+| [empty](#empty)                       | Check if an array is empty                              |
+| [count](#count)                       | Length of an array                                      |
+| [and](#and)                           | Logical AND operation                                   |
+| [or](#or)                             | Logical OR operation                                    |
+| [coalesce](#coalesce)                 | Returns first non-falsy value from list of parameters   |
+| [includes](#includes)                 | Check for a value inside an array                       |
+| [excerpt](#excerpt)                   | Extract a sub-string from a string                      |
+| [sanitize](#sanitize)                 | Sanitize a string to url friendy dash case              |
+| [newLineToBr](#newlinetobr)           | Replace new line with line breaks `<br>` of a string    |
+| [capitalizeEach](#capitalizeeach)     | Capitalize the first letter of each word in a string    |
+| [capitalizeFirst](#capitalizefirst)   | Capitalize the first letter of a string                 |
+| [sprintf](#sprintf)                   | String produced according to the formatting format      |
+| [lowercase](#lowercase)               | String to lowercase                                     |
+| [uppercase](#uppercase)               | String to uppercase                                     |
+| [first](#first)                       | First element of an array                               |
+| [last](#last)                         | Last element of an array                                |
+| [concat](#concat)                     | Concatenate two or more strings                         |
+| [join](#join)                         | Join elements of an array using a delimeter             |
+| [sum](#sum)                           | Sum of two numbers                                      |
+| [difference](#difference)             | Difference of two numbers                               |
+| [ceil](#ceil)                         | Round a number upward to its nearest integer            |
+| [floor](#floor)                       | Round a number downward to its nearest integer          |
+| [formatDate](#formatdate)             | Format date to specified format                         |
+| [showIf](#showif)                     | Show html element if expression is true                 |
+| [hideIf](#hideif)                     | Hide html element if expression is true                 |
+| [selectedIf](#selectedif)             | Select `<option>` if expression is true                 |
+| [checkedIf](#checkedif)               | Check the `<input>` checkbox if expression is true      |
+| [options](#options)                   | Generate `<option>` list for `<select>`                 |
+
 ### Conditional
 #### eq
 Determine whether or not two values are equal (===).
@@ -54,7 +102,6 @@ Usage:
 ```
 {{eq '3' 3}}    => false
 
-// Could be also used in if
 {{#if (eq foo 'bar')}}
 	Hello
 {{/if}}
@@ -74,7 +121,6 @@ Usage:
 ```
 {{eqw '3' 3}}   => true
 
-// Could be also used in if
 {{#if (eqw foo 'bar')}}
 	Hello
 {{/if}}
@@ -94,7 +140,6 @@ Usage:
 ```
 {{neq 4 3}}    => true
 
-// Could be also used in if
 {{#if (neq foo 'bar')}}
 	Hello
 {{/if}}
@@ -114,7 +159,6 @@ Usage:
 ```
 {{neqw '3' 3}}    => false
 
-// Could be also used in if
 {{#if (neqw foo 'bar')}}
 	Hello
 {{/if}}
@@ -134,7 +178,6 @@ Usage:
 ```
 {{lt 2 3}}   => true
 
-// Could be also used in if
 {{#if (lt 2 5)}}
 	Hello
 {{/if}}
@@ -154,7 +197,6 @@ Usage:
 ```
 {{lte 2 3}}   => true
 
-// Could be also used in if
 {{#if (lte 5 6)}}
 	Hello
 {{/if}}
@@ -174,7 +216,6 @@ Usage:
 ```
 {{gt 2 3}}   => false
 
-// Could be also used in if
 {{#if (gt 10 7)}}
 	Hello
 {{/if}}
@@ -194,7 +235,6 @@ Usage:
 ```
 {{gte 3 3}}   => true
 
-// Could be also used in if
 {{#if (gte 10 2)}}
 	Hello
 {{/if}}
@@ -214,7 +254,6 @@ Usage:
 {{not true}}    => false
 {{not false}}   => true
 
-// Could be also used in if
 {{#if (not (eq foo 'bar'))}}
 	Hello
 {{/if}}
@@ -227,9 +266,9 @@ Parameters:
 ```
 condition [boolean] Satisfying condition for getting first value. Either true of false. (Required)
 value1 [mixed] First value to be displayed as result. (Required)
-value2 [mixed] Second value to be displayed as result. (Required)
+value2 [mixed] Second value to be displayed as result. Defaults to an empty string (Optional)
 ```
-Returns `value1 | value2`
+Returns `mixed`
 
 Usage:
 ```
@@ -237,6 +276,10 @@ Usage:
 {{ifx false 'Foo' 'Bar'}}       => Foo  // return (false) ? 'Foo' : 'Bar'
 {{ifx (eq value 1) 5 6}}        => 6    // return (value === 1) ? 5 : 6
 {{ifx (not (eq value 1)) 5 6}}  => 6    // return (value !== 1) ? 5 : 6
+
+<!-- The third parameter is optional, and by default it will be blank string ('') -->
+{{ifx true 'active'}}  => 'active'
+{{ifx false 'active'}}  => ''
 ```
 
 #### empty
@@ -253,8 +296,6 @@ Usage:
 var array = [5, 6];     // An array.
 {{empty array}} => false
 
-
-// Could be also used in if
 {{#if (empty array)}}
 	Hello
 {{/if}}
@@ -276,7 +317,7 @@ var array = [5, 6];    // An array.
 ```
 
 #### and
-Returns the boolean AND of two or more parameters passed i.e
+Returns the logical AND of two or more parameters passed i.e
 it is true iff all the parameters are true.
 
 Parameters:
@@ -301,7 +342,7 @@ var value1 = false, value2 = true;
 ```
 
 #### or
-Returns the boolean OR of two or more parameters passed i.e
+Returns the logical OR of two or more parameters passed i.e
 it is true if any of the parameters is true.
 
 Parameters:
@@ -323,6 +364,58 @@ var value = value2 = false;
 {{else}}
     // do something else
 {{/if}}
+```
+
+#### coalesce
+Returns the first non-falsy value from the parameter list.
+Works quite similar to the SQL's COALESCE() function, but unlike this
+checks for the first non-false parameter.
+
+Parameters:
+```
+params [mixed] Any number of parameters. (Required)
+```
+Returns `mixed`
+
+Usage:
+```
+var fullName = 'Foo Bar', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'Foo Bar'
+
+var fullName = '', nickName = 'foob';
+{{coalesce fullName nickName 'Unknown'}}    => 'foob'
+```
+
+#### includes
+Returns true if an array includes a value.
+It checks for the existence of the value in array strictly(value + data type) by default.
+Can check non-strictly(value only) by sending third argument as false.
+
+Parameters:
+```
+params [array] The array. (Required)
+params [mixed] The value to be checked for existence in the array. (Required)
+params [boolean] FALSE for non-strict checking. TRUE by default. (Optional)
+```
+Returns `boolean`
+
+Usage:
+```
+var array = [1, 2, 3];
+var value = 2;
+
+{{includes array value}}        => true
+
+var value = '2'
+{{includes array value}}        => false
+{{includes array value true}}   => false
+{{includes array value false}}  => true
+
+{{#if (includes array value)}}
+   <!-- Do something -->
+{{/if}}
+
+{{ifx (includes array value) 'Yes' 'No'}}
 ```
 
 ### Strings
@@ -370,7 +463,7 @@ Usage:
 ```
 
 #### capitalizeEach
-Capitalize each letter of every words in a string.
+Capitalize the first letter of each word in a string.
 
 Parameters
 ```
@@ -399,6 +492,10 @@ Usage:
 
 #### sprintf
 A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
+
+**Note:** To use sprintf helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
+
+``` npm install sprintf-js --save ```
 
 Parameters:
 ```
@@ -561,10 +658,15 @@ Returns `integer`
 
 Usage:
 ```
-{{floor 5.6}} => 5
+{{floor 5.6}}   => 5
 ```
 
-### Date-time
+### DateTime
+
+**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment)
+
+``` npm install moment --save ```
+
 #### formatDate
 A formatDate helper to format date using moment js.
 
@@ -612,7 +714,7 @@ Returns `string`
 Usage:
 ```
 {{hideIf true}}     => 'hidden'
-{{hideIf false}}     => ''
+{{hideIf false}}    => ''
 ```
 
 #### selectedIf
@@ -626,7 +728,7 @@ Returns `string`
 
 Usage:
 ```
-{{selectedIf true}} =>  'selected'
+{{selectedIf true}}     => 'selected'
 ```
 
 #### checkedIf
@@ -640,7 +742,73 @@ Returns `string`
 
 Usage:
 ```
-{{checkedIf true}}  => 'checked'
+{{checkedIf true}}      => 'checked'
+```
+
+#### options
+An options helper for generating `<option>` list for `<select>` dropdowns.
+
+Parameters:
+```
+data [array] List of data (Required)
+id [string] Name of identifier key from the data list, defaults to id (Optional)
+text [string] Name of description key from the data list, defaults to description (Optional)
+selected [string] Id to be set as selected (Optional)
+```
+
+Usage:
+```
+{{{options data}}}
+{{{options data selected="value"}}}
+{{{options data id="id" text="description"}}}
+```
+
+A simple example:
+```
+let data = [
+    {
+        id: 1,
+        description: 'Foo'
+    },
+    {
+        id: 2,
+        description: 'Bar'
+    },
+    {
+        id: 3,
+        description: 'Foo Bar'
+    }
+];
+```
+```
+{{{options data selected="2"}}}
+```
+will generate html like this:
+```
+<option value="1">Foo</option>
+<option value="2" selected>Bar</option>
+<option value="3">Foo Bar</option>
+```
+You can also override the default key names for `id` & `description` using the `id` & `text` options in the helper.
+```
+let data = [
+    {
+        value: 1,
+        text: 'New York'
+    },
+    {
+        value: 2,
+        text: 'London'
+    }
+];
+```
+```
+{{{options data selected="1" id="value" text="text"}}}
+```
+will generate html like this:
+```
+<option value="1" selected>New York</option>
+<option value="2">London</option>
 ```
 
 ## Testing the helpers

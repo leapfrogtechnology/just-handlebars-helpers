@@ -1,7 +1,6 @@
 import {isString} from '../util/utils';
 
 export default {
-
     /**
      * A formatDate helper to format date using moment js.
      *
