@@ -1,46 +1,53 @@
 import {compile} from 'handlebars';
-import formatters from '../../src/helpers/formatters';
 
 describe('formatters', () => {
     describe('currency', () => {
-        it('should return USD currency', () => {
-            expect(formatters.currency('USD', 1000000)).toEqual('$1,000,000.00');
+        it('should return USD currency for USD code after compilation', () => {
+            let template = compile('{{currency 1000000 code="USD"}}');
+
+            expect(template()).toEqual('$1,000,000');
         });
 
-        it('should return USD currency after compilation', () => {
-            let template = compile('{{currency countryCode value}}');
+        it('should return USD currency with precision for USD code and precision after compilation', () => {
+            let template = compile('{{currency 1000000.125 code="USD" precision=2}}');
 
-            expect(template({countryCode: 'USD', value: 100000})).toEqual('$100,000.00');
+            expect(template()).toEqual('$1,000,000.13');
         });
 
-        it('should return EUR currency', () => {
-            expect(formatters.currency('EUR', 1000000)).toEqual('1 000 000,00 €');
+        it('should return USD currency with precision = 2 for currency with decimal values after compilation', () => {
+            let template = compile('{{currency 1000000.435 code="USD"}}');
+
+            expect(template()).toEqual('$1,000,000.44');
         });
 
-        it('should return EUR currency after compilation', () => {
-            let template = compile('{{currency countryCode value}}');
+        it('should return value in thousands format for no country code after compilation', () => {
+            let template = compile('{{currency 1000000}}');
 
-            expect(template({countryCode: 'EUR', value: 100000})).toEqual('100 000,00 €');
+            expect(template()).toEqual('1,000,000');
         });
 
-        it('should return formatted number on using invalid currency type', () => {
-            expect(formatters.currency('ZZZ', 1000000)).toEqual('1,000,000.00');
+        it('should return value in thousands format for invalid country code after compilation', () => {
+            let template = compile('{{currency 1000000 code="ZZZ"}}');
+
+            expect(template()).toEqual('1,000,000');
         });
 
-        it('should return formatted number on using invalid currency type after compilation', () => {
-            let template = compile('{{currency countryCode value}}');
+        it('should return 0.00 for invalid currency value without country code after compilation', () => {
+            let template = compile('{{currency "asd"}}');
 
-            expect(template({countryCode: 'ZZZ', value: 100000})).toEqual('100,000.00');
+            expect(template()).toEqual('0.00');
         });
 
-        it('should return zero for invalid numbers', () => {
-            expect(formatters.currency('USD', 'abc')).toEqual('$0.00');
+        it('should return USD 0.00 for invalid currency value with USD code after compilation', () => {
+            let template = compile('{{currency "asdf" code="USD"}}');
+
+            expect(template()).toEqual('$0.00');
         });
 
-        it('should return zero for invalid numbers after compilation', () => {
-            let template = compile('{{currency countryCode value}}');
+        it('should return 0.00 for invalid currency value with invalid country code after compilation', () => {
+            let template = compile('{{currency "asd" code="ZZZ"}}');
 
-            expect(template({countryCode: 'USD', value: 'test'})).toEqual('$0.00');
+            expect(template()).toEqual('0.00');
         });
     });
 });
