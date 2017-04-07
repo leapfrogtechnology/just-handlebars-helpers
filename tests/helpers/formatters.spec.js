@@ -1,6 +1,7 @@
 import {compile} from 'handlebars';
 
 describe('formatters', () => {
+
     describe('currency', () => {
         it('should return USD currency for USD code after compilation', () => {
             let template = compile('{{currency 1000000 code="USD"}}');
@@ -54,6 +55,24 @@ describe('formatters', () => {
             let template = compile('{{currency}}');
 
             expect(template()).toEqual('0.00');
+        });
+
+        it('should return EUR currency value for EUR code after compilation', () => {
+            let template = compile('{{currency 1000000 code="EUR"}}');
+
+            expect(template()).toEqual('1 000 000 €');
+        });
+
+        it('should return EUR currency value with symbol on left for EUR code after compilation', () => {
+            let template = compile('{{currency 1000000 code="EUR" format="%s %v"}}');
+
+            expect(template()).toEqual('€ 1 000 000');
+        });
+
+        it('should return EUR currency value with "," as thousand separator and "." as decimal separator for EUR code after compilation', () => {
+            let template = compile('{{currency 1000000.25 code="EUR" thousand="," decimal="."}}');
+
+            expect(template()).toEqual('1,000,000.25 €');
         });
     });
 });

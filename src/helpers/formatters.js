@@ -15,7 +15,7 @@ export default {
         let currencyFormatter = require('currency-formatter');
 
         if (!currencyFormatter) {
-            throw new Error('Currency Formatter JS is required for this helper. Make sure you have loaded moment js https://www.npmjs.com/package/currency-formatter');
+            throw new Error('Currency Formatter JS is required for this helper. Make sure you have loaded https://www.npmjs.com/package/currency-formatter');
         }
 
         let params = [];
