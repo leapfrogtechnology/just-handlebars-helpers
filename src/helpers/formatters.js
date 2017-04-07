@@ -1,12 +1,13 @@
-import {precision, isObject} from '../util/utils';
+import {isObject} from '../util/utils';
 
 export default {
 
     /**
      * Format the currency according to the country.
      * @example
-     *      {{currency 1000000 code='USD'}}  => $1,000,000
-     *      {{currency 1000000 code='EUR' precision=2}}  => 1 000 000,00 €
+     *      {{currency 1000000 code='USD'}}  => $1,000,000.00
+     *      {{currency 1000000 code='EUR'}}  => 1 000 000,00 €
+     *      {{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
      *
      * @param value
      * @param args
@@ -24,8 +25,6 @@ export default {
             if (isObject(arg) && isObject(arg.hash)) {
                 arg = arg.hash;
             }
-
-            arg.precision = arg.precision ? arg.precision : precision(value);
 
             params.push(arg);
         });

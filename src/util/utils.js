@@ -58,14 +58,4 @@ function isArray(thing) {
     return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
-/**
- * Remove decimal place if the decimal value is empty.
- *
- * @param value
- * @returns {*}
- */
-function precision(value) {
-    return value % 1 === 0 ? 0 : null;
-}
-
-export {isFunction, isUndefined, isDefined, isObject, isArray, isString, precision};
+export {isFunction, isUndefined, isDefined, isObject, isArray, isString};

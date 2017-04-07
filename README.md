@@ -827,9 +827,9 @@ Returns: `string`
 
 Usage:
 ```
-{{currency 1000000 code='USD'}}  => $1,000,000
-{{currency 1000000 code='USD' precision=2}}  => $1,000,000.00
-{{currency 1000000 code='EUR' precision=2}}  => 1 000 000,00 €
+{{currency 1000000 code='USD'}}  => $1,000,000.00
+{{currency 1000000 code='EUR'}}  => 1 000 000,00 €
+{{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
 ```
 
 Note: The currency formatting parameters are used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
