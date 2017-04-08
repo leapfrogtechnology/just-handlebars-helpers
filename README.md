@@ -86,6 +86,7 @@ H.registerHelpers(Handlebars);
 | [selectedIf](#selectedif)             | Select `<option>` if expression is true                 |
 | [checkedIf](#checkedif)               | Check the `<input>` checkbox if expression is true      |
 | [options](#options)                   | Generate `<option>` list for `<select>`                 |
+| [currency](#currency)                 | Format currency value according to country              |
 
 ### Conditional
 #### eq
@@ -810,6 +811,28 @@ will generate html like this:
 <option value="1" selected>New York</option>
 <option value="2">London</option>
 ```
+
+### Formatters
+
+#### currency
+Format the currency value according to country.
+
+Parameters:
+```
+value [number] The numerical value of currency. (Required)
+args [arbitrary arguments] The currency formatting parameters. (Optional)
+```
+
+Returns: `string`
+
+Usage:
+```
+{{currency 1000000 code='USD'}}  => $1,000,000.00
+{{currency 1000000 code='EUR'}}  => 1 000 000,00 €
+{{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
+```
+
+Note: The currency formatting parameters are used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
 
 ## Testing the helpers
 
