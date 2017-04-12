@@ -784,7 +784,7 @@ let data = [
 ```
 {{{options data selected="2"}}}
 ```
-will generate html like this:
+will generate HTML like this:
 ```
 <option value="1">Foo</option>
 <option value="2" selected>Bar</option>
@@ -832,7 +832,7 @@ Usage:
 {{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
 ```
 
-Note: The currency formatting parameters are used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter). 
+Note: The currency formatting parameters are used from [https://github.com/smirzaei/currency-formatter](https://github.com/smirzaei/currency-formatter).
 
 ## Testing the helpers
 
@@ -851,3 +851,7 @@ $ npm test
  * [Swag](https://github.com/elving/swag)
  * [Dashbars](https://github.com/pismute/dashbars)
  * [Assemble](https://github.com/assemble/handlebars-helpers)
+
+## License
+
+[MIT](LICENSE.md)
