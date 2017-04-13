@@ -40,7 +40,8 @@ gulp.task('bundle', ['transpile'], function() {
 
     var shimifyConfig = {
         'sprintf-js': '{sprintf: window.sprintf, vsprintf: window.vsprintf}',
-        'moment': 'window.moment'
+        'moment': 'window.moment',
+        'currency': 'window.currency'
     };
 
     return browserify(config)

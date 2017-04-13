@@ -13,10 +13,10 @@ export default {
      * @param args
      */
     currency: (value, ...args) => {
-        let currencyFormatter = require('currency-formatter');
+        let currencyFormatter = global.currency;
 
         if (!currencyFormatter) {
-            throw new Error('Currency Formatter JS is required for this helper. Make sure you have loaded https://www.npmjs.com/package/currency-formatter');
+            currencyFormatter = require('currency-formatter');
         }
 
         let params = [];

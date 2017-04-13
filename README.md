@@ -81,8 +81,8 @@ H.registerHelpers(Handlebars);
 | [ceil](#ceil)                         | Round a number upward to its nearest integer            |
 | [floor](#floor)                       | Round a number downward to its nearest integer          |
 | [formatDate](#formatdate)             | Format date to specified format                         |
-| [showIf](#showif)                     | Show html element if expression is true                 |
-| [hideIf](#hideif)                     | Hide html element if expression is true                 |
+| [showIf](#showif)                     | Show HTML element if expression is true                 |
+| [hideIf](#hideif)                     | Hide HTML element if expression is true                 |
 | [selectedIf](#selectedif)             | Select `<option>` if expression is true                 |
 | [checkedIf](#checkedif)               | Check the `<input>` checkbox if expression is true      |
 | [options](#options)                   | Generate `<option>` list for `<select>`                 |
@@ -689,7 +689,7 @@ var date = new Date('01/22/2016');
 
 ### HTML
 #### showIf
-A showIf helper for showing any html element.
+A showIf helper for showing any HTML element.
 
 Parameters:
 ```
@@ -704,7 +704,7 @@ Usage:
 ```
 
 #### hideIf
-A hideIf helper for hiding any html element.
+A hideIf helper for hiding any HTML element.
 
 Parameters:
 ```
@@ -784,7 +784,7 @@ let data = [
 ```
 {{{options data selected="2"}}}
 ```
-will generate HTML like this:
+will generate HTML:
 ```
 <option value="1">Foo</option>
 <option value="2" selected>Bar</option>
@@ -806,7 +806,7 @@ let data = [
 ```
 {{{options data selected="1" id="value" text="text"}}}
 ```
-will generate html like this:
+will generate HTML:
 ```
 <option value="1" selected>New York</option>
 <option value="2">London</option>
