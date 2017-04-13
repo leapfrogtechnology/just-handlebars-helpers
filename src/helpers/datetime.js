@@ -13,10 +13,10 @@ export default {
      */
     formatDate: (formatString, date) => {
 
-        let moment = require('moment');
+        let moment = global.moment;
 
         if (!moment) {
-            throw new Error('Moment JS is required for this helper. Make sure you have loaded moment js http://momentjs.com/');
+            moment = require('moment');
         }
 
         formatString = isString(formatString) ? formatString : '';
