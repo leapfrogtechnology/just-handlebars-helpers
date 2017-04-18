@@ -1,3 +1,4 @@
+import faker from 'faker';
 import {compile} from 'handlebars';
 
 describe('formatters', () => {
@@ -33,9 +34,9 @@ describe('formatters', () => {
         });
 
         it('should return negative NaN USD currency invalid value after compilation', () => {
-            let template = compile('{{formatCurrency "asd"}}');
+            let template = compile('{{formatCurrency value}}');
 
-            expect(template()).toEqual('-&#x24;NaN');
+            expect(template({value: faker.random.word()})).toEqual('-&#x24;NaN');
         });
 
         it('should return USD currency value in string after compilation', () => {
@@ -45,21 +46,21 @@ describe('formatters', () => {
         });
 
         it('should return empty value for invalid currency code only', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency="ZZZ"}}');
+            let template = compile('{{formatCurrency 1234567.89 currency=code}}');
 
-            expect(template()).toEqual('');
+            expect(template({code: faker.address.countryCode()})).toEqual('');
         });
 
         it('should return USD with en locale for invalid locale only', () => {
-            let template = compile('{{formatCurrency 1234567.89 en="abc"}}');
+            let template = compile('{{formatCurrency 1234567.89 en=locale}}');
 
-            expect(template()).toEqual('&#x24;1,234,567.89');
+            expect(template({locale: faker.random.locale()})).toEqual('&#x24;1,234,567.89');
         });
 
         it('should return empty value for invalid currency code and en locale', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency="ZZZ"}}');
+            let template = compile('{{formatCurrency 1234567.89 currency=code}}');
 
-            expect(template()).toEqual('');
+            expect(template({code: faker.address.countryCode()})).toEqual('');
         });
     });
 });

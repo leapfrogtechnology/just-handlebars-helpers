@@ -16,6 +16,7 @@
     "codecov": "^1.0.1",
     "currencyformatter.js": "^1.0.4",
     "eslint": "2.2.0",
+    "faker": "^4.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^2.0.0",
