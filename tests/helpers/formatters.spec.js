@@ -4,19 +4,19 @@ import {compile} from 'handlebars';
 describe('formatters', () => {
     describe('formatCurrency', () => {
         it('should return USD currency for USD code after compilation', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency="USD"}}');
+            let template = compile('{{formatCurrency 1234567.89 code="USD"}}');
 
             expect(template()).toEqual('&#x24;1,234,567.89');
         });
 
         it('should return EUR currency for EUR code after compilation', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency="EUR"}}');
+            let template = compile('{{formatCurrency 1234567.89 code="EUR"}}');
 
             expect(template()).toEqual('1.234.567,89 &#x20ac;');
         });
 
         it('should return EUR currency with en locale for EUR code and en locale after compilation', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency="EUR" locale="en"}}');
+            let template = compile('{{formatCurrency 1234567.89 code="EUR" locale="en"}}');
 
             expect(template()).toEqual('&#x20ac;1,234,567.89');
         });
@@ -46,9 +46,9 @@ describe('formatters', () => {
         });
 
         it('should return empty value for invalid currency code only', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency=code}}');
+            let template = compile('{{formatCurrency 1234567.89 code=countryCode}}');
 
-            expect(template({code: faker.address.countryCode()})).toEqual('');
+            expect(template({countryCode: faker.address.countryCode()})).toEqual('');
         });
 
         it('should return USD with en locale for invalid locale only', () => {
@@ -58,9 +58,9 @@ describe('formatters', () => {
         });
 
         it('should return empty value for invalid currency code and en locale', () => {
-            let template = compile('{{formatCurrency 1234567.89 currency=code}}');
+            let template = compile('{{formatCurrency 1234567.89 code=countryCode}}');
 
-            expect(template({code: faker.address.countryCode()})).toEqual('');
+            expect(template({countryCode: faker.address.countryCode()})).toEqual('');
         });
     });
 });

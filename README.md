@@ -827,9 +827,9 @@ Returns: `string`
 
 Usage:
 ```
-{{formatCurrency 1234567.89 currency='USD'}}  => $1,234,567.89
-{{formatCurrency 1234567.89 currency='EUR'}}  => 1.234.567,89 €
-{{formatCurrency 1234567.89 currency='EUR' locale="en"}}  => €1,234,567.89
+{{formatCurrency 1234567.89 code='USD'}}  => $1,234,567.89
+{{formatCurrency 1234567.89 code='EUR'}}  => 1.234.567,89 €
+{{formatCurrency 1234567.89 code='EUR' locale="en"}}  => €1,234,567.89
 ```
 
 Note: The currency formatting parameters are used from [https://github.com/osrec/currencyFormatter.js](https://github.com/osrec/currencyFormatter.js).

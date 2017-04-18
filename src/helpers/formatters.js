@@ -5,9 +5,9 @@ export default {
     /**
      * Format the currency according to the country.
      * @example
-     *      {{currency 1000000 code='USD'}}  => $1,000,000.00
-     *      {{currency 1000000 code='EUR'}}  => 1 000 000,00 €
-     *      {{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
+     *      {{formatCurrency 1234567.89 code='USD'}}  => $1,234,567.89
+     *      {{formatCurrency 1234567.89 code='EUR'}}  => 1.234.567,89 €
+     *      {{formatCurrency 1234567.89 code='EUR' locale="en"}}  => €1,234,567.89
      *
      * @param value
      * @param args
@@ -37,6 +37,8 @@ export default {
         if (params.length) {
             params = params[0];
         }
+
+        params.currency = !isUndefined(params.code) ? params.code : params.currency;
 
         if (!isUndefined(params.currency) && !(params.currency in currencyFormatter.symbols)) {
             console.error(`Invalid currency code ${params.currency} provided for helper \`formatCurrency\`.`);
