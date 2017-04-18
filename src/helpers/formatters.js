@@ -1,4 +1,4 @@
-import {isObject} from '../util/utils';
+import {isObject, isUndefined} from '../util/utils';
 
 export default {
 
@@ -13,10 +13,15 @@ export default {
      * @param args
      */
     formatCurrency: (value, ...args) => {
-        let currencyFormatter = global.currencyFormatter;
+        let currencyFormatter = global.OSREC && global.OSREC.CurrencyFormatter;
+        let handlebars = global.Handlebars;
 
-        if (!currencyFormatter) {
-            currencyFormatter = require('currencyFormatter');
+        if (isUndefined(currencyFormatter)) {
+            currencyFormatter = require('currencyformatter.js');
+        }
+
+        if (isUndefined(handlebars)) {
+            handlebars = require('handlebars');
         }
 
         let params = [];
@@ -33,6 +38,12 @@ export default {
             params = params[0];
         }
 
-        return currencyFormatter.format(value, params);
+        if (!isUndefined(params.currency) && !(params.currency in currencyFormatter.symbols)) {
+            console.error(`Invalid currency code ${params.currency} provided for helper \`formatCurrency\`.`);
+
+            return;
+        }
+
+        return new handlebars.SafeString(currencyFormatter.format(value, params));
     }
 };
