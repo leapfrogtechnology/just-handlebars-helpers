@@ -12,11 +12,11 @@ export default {
      * @param value
      * @param args
      */
-    currency: (value, ...args) => {
-        let currencyFormatter = global.currency;
+    formatCurrency: (value, ...args) => {
+        let currencyFormatter = global.currencyFormatter;
 
         if (!currencyFormatter) {
-            currencyFormatter = require('currency-formatter');
+            currencyFormatter = require('currencyFormatter');
         }
 
         let params = [];
