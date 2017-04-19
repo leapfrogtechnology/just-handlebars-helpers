@@ -4,7 +4,7 @@
  * @param thing
  * @returns boolean
  */
-function isFunction(thing) {
+export function isFunction(thing) {
     return (typeof thing === 'function');
 }
 
@@ -14,7 +14,7 @@ function isFunction(thing) {
  * @param thing
  * @returns boolean
  */
-function isString(thing) {
+export function isString(thing) {
     return (typeof thing === 'string');
 }
 
@@ -24,7 +24,7 @@ function isString(thing) {
  * @param thing
  * @returns boolean
  */
-function isUndefined(thing) {
+export function isUndefined(thing) {
     return (typeof thing === 'undefined');
 }
 
@@ -34,7 +34,7 @@ function isUndefined(thing) {
  * @param thing
  * @returns boolean
  */
-function isDefined(thing) {
+export function isDefined(thing) {
     return !isUndefined(thing);
 }
 
@@ -44,7 +44,7 @@ function isDefined(thing) {
  * @param thing
  * @returns boolean
  */
-function isObject(thing) {
+export function isObject(thing) {
     return (typeof thing === 'object');
 }
 
@@ -54,7 +54,7 @@ function isObject(thing) {
  * @param thing
  * @returns boolean
  */
-function isArray(thing) {
+export function isArray(thing) {
     return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
@@ -64,8 +64,6 @@ function isArray(thing) {
  * @param value
  * @returns {boolean}
  */
-function isNumeric(value) {
+export function isNumeric(value) {
     return !isNaN(parseFloat(value)) && isFinite(value);
 }
-
-export {isFunction, isUndefined, isDefined, isObject, isArray, isString, isNumeric};

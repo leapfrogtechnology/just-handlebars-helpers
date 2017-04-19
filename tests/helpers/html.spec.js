@@ -1,6 +1,6 @@
 import '../misc';
 import {compile} from 'handlebars';
-import html from '../../src/helpers/html';
+import * as html from '../../src/helpers/html';
 
 describe('html', () => {
 
