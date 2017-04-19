@@ -1,6 +1,6 @@
 import '../misc';
 import {compile} from 'handlebars';
-import datetime from '../../src/helpers/datetime';
+import * as datetime from '../../src/helpers/datetime';
 
 describe('datetime', () => {
 

@@ -1,6 +1,6 @@
 import '../misc';
 import {compile} from 'handlebars';
-import conditionals from '../../src/helpers/conditionals';
+import * as conditionals from '../../src/helpers/conditionals';
 
 describe('conditionals', () => {
 

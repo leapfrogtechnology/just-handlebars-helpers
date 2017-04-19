@@ -9,7 +9,7 @@ import {isArray, isObject} from '../util/utils';
  * @param value2
  * @returns boolean
  */
-export function feq(value1, value2) {
+export function eq(value1, value2) {
     return (value1 === value2);
 }
 

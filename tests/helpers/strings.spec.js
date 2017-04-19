@@ -1,6 +1,6 @@
 import '../misc';
 import {compile} from 'handlebars';
-import strings from '../../src/helpers/strings';
+import * as strings from '../../src/helpers/strings';
 
 describe('strings', () => {
 
