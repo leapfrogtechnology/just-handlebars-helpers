@@ -1,38 +1,47 @@
-import {isObject} from '../util/utils';
+import {isObject, isUndefined, isNumeric} from '../util/utils';
 
 export default {
 
     /**
      * Format the currency according to the country.
      * @example
-     *      {{currency 1000000 code='USD'}}  => $1,000,000.00
-     *      {{currency 1000000 code='EUR'}}  => 1 000 000,00 €
-     *      {{currency 1000000 code='EUR' precision=0}}  => 1 000 000 €
+     *      {{formatCurrency 1234567.89 code='USD'}}  => $1,234,567.89
+     *      {{formatCurrency 1234567.89 code='EUR'}}  => 1.234.567,89 €
+     *      {{formatCurrency 1234567.89 code='EUR' locale="en"}}  => €1,234,567.89
      *
      * @param value
      * @param args
      */
-    currency: (value, ...args) => {
-        let currencyFormatter = global.currency;
+    formatCurrency: (value, ...args) => {
+        let currencyFormatter = global.OSREC && global.OSREC.CurrencyFormatter;
+        let handlebars = global.Handlebars;
 
         if (!currencyFormatter) {
-            currencyFormatter = require('currency-formatter');
+            currencyFormatter = require('currencyformatter.js');
         }
 
-        let params = [];
-
-        args.forEach(arg => {
-            if (isObject(arg) && isObject(arg.hash)) {
-                arg = arg.hash;
-            }
-
-            params.push(arg);
-        });
-
-        if (params.length) {
-            params = params[0];
+        if (!handlebars) {
+            handlebars = require('handlebars');
         }
 
-        return currencyFormatter.format(value, params);
+        let params = {};
+
+        if (isObject(args[0]) && isObject(args[0].hash)) {
+            params = args[0].hash;
+        }
+
+        params.currency = !isUndefined(params.code) ? params.code : params.currency;
+
+        if (!isUndefined(params.currency) && !(params.currency in currencyFormatter.symbols)) {
+            console.error(`Invalid currency code ${params.currency} provided for helper \`formatCurrency\`.`);
+
+            return;
+        }
+
+        if (!isNumeric(value)) {
+            return;
+        }
+
+        return new handlebars.SafeString(currencyFormatter.format(value, params));
     }
 };

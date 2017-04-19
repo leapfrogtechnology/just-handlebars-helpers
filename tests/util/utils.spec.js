@@ -56,4 +56,50 @@ describe('utils', () => {
             expect(utils.isArray(567)).toEqual(false);
         });
     });
+
+    describe('isNumeric', () => {
+        it('should return false if param passed is null', () => {
+            expect(utils.isNumeric(null)).toEqual(false);
+        });
+
+        it('should return false if param passed is undefined', () => {
+            expect(utils.isNumeric(undefined)).toEqual(false);
+        });
+
+        it('should return false if param passed is an empty string', () => {
+            expect(utils.isNumeric('')).toEqual(false);
+        });
+
+        it('should return false if param passed is invalid numerical string', () => {
+            expect(utils.isNumeric('a34')).toEqual(false);
+        });
+
+        it('should return false if param passed is a boolean false', () => {
+            expect(utils.isNumeric(false)).toEqual(false);
+        });
+
+        it('should return false if param passed is a boolean true', () => {
+            expect(utils.isNumeric(true)).toEqual(false);
+        });
+
+        it('should return true if param passed is a valid integer', () => {
+            expect(utils.isNumeric(123)).toEqual(true);
+        });
+
+        it('should return true if param passed is a valid integer as a string', () => {
+            expect(utils.isNumeric('123')).toEqual(true);
+        });
+
+        it('should return true if param passed is a valid negative integer', () => {
+            expect(utils.isNumeric(-123)).toEqual(true);
+        });
+
+        it('should return true if param passed is a valid negative integer as a string', () => {
+            expect(utils.isNumeric('-123')).toEqual(true);
+        });
+
+        it('should return true if param passed is a valid real number', () => {
+            expect(utils.isNumeric(123.56)).toEqual(true);
+        });
+    });
 });

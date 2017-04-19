@@ -1,78 +1,72 @@
+import faker from 'faker';
 import {compile} from 'handlebars';
 
 describe('formatters', () => {
-
-    describe('currency', () => {
+    describe('formatCurrency', () => {
         it('should return USD currency for USD code after compilation', () => {
-            let template = compile('{{currency 1000000 code="USD"}}');
+            let template = compile('{{formatCurrency 1234567.89 code="USD"}}');
 
-            expect(template()).toEqual('$1,000,000.00');
+            expect(template()).toEqual('&#x24;1,234,567.89');
         });
 
-        it('should return USD currency with zero precision for USD code and zero precision after compilation', () => {
-            let template = compile('{{currency 1000000.125 code="USD" precision=0}}');
+        it('should return EUR currency for EUR code after compilation', () => {
+            let template = compile('{{formatCurrency 1234567.89 code="EUR"}}');
 
-            expect(template()).toEqual('$1,000,000');
+            expect(template()).toEqual('1.234.567,89 &#x20ac;');
         });
 
-        it('should return USD currency with precision = 2 for currency with decimal values after compilation', () => {
-            let template = compile('{{currency 1000000.435 code="USD"}}');
+        it('should return EUR currency with en locale for EUR code and en locale after compilation', () => {
+            let template = compile('{{formatCurrency 1234567.89 code="EUR" locale="en"}}');
 
-            expect(template()).toEqual('$1,000,000.44');
+            expect(template()).toEqual('&#x20ac;1,234,567.89');
         });
 
-        it('should return value in thousands format for no country code after compilation', () => {
-            let template = compile('{{currency 1000000}}');
+        it('should return USD currency with no currency code after compilation', () => {
+            let template = compile('{{formatCurrency 1234567.89}}');
 
-            expect(template()).toEqual('1,000,000.00');
+            expect(template()).toEqual('&#x24;1,234,567.89');
         });
 
-        it('should return value in thousands format for invalid country code after compilation', () => {
-            let template = compile('{{currency 1000000 code="ZZZ"}}');
+        it('should return an empty string for no value after compilation', () => {
+            let template = compile('{{formatCurrency}}');
 
-            expect(template()).toEqual('1,000,000.00');
+            expect(template()).toEqual('');
         });
 
-        it('should return 0.00 for invalid currency value without country code after compilation', () => {
-            let template = compile('{{currency "asd"}}');
+        it('should return an empty string for invalid value after compilation', () => {
+            let template = compile('{{formatCurrency value}}');
 
-            expect(template()).toEqual('0.00');
+            expect(template({value: faker.random.word()})).toEqual('');
         });
 
-        it('should return USD 0.00 for invalid currency value with USD code after compilation', () => {
-            let template = compile('{{currency "asdf" code="USD"}}');
+        it('should return USD currency value in string after compilation', () => {
+            let template = compile('{{formatCurrency "1234567"}}');
 
-            expect(template()).toEqual('$0.00');
+            expect(template()).toEqual('&#x24;1,234,567.00');
         });
 
-        it('should return 0.00 for invalid currency value with invalid country code after compilation', () => {
-            let template = compile('{{currency "asd" code="ZZZ"}}');
+        it('should return empty value for invalid currency code only', () => {
+            let template = compile('{{formatCurrency 1234567.89 code=countryCode}}');
 
-            expect(template()).toEqual('0.00');
+            expect(template({countryCode: faker.address.countryCode()})).toEqual('');
         });
 
-        it('should return 0.00 for no currency value after compilation', () => {
-            let template = compile('{{currency}}');
+        it('should return USD with en locale for invalid locale only', () => {
+            let template = compile('{{formatCurrency 1234567.89 en=locale}}');
 
-            expect(template()).toEqual('0.00');
+            expect(template({locale: faker.random.locale()})).toEqual('&#x24;1,234,567.89');
         });
 
-        it('should return EUR currency value for EUR code after compilation', () => {
-            let template = compile('{{currency 1000000 code="EUR"}}');
+        it('should return USD with en locale for USD currency code and invalid locale', () => {
+            let template = compile('{{formatCurrency 1234567.89 code="USD" en=locale}}');
 
-            expect(template()).toEqual('1 000 000,00 €');
+            expect(template({locale: faker.random.locale()})).toEqual('&#x24;1,234,567.89');
         });
 
-        it('should return EUR currency value with symbol on left for EUR code after compilation', () => {
-            let template = compile('{{currency 1000000 code="EUR" format="%s %v"}}');
+        it('should return empty value for invalid currency code and en locale', () => {
+            let template = compile('{{formatCurrency 1234567.89 code=countryCode}}');
 
-            expect(template()).toEqual('€ 1 000 000,00');
-        });
-
-        it('should return EUR currency value with "," as thousand separator and "." as decimal separator for EUR code after compilation', () => {
-            let template = compile('{{currency 1000000.25 code="EUR" thousand="," decimal="."}}');
-
-            expect(template()).toEqual('1,000,000.25 €');
+            expect(template({countryCode: faker.address.countryCode()})).toEqual('');
         });
     });
 });
