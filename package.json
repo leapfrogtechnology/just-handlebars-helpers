@@ -33,6 +33,7 @@
     "karma-spec-reporter": "0.0.24",
     "moment": "^2.11.2",
     "phantomjs-prebuilt": "^2.1.4",
+    "rimraf": "^2.6.1",
     "sprintf-js": "^1.0.3",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
@@ -42,7 +43,8 @@
     "lint": "gulp lint",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "start:testing": "karma start",
-    "build": "gulp",
+    "clean": "rimraf dist/ lib/",
+    "build": "npm run clean && gulp",
     "prepublish": "npm run build --silent"
   },
   "repository": {
