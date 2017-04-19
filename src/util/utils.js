@@ -58,4 +58,14 @@ function isArray(thing) {
     return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
-export {isFunction, isUndefined, isDefined, isObject, isArray, isString};
+/**
+ * Check if the value is numeric.
+ *
+ * @param value
+ * @returns {boolean}
+ */
+function isNumeric(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+export {isFunction, isUndefined, isDefined, isObject, isArray, isString, isNumeric};
