@@ -27,16 +27,16 @@ describe('formatters', () => {
             expect(template()).toEqual('&#x24;1,234,567.89');
         });
 
-        it('should return negative NaN USD currency no value after compilation', () => {
+        it('should return an empty string for no value after compilation', () => {
             let template = compile('{{formatCurrency}}');
 
-            expect(template()).toEqual('-&#x24;NaN');
+            expect(template()).toEqual('');
         });
 
-        it('should return negative NaN USD currency invalid value after compilation', () => {
+        it('should return an empty string for invalid value after compilation', () => {
             let template = compile('{{formatCurrency value}}');
 
-            expect(template({value: faker.random.word()})).toEqual('-&#x24;NaN');
+            expect(template({value: faker.random.word()})).toEqual('');
         });
 
         it('should return USD currency value in string after compilation', () => {
@@ -53,6 +53,12 @@ describe('formatters', () => {
 
         it('should return USD with en locale for invalid locale only', () => {
             let template = compile('{{formatCurrency 1234567.89 en=locale}}');
+
+            expect(template({locale: faker.random.locale()})).toEqual('&#x24;1,234,567.89');
+        });
+
+        it('should return USD with en locale for USD currency code and invalid locale', () => {
+            let template = compile('{{formatCurrency 1234567.89 code="USD" en=locale}}');
 
             expect(template({locale: faker.random.locale()})).toEqual('&#x24;1,234,567.89');
         });
