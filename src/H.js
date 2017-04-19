@@ -2,12 +2,12 @@
 import {isObject} from './util/utils';
 
 // Helpers
-import html from './helpers/html';
-import math from './helpers/math';
-import strings from './helpers/strings';
-import datetime from './helpers/datetime';
-import formatters from './helpers/formatters';
-import conditionals from './helpers/conditionals';
+import * as html from './helpers/html';
+import * as math from './helpers/math';
+import * as strings from './helpers/strings';
+import * as datetime from './helpers/datetime';
+import * as formatters from './helpers/formatters';
+import * as conditionals from './helpers/conditionals';
 
 class H {
 
