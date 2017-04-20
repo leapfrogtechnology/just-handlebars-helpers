@@ -10,28 +10,30 @@ var source = require('vinyl-source-stream');
 var shimify = require('browserify-shimify');
 
 // Lint using eslint
-gulp.task('lint', function() {
-    return gulp.src([
-            '**/*.js',
-            '!lib/**',
-            '!dist/**',
-            '!coverage/**',
-            '!node_modules/**'
-        ])
+gulp.task('lint', function () {
+    var sourceFiles = [
+        '**/*.js',
+        '!lib/**',
+        '!dist/**',
+        '!coverage/**',
+        '!node_modules/**'
+    ];
+
+    return gulp.src(sourceFiles)
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
 // Transpile ES6 to ES5
-gulp.task('transpile', ['lint'], function() {
+gulp.task('transpile', ['lint'], function () {
     return gulp.src('src/**/*.js')
-    .pipe(babel())
-    .pipe(gulp.dest('lib'));
+        .pipe(babel())
+        .pipe(gulp.dest('lib'));
 });
 
 // Bundle things up
-gulp.task('bundle', ['transpile'], function() {
+gulp.task('bundle', ['transpile'], function () {
     var config = {
         entries: './index.js',
         standalone: 'H',
@@ -54,7 +56,7 @@ gulp.task('bundle', ['transpile'], function() {
 
 
 // Uglify
-gulp.task('uglify', ['bundle'], function() {
+gulp.task('uglify', ['bundle'], function () {
     return gulp.src('dist/h.js')
         .pipe(rename({
             suffix: '.min'
