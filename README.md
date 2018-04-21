@@ -1,4 +1,5 @@
 # Just Handlebars Helpers
+
 [![NPM Version](https://img.shields.io/npm/v/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
@@ -9,17 +10,17 @@ A lightweight package with common [Handlebars](https://github.com/wycats/handleb
 ## Installation
 
 ```bash
-$ npm install just-handlebars-helpers --save
+npm install just-handlebars-helpers --save
 ```
-
-or
 
 ```bash
-$ yarn add just-handlebars-helpers
+yarn add just-handlebars-helpers
 ```
+
 ## Usage
 
-#### Browsers:
+### Browser
+
 
 ```html
 <!-- Load Handlebars -->
@@ -32,7 +33,9 @@ $ yarn add just-handlebars-helpers
 </script>
 
 ```
-#### Node:
+
+### Node
+
 
 ```javascript
 // Load Handlebars
@@ -43,6 +46,7 @@ var H = require('just-handlebars-helpers');
 // Register helpers for Handlebars
 H.registerHelpers(Handlebars);
 ```
+
 ## Helpers
 
 | Helper                                | Description                                             |
@@ -88,7 +92,9 @@ H.registerHelpers(Handlebars);
 | [formatCurrency](#formatcurrency)     | Format currency value according to country              |
 
 ### Conditional
+
 #### eq
+
 Determine whether or not two values are equal (===).
 
 Parameters:
@@ -108,6 +114,7 @@ Usage:
 ```
 
 #### eqw
+
 Determine whether or not two values are equal (==) i.e. weak checking.
 
 Parameters:
@@ -127,6 +134,7 @@ Usage:
 ```
 
 #### neq
+
 Determine whether or not two values are not equal (!==).
 
 Parameters:
@@ -146,6 +154,7 @@ Usage:
 ```
 
 #### neqw
+
 Determine whether or not two values are not equal (!=) weak checking.
 
 Parameters:
@@ -165,6 +174,7 @@ Usage:
 ```
 
 #### lt
+
 Check for less than condition (a < b).
 
 Parameters:
@@ -184,6 +194,7 @@ Usage:
 ```
 
 #### lte
+
 Check for less than or equals condition (a <= b).
 
 Parameters:
@@ -203,6 +214,7 @@ Usage:
 ```
 
 #### gt
+
 Check for greater than condition (a > b).
 
 Parameters:
@@ -222,6 +234,7 @@ Usage:
 ```
 
 #### gte
+
 Check for greater than or equals condition (a >= b).
 
 Parameters:
@@ -241,6 +254,7 @@ Usage:
 ```
 
 #### not
+
 Logical NOT of any expression. Equivalent to `!` operator.
 
 Parameters:
@@ -260,6 +274,7 @@ Usage:
 ```
 
 #### ifx
+
 Helper to imitate the ternary conditional operator ?:. E.g. `5 > 7 ? 'foo' : 'bar'`.
 
 Parameters:
@@ -283,6 +298,7 @@ Usage:
 ```
 
 #### empty
+
 Check if an array is empty.
 
 Parameters:
@@ -302,6 +318,7 @@ var array = [5, 6];     // An array.
 ```
 
 #### count
+
 Determine the length of an array. Equivalent to `array.length` operator in JavaScript.
 
 Parameters:
@@ -317,6 +334,7 @@ var array = [5, 6];    // An array.
 ```
 
 #### and
+
 Returns the logical AND of two or more parameters passed i.e
 it is true iff all the parameters are true.
 
@@ -342,6 +360,7 @@ var value1 = false, value2 = true;
 ```
 
 #### or
+
 Returns the logical OR of two or more parameters passed i.e
 it is true if any of the parameters is true.
 
@@ -367,6 +386,7 @@ var value = value2 = false;
 ```
 
 #### coalesce
+
 Returns the first non-falsy value from the parameter list.
 Works quite similar to the SQL's COALESCE() function, but unlike this
 checks for the first non-false parameter.
@@ -387,6 +407,7 @@ var fullName = '', nickName = 'foob';
 ```
 
 #### includes
+
 Returns true if an array includes a value.
 It checks for the existence of the value in array strictly(value + data type) by default.
 Can check non-strictly(value only) by sending third argument as false.
@@ -419,7 +440,9 @@ var value = '2'
 ```
 
 ### Strings
+
 #### excerpt
+
 Extract a sub-string from a string.
 
 Parameters:
@@ -435,6 +458,7 @@ Usage:
 ```
 
 #### sanitize
+
 Converts a string to URL friendly dash-case string removing special characters.
 
 Parameters
@@ -449,6 +473,7 @@ Usage:
 ```
 
 #### newLineToBr
+
 Replace `\n` with `<br>` tags.
 
 Parameters:
@@ -463,6 +488,7 @@ Usage:
 ```
 
 #### capitalizeEach
+
 Capitalize the first letter of each word in a string.
 
 Parameters
@@ -477,6 +503,7 @@ Usage:
 ```
 
 #### capitalizeFirst
+
 Capitalize the first letter of a string.
 
 Parameters:
@@ -491,11 +518,12 @@ Usage:
 ```
 
 #### sprintf
+
 A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
 
 **Note:** To use sprintf helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
 
-``` npm install sprintf-js --save ```
+```npm install sprintf-js --save```
 
 Parameters:
 ```
@@ -513,6 +541,7 @@ Usage:
 ```
 
 #### lowercase
+
 Changes the string to lowercase.
 
 Parameters:
@@ -527,6 +556,7 @@ Usage:
 ```
 
 #### uppercase
+
 Changes the string to uppercase.
 
 Parameters:
@@ -541,6 +571,7 @@ Usage:
 ```
 
 #### first
+
 Get the first element of a collection/array.
 
 Parameters:
@@ -556,6 +587,7 @@ someArray = ['David', 'Miller', 'Jones'];
 ```
 
 #### last
+
 Get the last element of a collection/array.
 
 Parameters:
@@ -571,6 +603,7 @@ someArray = ['David', 'Miller', 'Jones'];
 ```
 
 #### concat
+
 Concat two or more strings.
 
 Parameters:
@@ -585,6 +618,7 @@ Usage:
 ```
 
 #### join
+
 Join the elements of an array using a delimeter.
 
 Parameters:
@@ -602,6 +636,7 @@ someArray = ['Hands', 'legs', 'feet'];
 
 ### Math
 #### sum
+
 A sum helper calculating the sum of two numbers.
 
 Parameters:
@@ -618,6 +653,7 @@ Usage:
 ```
 
 #### difference
+
 A difference helper calculating the difference of two numbers.
 
 Parameters:
@@ -634,6 +670,7 @@ Usage:
 ```
 
 #### ceil
+
 A ceil helper to find the ceil value of the number. Equivalent to `Math.ceil()` in JavaScript.
 
 Parameters:
@@ -648,6 +685,7 @@ Usage:
 ```
 
 #### floor
+
 A floor helper to find the floor value of the number. Equivalent to `Math.floor()` in JavaScript.
 
 Parameters:
@@ -665,9 +703,10 @@ Usage:
 
 **Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment)
 
-``` npm install moment --save ```
+```npm install moment --save```
 
 #### formatDate
+
 A formatDate helper to format date using moment js.
 
 Parameters:
@@ -688,6 +727,7 @@ var date = new Date('01/22/2016');
 
 ### HTML
 #### showIf
+
 A showIf helper for showing any HTML element.
 
 Parameters:
@@ -703,6 +743,7 @@ Usage:
 ```
 
 #### hideIf
+
 A hideIf helper for hiding any HTML element.
 
 Parameters:
@@ -718,6 +759,7 @@ Usage:
 ```
 
 #### selectedIf
+
 A selectedIf helper for dropdown and radio boxes.
 
 Parameters:
@@ -732,6 +774,7 @@ Usage:
 ```
 
 #### checkedIf
+
 A checkedIf helper for checkboxes.
 
 Parameters:
@@ -746,6 +789,7 @@ Usage:
 ```
 
 #### options
+
 An options helper for generating `<option>` list for `<select>` dropdowns.
 
 Parameters:
@@ -814,6 +858,7 @@ will generate HTML:
 ### Formatters
 
 #### formatCurrency
+
 Format the currency value according to country code and locale.
 
 Parameters:
@@ -833,7 +878,7 @@ Usage:
 
 Note: The currency formatting parameters are used from [https://github.com/osrec/currencyFormatter.js](https://github.com/osrec/currencyFormatter.js).
 
-## Testing the helpers
+## Tests
 
 ```bash
 # Install dependencies
@@ -847,9 +892,10 @@ $ npm test
 ```
 
 ## Inspired by
- * [Swag](https://github.com/elving/swag)
- * [Dashbars](https://github.com/pismute/dashbars)
- * [Assemble](https://github.com/assemble/handlebars-helpers)
+
+* [Swag](https://github.com/elving/swag)
+* [Dashbars](https://github.com/pismute/dashbars)
+* [Assemble](https://github.com/assemble/handlebars-helpers)
 
 ## License
 
