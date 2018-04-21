@@ -1,4 +1,4 @@
-import {isObject, isUndefined, isNumeric} from '../util/utils';
+import { isObject, isUndefined, isNumeric } from '../util/utils';
 
 /**
  * Format the currency according to the country.
@@ -11,34 +11,34 @@ import {isObject, isUndefined, isNumeric} from '../util/utils';
  * @param args
  */
 export function formatCurrency(value, ...args) {
-    let currencyFormatter = global.OSREC && global.OSREC.CurrencyFormatter;
-    let handlebars = global.Handlebars;
+  let currencyFormatter = global.OSREC && global.OSREC.CurrencyFormatter;
+  let handlebars = global.Handlebars;
 
-    if (!currencyFormatter) {
-        currencyFormatter = require('currencyformatter.js');
-    }
+  if (!currencyFormatter) {
+    currencyFormatter = require('currencyformatter.js');
+  }
 
-    if (!handlebars) {
-        handlebars = require('handlebars');
-    }
+  if (!handlebars) {
+    handlebars = require('handlebars');
+  }
 
-    let params = {};
+  let params = {};
 
-    if (isObject(args[0]) && isObject(args[0].hash)) {
-        params = args[0].hash;
-    }
+  if (isObject(args[0]) && isObject(args[0].hash)) {
+    params = args[0].hash;
+  }
 
-    params.currency = !isUndefined(params.code) ? params.code : params.currency;
+  params.currency = !isUndefined(params.code) ? params.code : params.currency;
 
-    if (!isUndefined(params.currency) && !(params.currency in currencyFormatter.symbols)) {
-        console.error(`Invalid currency code ${params.currency} provided for helper \`formatCurrency\`.`);
+  if (!isUndefined(params.currency) && !(params.currency in currencyFormatter.symbols)) {
+    console.error(`Invalid currency code ${params.currency} provided for helper \`formatCurrency\`.`);
 
-        return;
-    }
+    return;
+  }
 
-    if (!isNumeric(value)) {
-        return;
-    }
+  if (!isNumeric(value)) {
+    return;
+  }
 
-    return new handlebars.SafeString(currencyFormatter.format(value, params));
+  return new handlebars.SafeString(currencyFormatter.format(value, params));
 }

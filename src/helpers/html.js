@@ -7,7 +7,7 @@
  * @returns string
  */
 export function showIf(expression) {
-    return !!expression ? '' : 'hidden';
+  return expression ? '' : 'hidden';
 }
 
 /**
@@ -19,7 +19,7 @@ export function showIf(expression) {
  * @returns string
  */
 export function hideIf(expression) {
-    return !!expression ? 'hidden' : '';
+  return expression ? 'hidden' : '';
 }
 
 /**
@@ -31,7 +31,7 @@ export function hideIf(expression) {
  * @returns string
  */
 export function selectedIf(expression) {
-    return !!expression ? 'selected' : '';
+  return expression ? 'selected' : '';
 }
 
 /**
@@ -43,7 +43,7 @@ export function selectedIf(expression) {
  * @returns string
  */
 export function checkedIf(expression) {
-    return !!expression ? 'checked' : '';
+  return expression ? 'checked' : '';
 }
 
 /**
@@ -52,7 +52,7 @@ export function checkedIf(expression) {
  * @example
  * A simple example:
  *
- *      let data = [
+ *      const data = [
  *          {
  *              id: 1,
  *              description: 'Foo'
@@ -79,7 +79,7 @@ export function checkedIf(expression) {
  * You can also override the default key names for 'id' & 'description'
  * using the 'id' & 'text' options in the helper.
  *
- *      let data = [
+ *      const data = [
  *          {
  *              value: 1,
  *              text: 'New York'
@@ -99,18 +99,18 @@ export function checkedIf(expression) {
  *
  */
 export function options(data, opts) {
-    // The id & text for the <option>
-    let id = opts.hash.id || 'id';
-    let text = opts.hash.text || 'description';
+  // The id & text for the <option>
+  const id = opts.hash.id || 'id';
+  const text = opts.hash.text || 'description';
 
-    // The selection "id" of the <option>
-    let selectedId = opts.hash.selected || null;
+  // The selection "id" of the <option>
+  const selectedId = opts.hash.selected || null;
 
-    return data.map(item => {
-        let value = item[id] || '';
-        let innerText = item[text] || '';
-        let selected = (value == selectedId) ? ' selected' : '';
+  return data.map(item => {
+    const value = item[id] || '';
+    const innerText = item[text] || '';
+    const selected = (value == selectedId) ? ' selected' : '';
 
-        return `<option value="${value}"${selected}>${innerText}</option>`;
-    }).join('\n');
+    return `<option value="${value}"${selected}>${innerText}</option>`;
+  }).join('\n');
 }

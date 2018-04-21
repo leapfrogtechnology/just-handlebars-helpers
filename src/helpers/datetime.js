@@ -1,4 +1,4 @@
-import {isString} from '../util/utils';
+import { isString } from '../util/utils';
 
 /**
  * A formatDate helper to format date using moment js.
@@ -11,13 +11,13 @@ import {isString} from '../util/utils';
  * @return string
  */
 export function formatDate(formatString, date) {
-    let moment = global.moment;
+  let moment = global.moment;
 
-    if (!moment) {
-        moment = require('moment');
-    }
+  if (!moment) {
+    moment = require('moment');
+  }
 
-    formatString = isString(formatString) ? formatString : '';
+  formatString = isString(formatString) ? formatString : '';
 
-    return moment(date || new Date()).format(formatString);
+  return moment(date || new Date()).format(formatString);
 }

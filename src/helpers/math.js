@@ -8,7 +8,7 @@
  * @returns number
  */
 export function sum(value1, value2) {
-    return Number(value1) + Number(value2);
+  return Number(value1) + Number(value2);
 }
 
 /**
@@ -21,7 +21,7 @@ export function sum(value1, value2) {
  * @returns number
  */
 export function difference(value1, value2) {
-    return Number(value1) - Number(value2);
+  return Number(value1) - Number(value2);
 }
 
 /**
@@ -33,7 +33,7 @@ export function difference(value1, value2) {
  * @returns number
  */
 export function ceil(value) {
-    return Math.ceil(Number(value));
+  return Math.ceil(Number(value));
 }
 
 /**
@@ -45,5 +45,5 @@ export function ceil(value) {
  * @returns number
  */
 export function floor(value) {
-    return Math.floor(Number(value));
+  return Math.floor(Number(value));
 }

@@ -1,4 +1,4 @@
-import {isFunction, isObject, isString, isArray} from '../util/utils';
+import { isFunction, isObject, isString, isArray } from '../util/utils';
 
 /**
  * Extract a few characters from a string. Default number of characters is 50.
@@ -10,17 +10,17 @@ import {isFunction, isObject, isString, isArray} from '../util/utils';
  * @returns string
  */
 export function excerpt(string, length) {
-    length = parseInt(length) || 50;
+  length = parseInt(length) || 50;
 
-    if (typeof (string) !== 'string' || typeof (length) !== 'number') {
-        return string;
-    }
+  if (typeof (string) !== 'string' || typeof (length) !== 'number') {
+    return string;
+  }
 
-    if (string.length < length) {
-        return string;
-    }
+  if (string.length < length) {
+    return string;
+  }
 
-    return string.slice(0, length) + '...';
+  return string.slice(0, length) + '...';
 }
 
 /**
@@ -32,9 +32,9 @@ export function excerpt(string, length) {
  * @returns string
  */
 export function sanitize(string) {
-    string = string.replace(/[^\w\s]/gi, '').trim();
+  string = string.replace(/[^\w\s]/gi, '').trim();
 
-    return string.replace(/\s+/, '-').toLowerCase();
+  return string.replace(/\s+/, '-').toLowerCase();
 }
 
 /**
@@ -46,7 +46,7 @@ export function sanitize(string) {
  * @return {string}
  */
 export function newLineToBr(string) {
-    return string.replace(/\r?\n|\r/g, '<br>');
+  return string.replace(/\r?\n|\r/g, '<br>');
 }
 
 /**
@@ -58,13 +58,13 @@ export function newLineToBr(string) {
  * @returns string
  */
 export function capitalizeEach(string) {
-    if (typeof string === 'string') {
-        return string.toLowerCase().replace(/\w\S*/g, function (match) {
-            return match.charAt(0).toUpperCase() + match.substr(1);
-        });
-    }
+  if (typeof string === 'string') {
+    return string.toLowerCase().replace(/\w\S*/g, function (match) {
+      return match.charAt(0).toUpperCase() + match.substr(1);
+    });
+  }
 
-    return string;
+  return string;
 }
 
 /**
@@ -76,11 +76,11 @@ export function capitalizeEach(string) {
  * @returns string
  */
 export function capitalizeFirst(string) {
-    if (typeof string === 'string') {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+  if (typeof string === 'string') {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-    return string;
+  return string;
 }
 
 /**
@@ -109,27 +109,27 @@ export function capitalizeFirst(string) {
  */
 export function sprintf(format, ...args) {
 
-    // Check if the vsprintf function is available globally
-    // if it's not available then try to require() it
-    var _vsprintf = global.vsprintf;
+  // Check if the vsprintf function is available globally
+  // if it's not available then try to require() it
+  let _vsprintf = global.vsprintf;
 
-    if (!isFunction(_vsprintf)) {
-        _vsprintf = require('sprintf-js').vsprintf;
+  if (!isFunction(_vsprintf)) {
+    _vsprintf = require('sprintf-js').vsprintf;
+  }
+
+  // Normalize all the parameters before passing it to the
+  // sprintf/vsprintf function
+  const params = [];
+
+  args.forEach(arg => {
+    if (isObject(arg) && isObject(arg.hash)) {
+      arg = arg.hash;
     }
 
-    // Normalize all the parameters before passing it to the
-    // sprintf/vsprintf function
-    var params = [];
+    params.push(arg);
+  });
 
-    args.forEach(arg => {
-        if (isObject(arg) && isObject(arg.hash)) {
-            arg = arg.hash;
-        }
-
-        params.push(arg);
-    });
-
-    return (params.length > 0) ? _vsprintf(format, params) : format;
+  return (params.length > 0) ? _vsprintf(format, params) : format;
 }
 
 /**
@@ -141,7 +141,7 @@ export function sprintf(format, ...args) {
  * @return string
  */
 export function lowercase(param) {
-    return isString(param) ? param.toLowerCase() : param;
+  return isString(param) ? param.toLowerCase() : param;
 }
 
 /**
@@ -153,7 +153,7 @@ export function lowercase(param) {
  * @return string
  */
 export function uppercase(param) {
-    return isString(param) ? param.toUpperCase() : param;
+  return isString(param) ? param.toUpperCase() : param;
 }
 
 /**
@@ -166,11 +166,11 @@ export function uppercase(param) {
  * @return string
  */
 export function first(collection) {
-    if (!isArray(collection) || collection.length === 0) {
-        return '';
-    }
+  if (!isArray(collection) || collection.length === 0) {
+    return '';
+  }
 
-    return collection[0];
+  return collection[0];
 }
 
 /**
@@ -183,11 +183,11 @@ export function first(collection) {
  * @return string
  */
 export function last(collection) {
-    if (!isArray(collection) || collection.length === 0) {
-        return '';
-    }
+  if (!isArray(collection) || collection.length === 0) {
+    return '';
+  }
 
-    return collection[collection.length - 1];
+  return collection[collection.length - 1];
 }
 
 /**
@@ -199,12 +199,12 @@ export function last(collection) {
  * @return string
  */
 export function concat(...params) {
-    // Ignore the object appended by handlebars.
-    if (isObject(params[params.length - 1])) {
-        params.pop();
-    }
+  // Ignore the object appended by handlebars.
+  if (isObject(params[params.length - 1])) {
+    params.pop();
+  }
 
-    return params.join('');
+  return params.join('');
 }
 
 /**
@@ -219,13 +219,13 @@ export function concat(...params) {
  * @return string
  */
 export function join(params, delimeter) {
-    if (!delimeter || isObject(delimeter)) {
-        delimeter = '';
-    }
+  if (!delimeter || isObject(delimeter)) {
+    delimeter = '';
+  }
 
-    if (!isArray(params)) {
-        return false;
-    }
+  if (!isArray(params)) {
+    return false;
+  }
 
-    return params.join(delimeter);
+  return params.join(delimeter);
 }

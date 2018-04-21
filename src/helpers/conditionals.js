@@ -1,4 +1,4 @@
-import {isArray, isObject} from '../util/utils';
+import { isArray, isObject } from '../util/utils';
 
 /**
  * Determine whether or not two values are equal (===).
@@ -10,7 +10,7 @@ import {isArray, isObject} from '../util/utils';
  * @returns boolean
  */
 export function eq(value1, value2) {
-    return (value1 === value2);
+  return (value1 === value2);
 }
 
 /**
@@ -23,7 +23,7 @@ export function eq(value1, value2) {
  * @returns boolean
  */
 export function eqw(value1, value2) {
-    return (value1 == value2);
+  return (value1 == value2);
 }
 
 /**
@@ -36,7 +36,7 @@ export function eqw(value1, value2) {
  * @returns boolean
  */
 export function neq(value1, value2) {
-    return (value1 !== value2);
+  return (value1 !== value2);
 }
 
 /**
@@ -49,7 +49,7 @@ export function neq(value1, value2) {
  * @returns boolean
  */
 export function neqw(value1, value2) {
-    return (value1 != value2);
+  return (value1 != value2);
 }
 
 /**
@@ -62,7 +62,7 @@ export function neqw(value1, value2) {
  * @returns boolean
  */
 export function lt(value1, value2) {
-    return (value1 < value2);
+  return (value1 < value2);
 }
 
 /**
@@ -75,7 +75,7 @@ export function lt(value1, value2) {
  * @returns boolean
  */
 export function lte(value1, value2) {
-    return (value1 <= value2);
+  return (value1 <= value2);
 }
 
 /**
@@ -88,7 +88,7 @@ export function lte(value1, value2) {
  * @returns boolean
  */
 export function gt(value1, value2) {
-    return (value1 > value2);
+  return (value1 > value2);
 }
 
 /**
@@ -101,7 +101,7 @@ export function gt(value1, value2) {
  * @returns boolean
  */
 export function gte(value1, value2) {
-    return (value1 >= value2);
+  return (value1 >= value2);
 }
 
 /**
@@ -117,16 +117,16 @@ export function gte(value1, value2) {
  * @returns mixed
  */
 export function ifx(condition, value1, value2) {
-    // Check if user has omitted the last parameter
-    // if that's the case, it would be the handlebars's options object
-    // which it sends always as the last parameter.
-    if (isObject(value2) && value2.name === 'ifx' && value2.hasOwnProperty('hash')) {
-        // This means the user has skipped the last parameter,
-        // so we should return an empty string ('') in the else case instead.
-        value2 = '';
-    }
+  // Check if user has omitted the last parameter
+  // if that's the case, it would be the handlebars's options object
+  // which it sends always as the last parameter.
+  if (isObject(value2) && value2.name === 'ifx' && value2.hasOwnProperty('hash')) {
+    // This means the user has skipped the last parameter,
+    // so we should return an empty string ('') in the else case instead.
+    value2 = '';
+  }
 
-    return !!condition ? value1 : value2;
+  return condition ? value1 : value2;
 }
 
 /**
@@ -139,7 +139,7 @@ export function ifx(condition, value1, value2) {
  * @returns boolean
  */
 export function not(expression) {
-    return !expression;
+  return !expression;
 }
 
 /**
@@ -151,11 +151,11 @@ export function not(expression) {
  * @returns boolean
  */
 export function empty(array) {
-    if (!isArray(array)) {
-        return true;
-    }
+  if (!isArray(array)) {
+    return true;
+  }
 
-    return (array.length === 0);
+  return (array.length === 0);
 }
 
 /**
@@ -167,11 +167,11 @@ export function empty(array) {
  * @returns boolean | number
  */
 export function count(array) {
-    if (!isArray(array)) {
-        return false;
-    }
+  if (!isArray(array)) {
+    return false;
+  }
 
-    return array.length;
+  return array.length;
 }
 
 /**
@@ -189,18 +189,18 @@ export function count(array) {
  * @returns boolean
  */
 export function and(...params) {
-    // Ignore the object appended by handlebars.
-    if (isObject(params[params.length - 1])) {
-        params.pop();
-    }
+  // Ignore the object appended by handlebars.
+  if (isObject(params[params.length - 1])) {
+    params.pop();
+  }
 
-    for (let i = 0; i < params.length; i++) {
-        if (!params[i]) {
-            return false;
-        }
+  for (let i = 0; i < params.length; i++) {
+    if (!params[i]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
 
 /**
@@ -218,18 +218,18 @@ export function and(...params) {
  * @returns boolean
  */
 export function or(...params) {
-    // Ignore the object appended by handlebars.
-    if (isObject(params[params.length - 1])) {
-        params.pop();
-    }
+  // Ignore the object appended by handlebars.
+  if (isObject(params[params.length - 1])) {
+    params.pop();
+  }
 
-    for (let i = 0; i < params.length; i++) {
-        if (params[i]) {
-            return true;
-        }
+  for (let i = 0; i < params.length; i++) {
+    if (params[i]) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 }
 
 /**
@@ -248,18 +248,18 @@ export function or(...params) {
  * @returns mixed
  */
 export function coalesce(...params) {
-    // Ignore the object appended by handlebars.
-    if (isObject(params[params.length - 1])) {
-        params.pop();
-    }
+  // Ignore the object appended by handlebars.
+  if (isObject(params[params.length - 1])) {
+    params.pop();
+  }
 
-    for (let i = 0; i < params.length; i++) {
-        if (params[i]) {
-            return params[i];
-        }
+  for (let i = 0; i < params.length; i++) {
+    if (params[i]) {
+      return params[i];
     }
+  }
 
-    return params.pop();
+  return params.pop();
 }
 
 /**
@@ -277,15 +277,15 @@ export function coalesce(...params) {
  * @returns boolean
  */
 export function includes(array, value, strict = true) {
-    if (!isArray(array) || array.length === 0) {
-        return false;
-    }
-
-    for (let i = 0; i < array.length; i++) {
-        if ((strict && array[i] === value) || (!strict && array[i] == value)) {
-            return true;
-        }
-    }
-
+  if (!isArray(array) || array.length === 0) {
     return false;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if ((strict && array[i] === value) || (!strict && array[i] == value)) {
+      return true;
+    }
+  }
+
+  return false;
 }

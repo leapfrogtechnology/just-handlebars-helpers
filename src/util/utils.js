@@ -5,7 +5,7 @@
  * @returns boolean
  */
 export function isFunction(thing) {
-    return (typeof thing === 'function');
+  return (typeof thing === 'function');
 }
 
 /**
@@ -15,7 +15,7 @@ export function isFunction(thing) {
  * @returns boolean
  */
 export function isString(thing) {
-    return (typeof thing === 'string');
+  return (typeof thing === 'string');
 }
 
 /**
@@ -25,7 +25,7 @@ export function isString(thing) {
  * @returns boolean
  */
 export function isUndefined(thing) {
-    return (typeof thing === 'undefined');
+  return (typeof thing === 'undefined');
 }
 
 /**
@@ -35,7 +35,7 @@ export function isUndefined(thing) {
  * @returns boolean
  */
 export function isDefined(thing) {
-    return !isUndefined(thing);
+  return !isUndefined(thing);
 }
 
 /**
@@ -45,7 +45,7 @@ export function isDefined(thing) {
  * @returns boolean
  */
 export function isObject(thing) {
-    return (typeof thing === 'object');
+  return (typeof thing === 'object');
 }
 
 /**
@@ -55,7 +55,7 @@ export function isObject(thing) {
  * @returns boolean
  */
 export function isArray(thing) {
-    return (Object.prototype.toString.call(thing) === '[object Array]');
+  return (Object.prototype.toString.call(thing) === '[object Array]');
 }
 
 /**
@@ -65,5 +65,5 @@ export function isArray(thing) {
  * @returns {boolean}
  */
 export function isNumeric(value) {
-    return !isNaN(parseFloat(value)) && isFinite(value);
+  return !isNaN(parseFloat(value)) && isFinite(value);
 }
