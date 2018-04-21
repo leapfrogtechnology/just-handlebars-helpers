@@ -1,17 +1,17 @@
 // Build for Browsers
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-var babelify = require('babelify');
-var uglify = require('gulp-uglify');
-var eslint = require('gulp-eslint');
-var rename = require('gulp-rename');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var shimify = require('browserify-shimify');
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const babelify = require('babelify');
+const uglify = require('gulp-uglify');
+const eslint = require('gulp-eslint');
+const rename = require('gulp-rename');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const shimify = require('browserify-shimify');
 
 // Lint using eslint
 gulp.task('lint', function () {
-    var sourceFiles = [
+    const sourceFiles = [
         '**/*.js',
         '!lib/**',
         '!dist/**',
@@ -34,13 +34,13 @@ gulp.task('transpile', ['lint'], function () {
 
 // Bundle things up
 gulp.task('bundle', ['transpile'], function () {
-    var config = {
+    const config = {
         entries: './index.js',
         standalone: 'H',
         debug: true
     };
 
-    var shimifyConfig = {
+    const shimifyConfig = {
         'sprintf-js': '{sprintf: window.sprintf, vsprintf: window.vsprintf}',
         'moment': 'window.moment',
         'currencyformatter.js': 'window.OSREC.CurrencyFormatter',
