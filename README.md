@@ -809,7 +809,7 @@ Usage:
 
 A simple example:
 ```
-let data = [
+const data = [
     {
         id: 1,
         description: 'Foo'
@@ -835,7 +835,7 @@ will generate HTML:
 ```
 You can also override the default key names for `id` & `description` using the `id` & `text` options in the helper.
 ```
-let data = [
+const data = [
     {
         value: 1,
         text: 'New York'
