@@ -1,5 +1,4 @@
-const isparta = require('isparta');
-const istanbul = require('browserify-istanbul');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 // Karma configuration
 module.exports = function(config) {
@@ -48,7 +47,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -61,12 +60,7 @@ module.exports = function(config) {
     // browserify config
     browserify: {
       debug: true,
-      transform: [
-        istanbul({
-          instrumenter: isparta,
-          ignore: ['**/node_modules/**', '**/tests/**']
-        }), 'babelify'
-      ]
+      transform: ['babelify']
     },
 
     // coverage reporter config
