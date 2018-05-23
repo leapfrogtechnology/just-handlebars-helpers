@@ -1,3 +1,6 @@
+const isparta = require('isparta');
+const istanbul = require('browserify-istanbul');
+
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 // Karma configuration
@@ -60,7 +63,13 @@ module.exports = function(config) {
     // browserify config
     browserify: {
       debug: true,
-      transform: ['babelify']
+      transform: [
+        'babelify',
+        istanbul({
+          instrumenter: isparta,
+          ignore: ['test/**', '**/node_modules/**']
+        })
+      ]
     },
 
     // coverage reporter config
