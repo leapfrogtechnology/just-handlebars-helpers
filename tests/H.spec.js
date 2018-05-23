@@ -15,4 +15,5 @@ describe('H.registerHelpers', () => {
     spyOn(Handlebars.helpers, 'excerpt');
     spyOn(Handlebars.helpers, 'checkedIf');
   });
+
 });
