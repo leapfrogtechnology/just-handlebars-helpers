@@ -3,6 +3,31 @@
   "version": "1.0.13",
   "description": "A lightweight package with common helpers for Handlebars",
   "main": "index.js",
+  "license": "MIT",
+  "repository": "git@github.com/leapfrogtechnology/just-handlebars-helpers.git",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "author": "Kabir Baidhya <kabirbaidhya@gmail.com>",
+  "contributors": [
+    "Saugat Acharya <mesaugat@gmail.com>",
+    "Sanjeev Kumar Pandit <binarysanjeev@gmail.com>",
+    "Suman Gurung <gurung.suman15@gmail.com>",
+    "Deepak Pandey <pandey.dip@gmail.com>"
+  ],
+  "keywords": [
+    "handlebars",
+    "helpers",
+    "lightweight",
+    "just-handlebars",
+    "just-handlebars-helpers",
+    "handlebars-helpers",
+    "mustache",
+    "template",
+    "templating",
+    "html"
+  ],
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
@@ -42,29 +67,5 @@
     "start": "karma start",
     "clean": "rimraf dist/ lib/",
     "build": "npm run clean && gulp"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leapfrogtechnology/just-handlebars-helpers.git"
-  },
-  "author": "Kabir Baidhya <kabirbaidhya@gmail.com>",
-  "contributors": [
-    "Saugat Acharya <mesaugat@gmail.com>",
-    "Sanjeev Kumar Pandit <binarysanjeev@gmail.com>",
-    "Suman Gurung <gurung.suman15@gmail.com>",
-    "Deepak Pandey <pandey.dip@gmail.com>"
-  ],
-  "keywords": [
-    "handlebars",
-    "helpers",
-    "lightweight",
-    "just-handlebars",
-    "just-handlebars-helpers",
-    "handlebars-helpers",
-    "mustache",
-    "template",
-    "templating",
-    "html"
-  ],
-  "license": "MIT"
+  }
 }
