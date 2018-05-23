@@ -48,6 +48,7 @@
     "gulp-eslint": "^4.0.2",
     "gulp-rename": "^1.2.3",
     "gulp-uglify": "^3.0.0",
+    "handlebars": "^4.0.11",
     "isparta": "^4.0.0",
     "jasmine-core": "^2.4.1",
     "karma": "^2.0.2",
