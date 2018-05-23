@@ -34,7 +34,7 @@ yarn add just-handlebars-helpers
 </script>
 ```
 
-#### Recommened Usage (CDN)
+#### Recommended Usage (CDN)
 
 ```html
 <!-- Load Handlebars -->
