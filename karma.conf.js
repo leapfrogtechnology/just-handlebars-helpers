@@ -75,7 +75,7 @@ module.exports = function(config) {
         'babelify',
         istanbul({
           instrumenter: isparta,
-          ignore: ['test/**', '**/node_modules/**']
+          ignore: ['**/node_modules/**', '**/tests/**']
         })
       ]
     },
