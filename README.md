@@ -21,23 +21,35 @@ yarn add just-handlebars-helpers
 
 ### Browser
 
+#### General Usage
 
 ```html
 <!-- Load Handlebars -->
-<script type="text/javascript" src="/path/to/handlebars/dist/handlebars.min.js"></script>
+<script src="/path/to/handlebars/dist/handlebars.min.js"></script>
 <!-- Load the package -->
-<script type="text/javascript" src="/path/to/just-handlebars-helpers/dist/h.min.js"></script>
+<script src="/path/to/just-handlebars-helpers/dist/h.min.js"></script>
 <script type="text/javascript">
     // Register helpers for Handlebars
     H.registerHelpers(Handlebars);
 </script>
+```
 
+#### Recommended Usage (CDN)
+
+```html
+<!-- Load Handlebars -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<!-- Load the package -->
+<script src="https://unpkg.com/just-handlebars-helpers@1.0.14/dist/h.min.js"></script>
+<script type="text/javascript">
+    // Register helpers for Handlebars
+    H.registerHelpers(Handlebars);
+</script>
 ```
 
 ### Node
 
-
-```javascript
+```js
 // Load Handlebars
 var Handlebars = require('handlebars');
 // Load the package
@@ -878,17 +890,24 @@ Usage:
 
 Note: The currency formatting parameters are used from [https://github.com/osrec/currencyFormatter.js](https://github.com/osrec/currencyFormatter.js).
 
-## Tests
+## Contributing
+
+Project participants should adhere to the [Code of Conduct](CODE_OF_CONDUCT.md). If you are unsure about how to contribute please file an [issue](https://github.com/leapfrogtechnology/just-handlebars-helpers/issues/new).
+
+Start here: [src/H.js](src/H.js)
 
 ```bash
 # Install dependencies
-$ npm install
+$ yarn
+
+# Lint source code
+$ yarn lint
 
 # Compile everything
 $ gulp
 
 # Run all the tests
-$ npm test
+$ yarn test
 ```
 
 ## Inspired by
