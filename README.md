@@ -111,8 +111,8 @@ Determine whether or not two values are equal (===).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -131,8 +131,8 @@ Determine whether or not two values are equal (==) i.e. weak checking.
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -151,8 +151,8 @@ Determine whether or not two values are not equal (!==).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -171,8 +171,8 @@ Determine whether or not two values are not equal (!=) weak checking.
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -191,8 +191,8 @@ Check for less than condition (a < b).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -211,8 +211,8 @@ Check for less than or equals condition (a <= b).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -231,8 +231,8 @@ Check for greater than condition (a > b).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -251,8 +251,8 @@ Check for greater than or equals condition (a >= b).
 
 Parameters:
 ```
-value1 [mixed] First value to be compared with second. (Required)
-value2 [mixed] Second value to be compared with first. (Required)
+value1 [any] First value to be compared with second. (Required)
+value2 [any] Second value to be compared with first. (Required)
 ```
 Returns `boolean`
 
@@ -271,7 +271,7 @@ Logical NOT of any expression. Equivalent to `!` operator.
 
 Parameters:
 ```
-expression [mixed] Any expression.
+expression [any] Any expression.
 ```
 Returns `boolean`
 
@@ -292,10 +292,10 @@ Helper to imitate the ternary conditional operator ?:. E.g. `5 > 7 ? 'foo' : 'ba
 Parameters:
 ```
 condition [boolean] Satisfying condition for getting first value. Either true of false. (Required)
-value1 [mixed] First value to be displayed as result. (Required)
-value2 [mixed] Second value to be displayed as result. Defaults to an empty string (Optional)
+value1 [any] First value to be displayed as result. (Required)
+value2 [any] Second value to be displayed as result. Defaults to an empty string (Optional)
 ```
-Returns `mixed`
+Returns `any`
 
 Usage:
 ```
@@ -352,7 +352,7 @@ it is true iff all the parameters are true.
 
 Parameters:
 ```
-params [mixed] Any number of boolean parameters. (Required)
+params [any] Any number of boolean parameters. (Required)
 ```
 Returns `boolean`
 
@@ -378,7 +378,7 @@ it is true if any of the parameters is true.
 
 Parameters:
 ```
-params [mixed] Any number of boolean parameters. (Required)
+params [any] Any number of boolean parameters. (Required)
 ```
 Returns `boolean`
 
@@ -405,9 +405,9 @@ checks for the first non-false parameter.
 
 Parameters:
 ```
-params [mixed] Any number of parameters. (Required)
+params [any] Any number of parameters. (Required)
 ```
-Returns `mixed`
+Returns `any`
 
 Usage:
 ```
@@ -427,7 +427,7 @@ Can check non-strictly(value only) by sending third argument as false.
 Parameters:
 ```
 params [array] The array. (Required)
-params [mixed] The value to be checked for existence in the array. (Required)
+params [any] The value to be checked for existence in the array. (Required)
 params [boolean] FALSE for non-strict checking. TRUE by default. (Optional)
 ```
 Returns `boolean`
