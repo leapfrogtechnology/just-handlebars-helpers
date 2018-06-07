@@ -1,10 +1,11 @@
 /**
  * A showIf helper for showing any html element.
+ *
  * @example
  *      {{showIf true}}     => ''
  *
- * @param expression
- * @returns string
+ * @param {boolean} expression
+ * @returns {string}
  */
 export function showIf(expression) {
   return expression ? '' : 'hidden';
@@ -12,11 +13,12 @@ export function showIf(expression) {
 
 /**
  * A hideIf helper for hiding any html element.
+ *
  * @example
  *      {{hideIf true}}     => 'hidden'
  *
- * @param expression
- * @returns string
+ * @param {boolean} expression
+ * @returns {string}
  */
 export function hideIf(expression) {
   return expression ? 'hidden' : '';
@@ -24,11 +26,12 @@ export function hideIf(expression) {
 
 /**
  * A selectedIf helper for dropdown and radio boxes.
+ *
  * @example
  *      {{selectedIf true}} =>  'selected'
  *
- * @param expression
- * @returns string
+ * @param {boolean} expression
+ * @returns {string}
  */
 export function selectedIf(expression) {
   return expression ? 'selected' : '';
@@ -36,11 +39,12 @@ export function selectedIf(expression) {
 
 /**
  * A checkedIf helper for checkboxes.
+ *
  * @example
  *      {{checkedIf true}}  => 'checked'
  *
- * @param expression
- * @returns string
+ * @param {boolean} expression
+ * @returns {string}
  */
 export function checkedIf(expression) {
   return expression ? 'checked' : '';
@@ -97,6 +101,9 @@ export function checkedIf(expression) {
  *      <option value="1" selected>New York</option>
  *      <option value="2">London</option>
  *
+ * @param {array} data
+ * @param {object} opts Object of options that includes id, text and selected attribute
+ * @returns {array}
  */
 export function options(data, opts) {
   // The id & text for the <option>

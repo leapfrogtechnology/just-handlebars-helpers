@@ -2,13 +2,15 @@ import { isObject, isUndefined, isNumeric } from '../util/utils';
 
 /**
  * Format the currency according to the country.
+ *
  * @example
  *      {{formatCurrency 1234567.89 code='USD'}}  => $1,234,567.89
  *      {{formatCurrency 1234567.89 code='EUR'}}  => 1.234.567,89 €
  *      {{formatCurrency 1234567.89 code='EUR' locale="en"}}  => €1,234,567.89
  *
- * @param value
- * @param args
+ * @param {number} value
+ * @param {any} args
+ * @returns {string}
  */
 export function formatCurrency(value, ...args) {
   let currencyFormatter = global.OSREC && global.OSREC.CurrencyFormatter;

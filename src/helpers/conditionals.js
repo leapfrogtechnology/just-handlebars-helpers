@@ -2,12 +2,13 @@ import { isArray, isObject } from '../util/utils';
 
 /**
  * Determine whether or not two values are equal (===).
+ *
  * @example
  *      {{eq '3' 3}}    => false
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function eq(value1, value2) {
   return (value1 === value2);
@@ -15,12 +16,13 @@ export function eq(value1, value2) {
 
 /**
  * Determine whether or not two values are equal (==) i.e weak checking.
+ *
  * @example
  *      {{eqw '3' 3}}   => true
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function eqw(value1, value2) {
   return (value1 == value2);
@@ -28,12 +30,13 @@ export function eqw(value1, value2) {
 
 /**
  * Determine whether or not two values are not equal (!==).
+ *
  * @example
  *      {{neq 4 3}}    => true
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function neq(value1, value2) {
   return (value1 !== value2);
@@ -41,12 +44,13 @@ export function neq(value1, value2) {
 
 /**
  * Determine whether or not two values are not equal (!=) weak checking.
+ *
  * @example
  *      {{neqw '3' 3}}    => false
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function neqw(value1, value2) {
   return (value1 != value2);
@@ -54,12 +58,13 @@ export function neqw(value1, value2) {
 
 /**
  * Check for less than condition (a < b).
+ *
  * @example
  *      {{lt 2 3}}   => true
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function lt(value1, value2) {
   return (value1 < value2);
@@ -67,12 +72,13 @@ export function lt(value1, value2) {
 
 /**
  * Check for less than or equals condition (a <= b).
+ *
  * @example
  *      {{lte 2 3}}   => true
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function lte(value1, value2) {
   return (value1 <= value2);
@@ -83,9 +89,9 @@ export function lte(value1, value2) {
  * @example
  *      {{gt 2 3}}   => false
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function gt(value1, value2) {
   return (value1 > value2);
@@ -93,12 +99,13 @@ export function gt(value1, value2) {
 
 /**
  * Check for greater than or equals condition (a >= b).
+ *
  * @example
  *      {{gte 3 3}}   => true
  *
- * @param value1
- * @param value2
- * @returns boolean
+ * @param {any} value1
+ * @param {any} value2
+ * @returns {boolean}
  */
 export function gte(value1, value2) {
   return (value1 >= value2);
@@ -111,10 +118,10 @@ export function gte(value1, value2) {
  *      {{ifx true 'Foo' 'Bar'}}    => Foo
  *      {{ifx false 'Foo' 'Bar'}}   => Foo
  *
- * @param condition
- * @param value1    Value to return when the condition holds true
- * @param value2    Value to return when the condition is false (Optional)
- * @returns mixed
+ * @param {boolean} condition
+ * @param {any} value1    Value to return when the condition holds true
+ * @param {any} value2    Value to return when the condition is false (Optional)
+ * @returns {any}
  */
 export function ifx(condition, value1, value2) {
   // Check if user has omitted the last parameter
@@ -135,8 +142,8 @@ export function ifx(condition, value1, value2) {
  *      {{not true}}    => false
  *      {{not false}}   => true
  *
- * @param expression
- * @returns boolean
+ * @param {any} expression
+ * @returns {boolean}
  */
 export function not(expression) {
   return !expression;
@@ -144,11 +151,12 @@ export function not(expression) {
 
 /**
  * Check if an array is empty.
+ *
  * @example
  *      {{empty array}} => true | false
  *
- * @param array
- * @returns boolean
+ * @param {array} array
+ * @returns {boolean}
  */
 export function empty(array) {
   if (!isArray(array)) {
@@ -163,8 +171,8 @@ export function empty(array) {
  * @example
  *      {{count array}} =>  false | array.length
  *
- * @param array
- * @returns boolean | number
+ * @param {array} array
+ * @returns {boolean | number}
  */
 export function count(array) {
   if (!isArray(array)) {
@@ -185,8 +193,8 @@ export function count(array) {
  *     var value1 = false, value2 = true;
  *     {{and value1 value2}}    => false
  *
- * @param params
- * @returns boolean
+ * @param {any} params
+ * @returns {boolean}
  */
 export function and(...params) {
   // Ignore the object appended by handlebars.
@@ -214,8 +222,8 @@ export function and(...params) {
  *     var value = value2 = false;
  *     {{or value1 value2}}    => false
  *
- * @param params
- * @returns boolean
+ * @param {any} params
+ * @returns {boolean}
  */
 export function or(...params) {
   // Ignore the object appended by handlebars.
@@ -244,8 +252,8 @@ export function or(...params) {
  *     var fullName = '', nickName = 'foob';
  *     {{coalesce fullName nickName 'Unknown'}}    => 'foob'
  *
- * @param params
- * @returns mixed
+ * @param {any} params
+ * @returns {any}
  */
 export function coalesce(...params) {
   // Ignore the object appended by handlebars.
@@ -264,6 +272,7 @@ export function coalesce(...params) {
 
 /**
  * Returns boolean if the array contains the element strictly or non-strictly.
+ *
  * @example
  *     var array = [1, 2, 3, 4];
  *     var value1 = 2, value2 = 10, value3 = '3';
@@ -272,9 +281,9 @@ export function coalesce(...params) {
  *     {{includes array value3}}        => false
  *     {{includes array value3 false}}  => false
  *
- * @param array
- * @param value
- * @returns boolean
+ * @param {array} array
+ * @param {any} value
+ * @returns {boolean}
  */
 export function includes(array, value, strict = true) {
   if (!isArray(array) || array.length === 0) {
