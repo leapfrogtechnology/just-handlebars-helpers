@@ -2,12 +2,13 @@ import { isFunction, isObject, isString, isArray } from '../util/utils';
 
 /**
  * Extract a few characters from a string. Default number of characters is 50.
+ *
  * @example
  *      {{excerpt 'Just Wow' 4}}    => 'Just'
  *
- * @param string
- * @param length
- * @returns string
+ * @param {string} string
+ * @param {int} length
+ * @returns {string}
  */
 export function excerpt(string, length) {
   length = parseInt(length) || 50;
@@ -25,11 +26,12 @@ export function excerpt(string, length) {
 
 /**
  * Convert a string to url friendly dash-case string removing special characters.
+ *
  * @example
  *      {{sanitize 'JuSt #Wow'}}    => 'just-wow'
  *
- * @param string
- * @returns string
+ * @param {string} string
+ * @returns {string}
  */
 export function sanitize(string) {
   string = string.replace(/[^\w\s]/gi, '').trim();
@@ -39,10 +41,11 @@ export function sanitize(string) {
 
 /**
  * Replace \n with <br> tags.
+ *
  * @example
  *     {{newLineToBr 'newLineToBr helper \n is very \n useful.'}}    => newLineToBr helper <br> is very <br> useful.
  *
- * @param  {string}
+ * @param {string} string
  * @return {string}
  */
 export function newLineToBr(string) {
@@ -51,11 +54,12 @@ export function newLineToBr(string) {
 
 /**
  * Capitalize each letter of a string.
+ *
  * @example
  *      {{capitalizeEach 'just wow'}}   => 'Just Wow'
  *
- * @param string
- * @returns string
+ * @param {string} string
+ * @returns {string}
  */
 export function capitalizeEach(string) {
   if (typeof string === 'string') {
@@ -69,11 +73,12 @@ export function capitalizeEach(string) {
 
 /**
  * Capitalize the first letter of a string.
+ *
  * @example
  *      {{capitalizeFirst 'just wow'}}   => 'Just wow'
  *
- * @param string
- * @returns string
+ * @param {string} string
+ * @returns {string}
  */
 export function capitalizeFirst(string) {
   if (typeof string === 'string') {
@@ -95,7 +100,7 @@ export function capitalizeFirst(string) {
  *      {{sprintf format object}}
  *      {{sprintf format key1=value1 key2=value2...}}
  *
- *  @example
+ * @example
  *      {{sprintf '%s %s!' 'Hello' 'Kabir' }}
  *      {{sprintf '%s %s %d %s %d' 'Foo' 'Bar' 55 'Baz' '20'}}
  *      {{sprintf '%(greeting)s %(name)s! How are you?' obj }}
@@ -103,9 +108,9 @@ export function capitalizeFirst(string) {
  *
  * Check this https://github.com/alexei/sprintf.js for more information
  *
- * @param format
- * @param ...args
- * @returns string
+ * @param {string} format
+ * @param {any} ...args
+ * @returns {string}
  */
 export function sprintf(format, ...args) {
 
@@ -134,11 +139,12 @@ export function sprintf(format, ...args) {
 
 /**
  * Changes the string to lowercase.
+ *
  * @example
  *    {{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
  *
- * @param  string param
- * @return string
+ * @param {string} param
+ * @return {string}
  */
 export function lowercase(param) {
   return isString(param) ? param.toLowerCase() : param;
@@ -146,11 +152,12 @@ export function lowercase(param) {
 
 /**
  * Changes the string to uppercase.
+ *
  * @example
  *    {{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
  *
- * @param  string param
- * @return string
+ * @param {string} param
+ * @return {string}
  */
 export function uppercase(param) {
   return isString(param) ? param.toUpperCase() : param;
@@ -158,12 +165,13 @@ export function uppercase(param) {
 
 /**
  * Get the first element of a collection/array.
+ *
  * @example
  *    var someArray = ['David', 'Miller', 'Jones'];
  *    {{first someArray}}   => 'David'
  *
- * @param  array collection
- * @return string
+ * @param {array} collection
+ * @return {string}
  */
 export function first(collection) {
   if (!isArray(collection) || collection.length === 0) {
@@ -175,12 +183,13 @@ export function first(collection) {
 
 /**
  * Get the last element of a collection/array.
+ *
  * @example
  *    var someArray = ['David', 'Miller', 'Jones'];
  *    {{last someArray}}   => 'Jones'
  *
- * @param  array collection
- * @return string
+ * @param {array} collection
+ * @return {string}
  */
 export function last(collection) {
   if (!isArray(collection) || collection.length === 0) {
@@ -192,11 +201,12 @@ export function last(collection) {
 
 /**
  * Concat two or more strings.
+ *
  * @example
  *    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
  *
- * @param  mixed ...params
- * @return string
+ * @param {any} ...params
+ * @return {string}
  */
 export function concat(...params) {
   // Ignore the object appended by handlebars.
@@ -214,18 +224,18 @@ export function concat(...params) {
  *    var someArray = ['Hands', 'legs', 'feet'];
  *    {{join someArray ' & '}}   => 'Hands & legs & feet'
  *
- * @param  array params
- * @param  string delimeter
- * @return string
+ * @param  {array} params
+ * @param  {string} delimiter
+ * @return {string}
  */
-export function join(params, delimeter) {
-  if (!delimeter || isObject(delimeter)) {
-    delimeter = '';
+export function join(params, delimiter) {
+  if (!delimiter || isObject(delimiter)) {
+    delimiter = '';
   }
 
   if (!isArray(params)) {
     return false;
   }
 
-  return params.join(delimeter);
+  return params.join(delimiter);
 }
