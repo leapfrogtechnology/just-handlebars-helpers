@@ -52,7 +52,7 @@
     "handlebars": "^4.0.11",
     "isparta": "^4.0.0",
     "jasmine-core": "^2.4.1",
-    "karma": "^2.0.2",
+    "karma": "^3.0.0",
     "karma-browserify": "^5.2.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
