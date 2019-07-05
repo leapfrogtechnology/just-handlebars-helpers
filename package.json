@@ -71,6 +71,6 @@
     "codecov": "cat coverage/*/lcov.info | codecov",
     "start": "karma start",
     "clean": "rimraf dist/ lib/",
-    "build": "npm run clean && gulp"
+    "build": "yarn clean && gulp"
   }
 }
