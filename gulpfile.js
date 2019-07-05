@@ -9,30 +9,26 @@ const source = require('vinyl-source-stream');
 const shimify = require('browserify-shimify');
 
 // Lint using eslint
-gulp.task('lint', function () {
-  const sourceFiles = [
-    '**/*.js',
-    '!lib/**',
-    '!dist/**',
-    '!coverage/**',
-    '!node_modules/**'
-  ];
+gulp.task('lint', function() {
+  const sourceFiles = ['**/*.js', '!lib/**', '!dist/**', '!coverage/**', '!node_modules/**'];
 
-  return gulp.src(sourceFiles)
+  return gulp
+    .src(sourceFiles)
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
 // Transpile ES6 to ES5
-gulp.task('transpile', ['lint'], function () {
-  return gulp.src('src/**/*.js')
+gulp.task('transpile', ['lint'], function() {
+  return gulp
+    .src('src/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('lib'));
 });
 
 // Bundle things up
-gulp.task('bundle', ['transpile'], function () {
+gulp.task('bundle', ['transpile'], function() {
   const config = {
     entries: './index.js',
     standalone: 'H',
@@ -41,9 +37,9 @@ gulp.task('bundle', ['transpile'], function () {
 
   const shimifyConfig = {
     'sprintf-js': '{sprintf: window.sprintf, vsprintf: window.vsprintf}',
-    'moment': 'window.moment',
+    moment: 'window.moment',
     'currencyformatter.js': 'window.OSREC.CurrencyFormatter',
-    'handlebars': 'window.Handlebars'
+    handlebars: 'window.Handlebars'
   };
 
   return browserify(config)
@@ -54,11 +50,14 @@ gulp.task('bundle', ['transpile'], function () {
 });
 
 // Uglify
-gulp.task('uglify', ['bundle'], function () {
-  return gulp.src('dist/h.js')
-    .pipe(rename({
-      suffix: '.min'
-    }))
+gulp.task('uglify', ['bundle'], function() {
+  return gulp
+    .src('dist/h.js')
+    .pipe(
+      rename({
+        suffix: '.min'
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
