@@ -24,12 +24,12 @@ yarn add just-handlebars-helpers
 #### General Usage
 
 ```html
-<!-- Load Handlebars -->
+<!-- Load handlebars -->
 <script src="/path/to/handlebars/dist/handlebars.min.js"></script>
-<!-- Load the package -->
+<!-- Load just-handlebars-helpers -->
 <script src="/path/to/just-handlebars-helpers/dist/h.min.js"></script>
 <script type="text/javascript">
-  // Register helpers for Handlebars
+  // Register just-handlebars-helpers with handlebars
   H.registerHelpers(Handlebars);
 </script>
 ```
@@ -37,12 +37,12 @@ yarn add just-handlebars-helpers
 #### Recommended Usage (CDN)
 
 ```html
-<!-- Load Handlebars -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-<!-- Load the package -->
-<script src="https://unpkg.com/just-handlebars-helpers@1.0.14/dist/h.min.js"></script>
+<!-- Load handlebars -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js" integrity="sha256-ngJY93C4H39YbmrWhnLzSyiepRuQDVKDNCWO2iyMzFw=" crossorigin="anonymous"></script>
+<!-- Load just-handlebar-helpers -->
+<script src="https://unpkg.com/just-handlebars-helpers@1.0.15/dist/h.min.js" integrity="sha384-30zit6qA4mtGiQPrODwdnrn+DeaL4RJ1hziNFIFJt89nUjr6GCDcvErWCkK0Hkij" crossorigin="anonymous"></script>
 <script type="text/javascript">
-  // Register helpers for Handlebars
+  // Register just-handlebars-helpers with handlebars
   H.registerHelpers(Handlebars);
 </script>
 ```
@@ -50,12 +50,11 @@ yarn add just-handlebars-helpers
 ### Node
 
 ```js
-// Load Handlebars
-var Handlebars = require('handlebars');
-// Load the package
-var H = require('just-handlebars-helpers');
+// Require handlebars and just-handlbars-helpers
+const Handlebars = require('handlebars');
+const H = require('just-handlebars-helpers');
 
-// Register helpers for Handlebars
+// Register just-handlebars-helpers with handlebars
 H.registerHelpers(Handlebars);
 ```
 
