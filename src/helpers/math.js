@@ -51,3 +51,16 @@ export function ceil(value) {
 export function floor(value) {
   return Math.floor(Number(value));
 }
+
+/**
+ * An abs helper to find the absolute value of the number.
+ *
+ * @example
+ *      {{abs -5.6}} => 5.6
+ *
+ * @param {number} value
+ * @returns {number}
+ */
+export function abs(value) {
+  return Math.abs(Number(value));
+}
