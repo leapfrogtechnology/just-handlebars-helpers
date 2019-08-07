@@ -40,7 +40,7 @@ bump() {
   yarn && yarn test && yarn build
 
   # Prepare to commit
-  git add CHANGELOG.md package.json yarn.lock && \
+  git add CHANGELOG.md package.json yarn.lock dist/ && \
     git commit -v --edit -m "${VERSION} Release :tada: :fireworks: :bell:" && \
     git tag "$NEXT" && \
     echo -e "\nRelease tagged $NEXT"
