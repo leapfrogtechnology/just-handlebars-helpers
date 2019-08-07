@@ -96,6 +96,7 @@ H.registerHelpers(Handlebars);
 | [difference](#difference)           | Difference of two numbers                             |
 | [ceil](#ceil)                       | Round a number upward to its nearest integer          |
 | [floor](#floor)                     | Round a number downward to its nearest integer        |
+| [abs](#abs)                         | Find the absolute value of a number                   |
 | [formatDate](#formatdate)           | Format date to specified format                       |
 | [showIf](#showif)                   | Show HTML element if expression is true               |
 | [hideIf](#hideif)                   | Hide HTML element if expression is true               |
@@ -807,6 +808,24 @@ Usage:
 
 ```
 {{floor 5.6}}   => 5
+```
+
+#### abs
+
+A abs helper to find the absolute value of the number. Equivalent to `Math.abs()` in JavaScript.
+
+Parameters:
+
+```
+value [number] Number to perform absolute value operation on. (Required)
+```
+
+Returns `number`
+
+Usage:
+
+```
+{{abs -5.6}}   => 5.6
 ```
 
 ### DateTime

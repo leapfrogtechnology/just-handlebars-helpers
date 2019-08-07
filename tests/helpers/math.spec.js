@@ -64,4 +64,16 @@ describe('math', () => {
     });
   });
 
+  describe('abs', () => {
+    it('should return the absolute value of a float number', () => {
+      expect(math.abs(-5.666)).toEqual(5.666);
+    });
+
+    it('helper should also return the absolute value of a float number', () => {
+      const template = compile('{{abs value}}');
+
+      expect(template({ value: '-5.666' })).toEqual('5.666');
+    });
+  });
+
 });
