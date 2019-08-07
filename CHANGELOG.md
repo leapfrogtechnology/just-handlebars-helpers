@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.0.16](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.16) (2019-08-07)
+[Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.15...v1.0.16)
+
+**Implemented enhancements:**
+
+- Add change log generation and release script [\#60](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/60) [[enhancement](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/enhancement)] ([kabirbaidhya](https://github.com/kabirbaidhya))
+
+**Changes**
+
+- Use the latest resolved dependencies to fix lodash security vulnerability [\#62](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/62) [[dependencies](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/dependencies)] [[security](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/security)] ([kabirbaidhya](https://github.com/kabirbaidhya))
+- Add 'abs' helper [\#61](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/61) [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([ryrob89](https://github.com/ryrob89))
+
 ## [v1.0.15](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.15) (2019-07-05)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.14...v1.0.15)
 
