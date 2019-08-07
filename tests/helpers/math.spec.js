@@ -3,7 +3,6 @@ import { compile } from 'handlebars';
 import * as math from '../../src/helpers/math';
 
 describe('math', () => {
-
   describe('sum', () => {
     it('should return the sum of two passed values', () => {
       expect(math.sum(5, 6)).toEqual(11);
@@ -67,13 +66,19 @@ describe('math', () => {
   describe('abs', () => {
     it('should return the absolute value of a float number', () => {
       expect(math.abs(-5.666)).toEqual(5.666);
+      expect(math.abs(+5.666)).toEqual(5.666);
     });
 
-    it('helper should also return the absolute value of a float number', () => {
+    it('helper should return the absolute value of a positive float number', () => {
+      const template = compile('{{abs value}}');
+
+      expect(template({ value: '+5.666' })).toEqual('5.666');
+    });
+
+    it('helper should return the absolute value of a negative float number', () => {
       const template = compile('{{abs value}}');
 
       expect(template({ value: '-5.666' })).toEqual('5.666');
     });
   });
-
 });
