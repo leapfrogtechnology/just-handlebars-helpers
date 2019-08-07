@@ -39,9 +39,9 @@ yarn add just-handlebars-helpers
 
 ```html
 <!-- Load handlebars -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js" integrity="sha256-ngJY93C4H39YbmrWhnLzSyiepRuQDVKDNCWO2iyMzFw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 <!-- Load just-handlebar-helpers -->
-<script src="https://unpkg.com/just-handlebars-helpers@1.0.15/dist/h.min.js" integrity="sha384-30zit6qA4mtGiQPrODwdnrn+DeaL4RJ1hziNFIFJt89nUjr6GCDcvErWCkK0Hkij" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/just-handlebars-helpers@1.0.16/dist/h.min.js"></script>
 
 <script type="text/javascript">
   // Register just-handlebars-helpers with handlebars
