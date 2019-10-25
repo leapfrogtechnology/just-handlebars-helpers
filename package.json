@@ -29,7 +29,10 @@
     "html"
   ],
   "peerDependencies": {
-    "handlebars": ">= 3.*"
+    "currencyformatter.js": ">= 1.0.4 < 2",
+    "handlebars": ">= 3.*",
+    "moment": ">= 2.22.0 < 3",
+    "sprintf-js": ">= 1.1.1 < 2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
