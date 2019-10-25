@@ -102,7 +102,7 @@ export function checkedIf(expression) {
  *      <option value="2">London</option>
  *
  * @param {array} data
- * @param {object} opts Object of options that includes id, text and selected attribute
+ * @param {object} opts Object of options that includes id, text and selected attribute.
  * @returns {array}
  */
 export function options(data, opts) {

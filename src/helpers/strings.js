@@ -46,7 +46,7 @@ export function sanitize(string) {
  *     {{newLineToBr 'newLineToBr helper \n is very \n useful.'}}    => newLineToBr helper <br> is very <br> useful.
  *
  * @param {string} string
- * @return {string}
+ * @returns {string}
  */
 export function newLineToBr(string) {
   return string.replace(/\r?\n|\r/g, '<br>');
@@ -91,14 +91,11 @@ export function capitalizeFirst(string) {
 /**
  * A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
  *
- * NOTE: This helper relies on sprintf() function provided by https://github.com/alexei/sprintf.js
- * So, make sure you have the sprintf-js package available either as a node module
- * or have sprintf/vsprintf functions available in the global scope from that package.
+ * Make sure you have the sprintf-js (https://github.com/alexei/sprintf.js) package is available
+ * either as a node module or you have sprintf/vsprintf functions available in the global scope
+ * from that package.
  *
- * Syntax:
- *      {{sprintf format arg1 arg2 arg3....}}
- *      {{sprintf format object}}
- *      {{sprintf format key1=value1 key2=value2...}}
+ * Check https://github.com/alexei/sprintf.js for more information.
  *
  * @example
  *      {{sprintf '%s %s!' 'Hello' 'Kabir' }}
@@ -106,14 +103,11 @@ export function capitalizeFirst(string) {
  *      {{sprintf '%(greeting)s %(name)s! How are you?' obj }}
  *      {{sprintf '%(greeting)s %(name)s! ' greeting='Hello' name='Kabir'}}
  *
- * Check this https://github.com/alexei/sprintf.js for more information
- *
  * @param {string} format
- * @param {any} ...args
+ * @param {any} args
  * @returns {string}
  */
 export function sprintf(format, ...args) {
-
   // Check if the vsprintf function is available globally
   // if it's not available then try to require() it
   let _vsprintf = global.vsprintf;
@@ -144,7 +138,7 @@ export function sprintf(format, ...args) {
  *    {{lowercase 'JUST WOW!!!'}}   => 'just wow!!!'
  *
  * @param {string} param
- * @return {string}
+ * @returns {string}
  */
 export function lowercase(param) {
   return isString(param) ? param.toLowerCase() : param;
@@ -157,7 +151,7 @@ export function lowercase(param) {
  *    {{uppercase 'just wow!!!'}}   => 'JUST WOW!!!'
  *
  * @param {string} param
- * @return {string}
+ * @returns {string}
  */
 export function uppercase(param) {
   return isString(param) ? param.toUpperCase() : param;
@@ -171,7 +165,7 @@ export function uppercase(param) {
  *    {{first someArray}}   => 'David'
  *
  * @param {array} collection
- * @return {string}
+ * @returns {string}
  */
 export function first(collection) {
   if (!isArray(collection) || collection.length === 0) {
@@ -189,7 +183,7 @@ export function first(collection) {
  *    {{last someArray}}   => 'Jones'
  *
  * @param {array} collection
- * @return {string}
+ * @returns {string}
  */
 export function last(collection) {
   if (!isArray(collection) || collection.length === 0) {
@@ -205,8 +199,8 @@ export function last(collection) {
  * @example
  *    {{concat 'Hello' ' world' '!!!'}}   => 'Hello world!!!'
  *
- * @param {any} ...params
- * @return {string}
+ * @param {any} params
+ * @returns {string}
  */
 export function concat(...params) {
   // Ignore the object appended by handlebars.
@@ -226,7 +220,7 @@ export function concat(...params) {
  *
  * @param  {array} params
  * @param  {string} delimiter
- * @return {string}
+ * @returns {string|boolean}
  */
 export function join(params, delimiter) {
   if (!delimiter || isObject(delimiter)) {

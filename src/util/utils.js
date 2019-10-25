@@ -1,8 +1,8 @@
 /**
  * Check if param is a function.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isFunction(thing) {
   return (typeof thing === 'function');
@@ -11,8 +11,8 @@ export function isFunction(thing) {
 /**
  * Check if param is a string.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isString(thing) {
   return (typeof thing === 'string');
@@ -21,8 +21,8 @@ export function isString(thing) {
 /**
  * Check if param is undefined.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isUndefined(thing) {
   return (typeof thing === 'undefined');
@@ -31,8 +31,8 @@ export function isUndefined(thing) {
 /**
  * Check if param is not undefined.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isDefined(thing) {
   return !isUndefined(thing);
@@ -41,8 +41,8 @@ export function isDefined(thing) {
 /**
  * Check if param is an object.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isObject(thing) {
   return (typeof thing === 'object');
@@ -51,8 +51,8 @@ export function isObject(thing) {
 /**
  * Check if param is an array.
  *
- * @param thing
- * @returns boolean
+ * @param {any} thing
+ * @returns {boolean}
  */
 export function isArray(thing) {
   return (Object.prototype.toString.call(thing) === '[object Array]');
@@ -61,9 +61,9 @@ export function isArray(thing) {
 /**
  * Check if the value is numeric.
  *
- * @param value
+ * @param {any} thing
  * @returns {boolean}
  */
-export function isNumeric(value) {
-  return !isNaN(parseFloat(value)) && isFinite(value);
+export function isNumeric(thing) {
+  return !isNaN(parseFloat(thing)) && isFinite(thing);
 }
