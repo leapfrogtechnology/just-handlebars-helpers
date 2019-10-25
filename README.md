@@ -52,7 +52,7 @@ yarn add just-handlebars-helpers
 ### Node
 
 ```js
-// Require handlebars and just-handlbars-helpers
+// Require handlebars and just-handlebars-helpers
 const Handlebars = require('handlebars');
 const H = require('just-handlebars-helpers');
 
@@ -81,7 +81,7 @@ H.registerHelpers(Handlebars);
 | [coalesce](#coalesce)               | Returns first non-falsy value from list of parameters |
 | [includes](#includes)               | Check for a value inside an array                     |
 | [excerpt](#excerpt)                 | Extract a sub-string from a string                    |
-| [sanitize](#sanitize)               | Sanitize a string to url friendy dash case            |
+| [sanitize](#sanitize)               | Sanitize a string to url friendly dash/kebab case     |
 | [newLineToBr](#newlinetobr)         | Replace new line with line breaks `<br>` of a string  |
 | [capitalizeEach](#capitalizeeach)   | Capitalize the first letter of each word in a string  |
 | [capitalizeFirst](#capitalizefirst) | Capitalize the first letter of a string               |
@@ -104,6 +104,10 @@ H.registerHelpers(Handlebars);
 | [checkedIf](#checkedif)             | Check the `<input>` checkbox if expression is true    |
 | [options](#options)                 | Generate `<option>` list for `<select>`               |
 | [formatCurrency](#formatcurrency)   | Format currency value according to country            |
+
+### ⚠️
+
+> [formatDate](#DateTime), [formatCurrency](#formatcurrency) and [sprintf](#sprintf) depend on an external dependency and it is up to the user to install those dependencies. Check the helper documentation for what dependencies to install.
 
 ### Conditional
 
