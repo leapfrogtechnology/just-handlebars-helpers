@@ -736,7 +736,7 @@ someArray = ['Hands', 'legs', 'feet'];
 
 #### sum
 
-A sum helper calculating the sum of two numbers.
+A `sum` helper calculating the sum of two numbers.
 
 Parameters:
 
@@ -756,7 +756,7 @@ Usage:
 
 #### difference
 
-A difference helper calculating the difference of two numbers.
+A `difference` helper calculating the difference of two numbers.
 
 Parameters:
 
@@ -776,7 +776,7 @@ Usage:
 
 #### ceil
 
-A ceil helper to find the ceil value of the number. Equivalent to `Math.ceil()` in JavaScript.
+A `ceil` helper to find the ceil value of the number. Equivalent to `Math.ceil()` in JavaScript.
 
 Parameters:
 
@@ -794,7 +794,7 @@ Usage:
 
 #### floor
 
-A floor helper to find the floor value of the number. Equivalent to `Math.floor()` in JavaScript.
+A `floor` helper to find the floor value of the number. Equivalent to `Math.floor()` in JavaScript.
 
 Parameters:
 
@@ -812,7 +812,7 @@ Usage:
 
 #### abs
 
-A abs helper to find the absolute value of the number. Equivalent to `Math.abs()` in JavaScript.
+An `abs` helper to find the absolute value of the number. Equivalent to `Math.abs()` in JavaScript.
 
 Parameters:
 
@@ -836,7 +836,7 @@ Usage:
 
 #### formatDate
 
-A formatDate helper to format date using moment.js
+A `formatDate` helper to format date using moment.js
 
 Parameters:
 
@@ -861,7 +861,7 @@ var date = new Date('01/22/2016');
 
 #### showIf
 
-A showIf helper for showing any HTML element.
+A `showIf` helper for showing any HTML element.
 
 Parameters:
 
@@ -880,7 +880,7 @@ Usage:
 
 #### hideIf
 
-A hideIf helper for hiding any HTML element.
+A `hideIf` helper for hiding any HTML element.
 
 Parameters:
 
@@ -899,7 +899,7 @@ Usage:
 
 #### selectedIf
 
-A selectedIf helper for dropdown and radio boxes.
+A `selectedIf` helper for dropdown and radio boxes.
 
 Parameters:
 
@@ -917,7 +917,7 @@ Usage:
 
 #### checkedIf
 
-A checkedIf helper for checkboxes.
+A `checkedIf` helper for checkboxes.
 
 Parameters:
 
@@ -935,7 +935,7 @@ Usage:
 
 #### options
 
-An options helper for generating `<option>` list for `<select>` dropdowns.
+An `options` helper for generating `<option>` list for `<select>` dropdowns.
 
 Parameters:
 
