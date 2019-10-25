@@ -39,7 +39,7 @@
     "browserify-istanbul": "^2.0.0",
     "browserify-shimify": "0.1.0-0",
     "codecov": "^3.0.2",
-    "currencyformatter.js": "^1.0.4",
+    "currencyformatter.js": "^1.0.5",
     "eslint": "^4.19.1",
     "eslint-config-leapfrog": "^1.0.1",
     "faker": "^4.1.0",
