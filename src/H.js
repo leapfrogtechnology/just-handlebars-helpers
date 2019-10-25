@@ -9,8 +9,15 @@ import * as datetime from './helpers/datetime';
 import * as formatters from './helpers/formatters';
 import * as conditionals from './helpers/conditionals';
 
+/**
+ * Class for just-handlebars-helpers.
+ */
 class H {
-
+  /**
+   * Static method to register just-handlebars-helpers with Handlebars.
+   *
+   * @param {*} handlebars
+   */
   static registerHelpers(handlebars) {
 
     handlebars = handlebars || global.Handlebars;
@@ -26,7 +33,7 @@ class H {
 
     helpers.forEach(helper => {
       // Register all the helper functions to Handlebars
-      for (let name in helper) {
+      for (const name in helper) {
         handlebars.registerHelper(name, helper[name]);
       }
     });

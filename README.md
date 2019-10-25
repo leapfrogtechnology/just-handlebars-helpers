@@ -52,7 +52,7 @@ yarn add just-handlebars-helpers
 ### Node
 
 ```js
-// Require handlebars and just-handlbars-helpers
+// Require handlebars and just-handlebars-helpers
 const Handlebars = require('handlebars');
 const H = require('just-handlebars-helpers');
 
@@ -81,7 +81,7 @@ H.registerHelpers(Handlebars);
 | [coalesce](#coalesce)               | Returns first non-falsy value from list of parameters |
 | [includes](#includes)               | Check for a value inside an array                     |
 | [excerpt](#excerpt)                 | Extract a sub-string from a string                    |
-| [sanitize](#sanitize)               | Sanitize a string to url friendy dash case            |
+| [sanitize](#sanitize)               | Sanitize a string to url friendly dash/kebab case     |
 | [newLineToBr](#newlinetobr)         | Replace new line with line breaks `<br>` of a string  |
 | [capitalizeEach](#capitalizeeach)   | Capitalize the first letter of each word in a string  |
 | [capitalizeFirst](#capitalizefirst) | Capitalize the first letter of a string               |
@@ -104,6 +104,10 @@ H.registerHelpers(Handlebars);
 | [checkedIf](#checkedif)             | Check the `<input>` checkbox if expression is true    |
 | [options](#options)                 | Generate `<option>` list for `<select>`               |
 | [formatCurrency](#formatcurrency)   | Format currency value according to country            |
+
+### ⚠️
+
+> Helpers [formatDate](#datetime), [formatCurrency](#formatcurrency) and [sprintf](#sprintf) depend on an external dependency and it is up to the user to install these dependencies. Check the helper documentation for what dependencies to install.
 
 ### Conditional
 
@@ -596,9 +600,9 @@ Usage:
 
 #### sprintf
 
-A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
+`sprintf` helper sends formatted data as string output.
 
-**Note:** To use sprintf helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
+**Note:** To use `sprintf` helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js).
 
 `npm install sprintf-js --save`
 
@@ -736,7 +740,7 @@ someArray = ['Hands', 'legs', 'feet'];
 
 #### sum
 
-A sum helper calculating the sum of two numbers.
+A `sum` helper calculating the sum of two numbers.
 
 Parameters:
 
@@ -756,7 +760,7 @@ Usage:
 
 #### difference
 
-A difference helper calculating the difference of two numbers.
+A `difference` helper calculating the difference of two numbers.
 
 Parameters:
 
@@ -776,7 +780,7 @@ Usage:
 
 #### ceil
 
-A ceil helper to find the ceil value of the number. Equivalent to `Math.ceil()` in JavaScript.
+A `ceil` helper to find the ceil value of the number. Equivalent to `Math.ceil()` in JavaScript.
 
 Parameters:
 
@@ -794,7 +798,7 @@ Usage:
 
 #### floor
 
-A floor helper to find the floor value of the number. Equivalent to `Math.floor()` in JavaScript.
+A `floor` helper to find the floor value of the number. Equivalent to `Math.floor()` in JavaScript.
 
 Parameters:
 
@@ -812,7 +816,7 @@ Usage:
 
 #### abs
 
-A abs helper to find the absolute value of the number. Equivalent to `Math.abs()` in JavaScript.
+An `abs` helper to find the absolute value of the number. Equivalent to `Math.abs()` in JavaScript.
 
 Parameters:
 
@@ -830,13 +834,13 @@ Usage:
 
 ### DateTime
 
-**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment)
+**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment).
 
 `npm install moment --save`
 
 #### formatDate
 
-A formatDate helper to format date using moment js.
+A `formatDate` helper to format date using moment.js
 
 Parameters:
 
@@ -861,7 +865,7 @@ var date = new Date('01/22/2016');
 
 #### showIf
 
-A showIf helper for showing any HTML element.
+A `showIf` helper for showing any HTML element.
 
 Parameters:
 
@@ -880,7 +884,7 @@ Usage:
 
 #### hideIf
 
-A hideIf helper for hiding any HTML element.
+A `hideIf` helper for hiding any HTML element.
 
 Parameters:
 
@@ -899,7 +903,7 @@ Usage:
 
 #### selectedIf
 
-A selectedIf helper for dropdown and radio boxes.
+A `selectedIf` helper for dropdown and radio boxes.
 
 Parameters:
 
@@ -917,7 +921,7 @@ Usage:
 
 #### checkedIf
 
-A checkedIf helper for checkboxes.
+A `checkedIf` helper for checkboxes.
 
 Parameters:
 
@@ -935,7 +939,7 @@ Usage:
 
 #### options
 
-An options helper for generating `<option>` list for `<select>` dropdowns.
+An `options` helper for generating `<option>` list for `<select>` dropdowns.
 
 Parameters:
 
@@ -1016,6 +1020,10 @@ will generate HTML:
 #### formatCurrency
 
 Format the currency value according to country code and locale.
+
+**Note:** To use the `formatCurrency` helper install [currencyformatter.js](https://www.npmjs.com/package/currencyformatter.js).
+
+`npm install currencyformatter.js --save`
 
 Parameters:
 

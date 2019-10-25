@@ -8,6 +8,9 @@ const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const shimify = require('browserify-shimify');
 
+/**
+ * Check for linter errors.
+ */
 function lint() {
   const sourceFiles = ['**/*.js', '!lib/**', '!dist/**', '!coverage/**', '!node_modules/**'];
 
@@ -18,6 +21,9 @@ function lint() {
     .pipe(eslint.failAfterError());
 }
 
+/**
+ * Transpile source code using babel.
+ */
 function transpile() {
   return gulp
     .src('src/**/*.js')
@@ -25,6 +31,9 @@ function transpile() {
     .pipe(gulp.dest('lib'));
 }
 
+/**
+ * Bundle files using browserify.
+ */
 function bundle() {
   const config = {
     entries: './index.js',
@@ -46,6 +55,9 @@ function bundle() {
     .pipe(gulp.dest('dist'));
 }
 
+/**
+ * Uglify build.
+ */
 function uglifyDist() {
   return gulp
     .src('dist/h.js')

@@ -6,9 +6,9 @@ import { isString } from '../util/utils';
  * @example
  *      {{formatDate 'MM/DD/YYYY' date}}
  *
- * @param {string} formatString based on moment.js
- * @param {date} date
- * @return {string}
+ * @param {string} formatString Based on moment.js.
+ * @param {Date} date
+ * @returns {string}
  */
 export function formatDate(formatString, date) {
   let moment = global.moment;
