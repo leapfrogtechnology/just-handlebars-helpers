@@ -596,9 +596,9 @@ Usage:
 
 #### sprintf
 
-A sprintf helper to be used in the handlebars templates that supports arbitrary parameters.
+`sprintf` helper sends formatted data as string output.
 
-**Note:** To use sprintf helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
+**Note:** To use `sprintf` helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
 
 `npm install sprintf-js --save`
 
@@ -836,7 +836,7 @@ Usage:
 
 #### formatDate
 
-A formatDate helper to format date using moment js.
+A formatDate helper to format date using moment.js
 
 Parameters:
 
@@ -1016,6 +1016,10 @@ will generate HTML:
 #### formatCurrency
 
 Format the currency value according to country code and locale.
+
+**Note:** To use the `formatCurrency` helper install [currencyformatter.js](https://www.npmjs.com/package/currencyformatter.js)
+
+`npm install currencyformatter.js --save`
 
 Parameters:
 
