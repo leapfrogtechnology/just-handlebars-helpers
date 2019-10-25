@@ -107,7 +107,7 @@ H.registerHelpers(Handlebars);
 
 ### ⚠️
 
-> [formatDate](#DateTime), [formatCurrency](#formatcurrency) and [sprintf](#sprintf) depend on an external dependency and it is up to the user to install those dependencies. Check the helper documentation for what dependencies to install.
+> Helpers [formatDate](#datetime), [formatCurrency](#formatcurrency) and [sprintf](#sprintf) depend on an external dependency and it is up to the user to install these dependencies. Check the helper documentation for what dependencies to install.
 
 ### Conditional
 
@@ -602,7 +602,7 @@ Usage:
 
 `sprintf` helper sends formatted data as string output.
 
-**Note:** To use `sprintf` helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js)
+**Note:** To use `sprintf` helper install [sprintf-js](https://www.npmjs.com/package/sprintf-js).
 
 `npm install sprintf-js --save`
 
@@ -834,7 +834,7 @@ Usage:
 
 ### DateTime
 
-**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment)
+**Note:** To use DateTime helpers install [moment](https://www.npmjs.com/package/moment).
 
 `npm install moment --save`
 
@@ -1021,7 +1021,7 @@ will generate HTML:
 
 Format the currency value according to country code and locale.
 
-**Note:** To use the `formatCurrency` helper install [currencyformatter.js](https://www.npmjs.com/package/currencyformatter.js)
+**Note:** To use the `formatCurrency` helper install [currencyformatter.js](https://www.npmjs.com/package/currencyformatter.js).
 
 `npm install currencyformatter.js --save`
 
