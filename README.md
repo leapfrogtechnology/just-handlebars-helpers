@@ -41,7 +41,7 @@ yarn add just-handlebars-helpers
 <!-- Load handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 <!-- Load just-handlebar-helpers -->
-<script src="https://unpkg.com/just-handlebars-helpers@1.0.16/dist/h.min.js"></script>
+<script src="https://unpkg.com/just-handlebars-helpers@1.0.17/dist/h.min.js"></script>
 
 <script type="text/javascript">
   // Register just-handlebars-helpers with handlebars
