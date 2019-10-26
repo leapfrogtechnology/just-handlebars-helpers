@@ -1,5 +1,16 @@
 # Change Log
 
+## [v1.0.17](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.17) (2019-10-26)
+[Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.16...v1.0.17)
+
+**Closed Issues**
+
+- please distinguish dependencies/devDependencies in package.json [\#64](https://github.com/leapfrogtechnology/just-handlebars-helpers/issues/64)
+
+**Changes**
+
+- Improve documentation and other minor updates [\#67](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/67) [[dependencies](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/dependencies)] [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] [[improvement](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/improvement)] ([mesaugat](https://github.com/mesaugat))
+
 ## [v1.0.16](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.16) (2019-08-07)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.15...v1.0.16)
 
@@ -19,6 +30,7 @@
 
 - Security Patch - Update all the dependencies with vulnerabilities [\#59](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/59) [[security](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/security)] ([kabirbaidhya](https://github.com/kabirbaidhya))
 - Bump handlebars from 4.0.11 to 4.1.2 [\#55](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/55) [[dependencies](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/dependencies)] [[security](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/security)] ([dependabot[bot]](https://github.com/apps/dependabot))
+- Introduce options helper for \<option\> lists [\#32](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/32) [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([kabirbaidhya](https://github.com/kabirbaidhya))
 
 ## [v1.0.14](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.14) (2018-06-07)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.13...v1.0.14)
@@ -88,7 +100,6 @@
 **Changes**
 
 - Table of contents \(Helpers List\) [\#39](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/39) [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] ([mesaugat](https://github.com/mesaugat))
-- Add 'includes' helper [\#37](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/37) [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([sanjeevkpandit](https://github.com/sanjeevkpandit))
 
 ## [v1.0.9](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.9) (2016-05-23)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.8...v1.0.9)
@@ -103,10 +114,6 @@
 
 ## [v1.0.8](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.8) (2016-05-11)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.7...v1.0.8)
-
-**Changes**
-
-- Introduce options helper for \<option\> lists [\#32](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/32) [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([kabirbaidhya](https://github.com/kabirbaidhya))
 
 ## [v1.0.7](https://github.com/leapfrogtechnology/just-handlebars-helpers/tree/v1.0.7) (2016-04-18)
 [Full Changelog](https://github.com/leapfrogtechnology/just-handlebars-helpers/compare/v1.0.6...v1.0.7)
@@ -124,6 +131,7 @@
 
 **Changes**
 
+- Add 'includes' helper [\#37](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/37) [[documentation](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/documentation)] [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([sanjeevkpandit](https://github.com/sanjeevkpandit))
 - Add a test case for empty helper [\#30](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/30) ([sanjeevkpandit](https://github.com/sanjeevkpandit))
 - Add 'and' and 'or' helpers [\#29](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/29) [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([sanjeevkpandit](https://github.com/sanjeevkpandit))
 - Add newLineToBr helper [\#28](https://github.com/leapfrogtechnology/just-handlebars-helpers/pull/28) [[feature](https://github.com/leapfrogtechnology/just-handlebars-helpers/labels/feature)] ([sanjeevkpandit](https://github.com/sanjeevkpandit))
