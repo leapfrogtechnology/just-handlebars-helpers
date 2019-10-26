@@ -31,6 +31,7 @@ bump() {
 
   # Update version in the following files
   sed -i "s/\(\"version\":\s*\"\)[^\"]*\(\"\)/\1${VERSION}\2/g" package.json
+  sed -i "s/just-handlebars-helpers@\d+.\d+.\d+/just-handlebars-helpers@${VERSION}/g" README.md
 
   # Generate change log
   changelog
