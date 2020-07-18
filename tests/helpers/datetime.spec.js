@@ -80,7 +80,6 @@ describe('datetime', () => {
       expect(datetime.formatLocaleDate('dddd', null)).toEqual(expectedDayOfWeek);
     });
 
-
     it('should rreturn locale-formatted date (dddd) even if date=null and locale=null is provided', () => {
       const expectedDayOfWeek = datetime.formatLocaleDate('dddd', 'en', new Date());
 
@@ -92,7 +91,6 @@ describe('datetime', () => {
 
       expect(datetime.formatLocaleDate('dddd', undefined)).toEqual(expectedDayOfWeek);
     });
-
 
     it('should rreturn locale-formatted date (dddd) even if date=undefined and locale=undefined is provided', () => {
       const expectedDayOfWeek = datetime.formatLocaleDate('dddd', 'en', new Date());
