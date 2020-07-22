@@ -15,7 +15,7 @@ export function formatDate(formatString, date, localeString) {
   let moment = global.moment;
 
   if (!moment) {
-    moment = require('moment');
+    moment = require('moment/min/moment-with-locales');
   }
 
   formatString = isString(formatString) ? formatString : '';
@@ -46,7 +46,7 @@ export function setDateLocale(localeString, noOutput) {
   let moment = global.moment;
 
   if (!moment) {
-    moment = require('moment');
+    moment = require('moment/min/moment-with-locales');
   }
 
   let output = moment.locale();
