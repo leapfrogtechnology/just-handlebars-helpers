@@ -67,3 +67,13 @@ export function isArray(thing) {
 export function isNumeric(thing) {
   return !isNaN(parseFloat(thing)) && isFinite(thing);
 }
+
+/**
+ * Check if param is a boolean.
+ *
+ * @param {any} thing
+ * @returns {boolean}
+ */
+export function isBoolean(thing) {
+  return (typeof thing === 'boolean');
+}

@@ -848,6 +848,7 @@ Parameters:
 ```
 formatString [string] Format string based on moment.js (Required)
 date [date] The date/date-time that needs to be formatted. (set to current Date() if not provided)
+localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale .
 ```
 
 Returns `string`
@@ -860,30 +861,35 @@ var date = new Date();      // Date | Date-time
 
 var date = new Date('01/22/2016');
 {{formatDate 'YYYY-MM-DD' date}}    => 2016-01-22
+{{formatDate 'LLLL', date, 'de'}}    => 'Donnerstag, 21. Januar 2016 17:00'
 ```
 
-#### formatLocaleDate
+#### setDateLocale
 
-A `formatLocaleDate` helper to format date using moment.js
+A `setDateLocale` helper to change the global date locale used by moment.js if the locale will be 
+unchanged throughout the handlebars template (otherwise use locale option of `formatDate`).
 
 Parameters:
 
 ```
-formatString [string] Format string based on moment.js (Required)
-localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale (functions like formatDate if not provided)
-date [date] The date/date-time that needs to be formatted. (set to current Date() if not provided)
+localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale . 
+If you pass the boolean `true`, it will reset to the default english locale.
+noOutput [boolean] Set to true to keep this helper from outputting the current moment.js locale value.
 ```
 
-Returns `string`
+Returns `string` representing the current global locale setting
 
 Usage:
 
 ```
-var date = new Date();      // Date | Date-time
-{{formatLocaleDate 'MMMM Do, YYYY', 'it', date}}   => Current Month, day of month with ordinal, and year in Italian
+var date = new Date('01/02/2016');      // Date | Date-time
+{{formatDate 'MMMM Do, YYYY', date}}   => Designated Month, day of month, and year in English (momentjs default)
 
-var date = new Date('01/02/2016');
-{{formatLocaleDate 'LLLL', 'de', date}}    => 'Samstag, 2. Januar 2016 00:00'
+{{setDateLocale 'de' true}}
+{{formatDate 'LLLL', date}}    => 'Samstag, 2. Januar 2016 00:00'
+
+{{setDateLocale true}}
+{{formatDate 'LLLL', date}}    => 'Saturday, January 2, 2016 12:00 AM'
 ```
 
 ### HTML
