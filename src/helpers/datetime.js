@@ -1,4 +1,4 @@
-import { isString, isBoolean } from '../util/utils';
+import { isString, isBoolean, isDefined, isArray } from '../util/utils';
 
 /**
  * A formatDate helper to format date using moment js with optional locale designation.
@@ -8,7 +8,7 @@ import { isString, isBoolean } from '../util/utils';
  *
  * @param {string} formatString Based on moment.js.
  * @param {Date} date
- * @param {string} localeString Language or language-country locale string available in https://github.com/moment/moment/tree/develop/locale .
+ * @param {object} localeString Language or language-country locale string (or array of strings) available in https://github.com/moment/moment/tree/develop/locale .
  * @returns {string}
  */
 export function formatDate(formatString, date, localeString) {
@@ -20,7 +20,7 @@ export function formatDate(formatString, date, localeString) {
 
   formatString = isString(formatString) ? formatString : '';
 
-  if (isString(localeString)) {
+  if (isString(localeString) || isArray(localeString)) {
     const localeMoment = moment(date || new Date());
 
     localeMoment.locale(localeString);
@@ -38,7 +38,7 @@ export function formatDate(formatString, date, localeString) {
  * @example
  *      {{setDateLocale 'es' true}}
  *
- * @param {string} localeString Language or language-country locale string available in https://github.com/moment/moment/tree/develop/locale .
+ * @param {object} localeString Language or language-country locale string (or array of strings) available in https://github.com/moment/moment/tree/develop/locale .
  * @param {boolean} noOutput Boolean that causes the helper to return an empty string if TRUE.
  * @returns {string} The current global locale setting.
  */
@@ -54,7 +54,7 @@ export function setDateLocale(localeString, noOutput) {
   if (isBoolean(localeString) && localeString === true) {
     // according to moment's tests, english should be default: https://github.com/moment/moment/blob/develop/src/lib/locale/en.js
     output = moment.locale('en');
-  } else if (isString(localeString) && output !== localeString) {
+  } else if ((isString(localeString) || isArray(localeString)) && output !== localeString) {
     output = moment.locale(localeString);
   }
 
