@@ -863,37 +863,8 @@ var date = new Date();      // Date | Date-time
 var date = new Date('01/22/2016');
 var possibleI8nCodes = ['xy', 'aa', 'de'];
 {{formatDate 'YYYY-MM-DD' date}}    => 2016-01-22
-{{formatDate 'LLLL', date, 'es'}}    => 'Freitag, 22. Januar 2016 00:00'
+{{formatDate 'LLLL', date, 'es'}}    => 'viernes, 22 de enero de 2016 0:00'
 {{formatDate 'LLLL', date, possibleI8nCodes}}    => 'Freitag, 22. Januar 2016 00:00'
-```
-
-#### setDateLocale
-
-A `setDateLocale` helper to change the global date locale used by moment.js if the locale will be 
-unchanged throughout the handlebars template (otherwise use locale option of `formatDate`).
-
-Parameters:
-
-```
-localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale 
-or an array of possible locale codes, of which moment will use the first one it has a localization for. 
-If you pass the boolean `true`, it will reset to the default english locale.
-noOutput [boolean] Set to true to keep this helper from outputting the current moment.js locale value.
-```
-
-Returns `string` representing the current global locale setting
-
-Usage:
-
-```
-var date = new Date('01/02/2016');      // Date | Date-time
-{{formatDate 'MMMM Do, YYYY', date}}   => Designated Month, day of month, and year in English (momentjs default)
-
-{{setDateLocale 'de' true}}
-{{formatDate 'LLLL', date}}    => 'Samstag, 2. Januar 2016 00:00'
-
-{{setDateLocale true}}
-{{formatDate 'LLLL', date}}    => 'Saturday, January 2, 2016 12:00 AM'
 ```
 
 ### HTML

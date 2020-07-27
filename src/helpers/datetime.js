@@ -1,4 +1,4 @@
-import { isString, isBoolean, isDefined, isArray } from '../util/utils';
+import { isString, isArray } from '../util/utils';
 
 /**
  * A formatDate helper to format date using moment js with optional locale designation.
@@ -26,37 +26,8 @@ export function formatDate(formatString, date, localeString) {
     localeMoment.locale(localeString);
 
     return localeMoment.format(formatString);
-  } else {
-    // use global moment and format with default locale
-    return moment(date || new Date()).format(formatString);
   }
-}
-
-/**
- * A setDateLocale helper to configure/read the current default moment js locale.
- *
- * @example
- *      {{setDateLocale 'es' true}}
- *
- * @param {object} localeString Language or language-country locale string (or array of strings) available in https://github.com/moment/moment/tree/develop/locale .
- * @param {boolean} noOutput Boolean that causes the helper to return an empty string if TRUE.
- * @returns {string} The current global locale setting.
- */
-export function setDateLocale(localeString, noOutput) {
-  let moment = global.moment;
-
-  if (!moment) {
-    moment = require('moment/min/moment-with-locales');
-  }
-
-  let output = moment.locale();
-
-  if (isBoolean(localeString) && localeString === true) {
-    // according to moment's tests, english should be default: https://github.com/moment/moment/blob/develop/src/lib/locale/en.js
-    output = moment.locale('en');
-  } else if ((isString(localeString) || isArray(localeString)) && output !== localeString) {
-    output = moment.locale(localeString);
-  }
-
-  return noOutput ? '' : output;
+  
+  // use global moment and format with default locale
+  return moment(date || new Date()).format(formatString);
 }
