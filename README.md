@@ -98,7 +98,6 @@ H.registerHelpers(Handlebars);
 | [floor](#floor)                       | Round a number downward to its nearest integer        |
 | [abs](#abs)                           | Find the absolute value of a number                   |
 | [formatDate](#formatdate)             | Format date to specified format                       |
-| [formatLocaleDate](#formatLocaleDate) | Format date to specified format in an i8n locale      |
 | [showIf](#showif)                     | Show HTML element if expression is true               |
 | [hideIf](#hideif)                     | Hide HTML element if expression is true               |
 | [selectedIf](#selectedif)             | Select `<option>` if expression is true               |
