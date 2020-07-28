@@ -62,48 +62,48 @@ H.registerHelpers(Handlebars);
 
 ## Helpers
 
-| Helper                              | Description                                           |
-| ----------------------------------- | ----------------------------------------------------- |
-| [eq](#eq)                           | Strict equality `===`                                 |
-| [eqw](#eqw)                         | Equality `==`                                         |
-| [neq](#neq)                         | Strict inequality `!==`                               |
-| [neqw](#neqw)                       | Inequality `!=`                                       |
-| [lt](#lt)                           | Less than `<`                                         |
-| [lte](#lte)                         | Less than or equal `<=`                               |
-| [gt](#gt)                           | Greater than `>`                                      |
-| [gte](#gte)                         | Greater than or equal `>=`                            |
-| [not](#not)                         | Not `!`                                               |
-| [ifx](#ifx)                         | Imitates conditional operator `?:`                    |
-| [empty](#empty)                     | Check if an array is empty                            |
-| [count](#count)                     | Length of an array                                    |
-| [and](#and)                         | Logical AND operation                                 |
-| [or](#or)                           | Logical OR operation                                  |
-| [coalesce](#coalesce)               | Returns first non-falsy value from list of parameters |
-| [includes](#includes)               | Check for a value inside an array                     |
-| [excerpt](#excerpt)                 | Extract a sub-string from a string                    |
-| [sanitize](#sanitize)               | Sanitize a string to url friendly dash/kebab case     |
-| [newLineToBr](#newlinetobr)         | Replace new line with line breaks `<br>` of a string  |
-| [capitalizeEach](#capitalizeeach)   | Capitalize the first letter of each word in a string  |
-| [capitalizeFirst](#capitalizefirst) | Capitalize the first letter of a string               |
-| [sprintf](#sprintf)                 | String produced according to the formatting format    |
-| [lowercase](#lowercase)             | String to lowercase                                   |
-| [uppercase](#uppercase)             | String to uppercase                                   |
-| [first](#first)                     | First element of an array                             |
-| [last](#last)                       | Last element of an array                              |
-| [concat](#concat)                   | Concatenate two or more strings                       |
-| [join](#join)                       | Join elements of an array using a delimeter           |
-| [sum](#sum)                         | Sum of two numbers                                    |
-| [difference](#difference)           | Difference of two numbers                             |
-| [ceil](#ceil)                       | Round a number upward to its nearest integer          |
-| [floor](#floor)                     | Round a number downward to its nearest integer        |
-| [abs](#abs)                         | Find the absolute value of a number                   |
-| [formatDate](#formatdate)           | Format date to specified format                       |
-| [showIf](#showif)                   | Show HTML element if expression is true               |
-| [hideIf](#hideif)                   | Hide HTML element if expression is true               |
-| [selectedIf](#selectedif)           | Select `<option>` if expression is true               |
-| [checkedIf](#checkedif)             | Check the `<input>` checkbox if expression is true    |
-| [options](#options)                 | Generate `<option>` list for `<select>`               |
-| [formatCurrency](#formatcurrency)   | Format currency value according to country            |
+| Helper                                | Description                                           |
+| ------------------------------------- | ----------------------------------------------------- |
+| [eq](#eq)                             | Strict equality `===`                                 |
+| [eqw](#eqw)                           | Equality `==`                                         |
+| [neq](#neq)                           | Strict inequality `!==`                               |
+| [neqw](#neqw)                         | Inequality `!=`                                       |
+| [lt](#lt)                             | Less than `<`                                         |
+| [lte](#lte)                           | Less than or equal `<=`                               |
+| [gt](#gt)                             | Greater than `>`                                      |
+| [gte](#gte)                           | Greater than or equal `>=`                            |
+| [not](#not)                           | Not `!`                                               |
+| [ifx](#ifx)                           | Imitates conditional operator `?:`                    |
+| [empty](#empty)                       | Check if an array is empty                            |
+| [count](#count)                       | Length of an array                                    |
+| [and](#and)                           | Logical AND operation                                 |
+| [or](#or)                             | Logical OR operation                                  |
+| [coalesce](#coalesce)                 | Returns first non-falsy value from list of parameters |
+| [includes](#includes)                 | Check for a value inside an array                     |
+| [excerpt](#excerpt)                   | Extract a sub-string from a string                    |
+| [sanitize](#sanitize)                 | Sanitize a string to url friendly dash/kebab case     |
+| [newLineToBr](#newlinetobr)           | Replace new line with line breaks `<br>` of a string  |
+| [capitalizeEach](#capitalizeeach)     | Capitalize the first letter of each word in a string  |
+| [capitalizeFirst](#capitalizefirst)   | Capitalize the first letter of a string               |
+| [sprintf](#sprintf)                   | String produced according to the formatting format    |
+| [lowercase](#lowercase)               | String to lowercase                                   |
+| [uppercase](#uppercase)               | String to uppercase                                   |
+| [first](#first)                       | First element of an array                             |
+| [last](#last)                         | Last element of an array                              |
+| [concat](#concat)                     | Concatenate two or more strings                       |
+| [join](#join)                         | Join elements of an array using a delimeter           |
+| [sum](#sum)                           | Sum of two numbers                                    |
+| [difference](#difference)             | Difference of two numbers                             |
+| [ceil](#ceil)                         | Round a number upward to its nearest integer          |
+| [floor](#floor)                       | Round a number downward to its nearest integer        |
+| [abs](#abs)                           | Find the absolute value of a number                   |
+| [formatDate](#formatdate)             | Format date to specified format                       |
+| [showIf](#showif)                     | Show HTML element if expression is true               |
+| [hideIf](#hideif)                     | Hide HTML element if expression is true               |
+| [selectedIf](#selectedif)             | Select `<option>` if expression is true               |
+| [checkedIf](#checkedif)               | Check the `<input>` checkbox if expression is true    |
+| [options](#options)                   | Generate `<option>` list for `<select>`               |
+| [formatCurrency](#formatcurrency)     | Format currency value according to country            |
 
 ### ⚠️
 
@@ -846,7 +846,9 @@ Parameters:
 
 ```
 formatString [string] Format string based on moment.js (Required)
-date [date] The date/date-time that needs to be formatted. (Required)
+date [date] The date/date-time that needs to be formatted. (set to current Date() if not provided)
+localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale 
+or an array of possible locale codes, of which moment will use the first one it has a localization for.
 ```
 
 Returns `string`
@@ -858,7 +860,10 @@ var date = new Date();      // Date | Date-time
 {{formatDate 'MM/DD/YYYY' date}}
 
 var date = new Date('01/22/2016');
+var possibleI8nCodes = ['xy', 'aa', 'de'];
 {{formatDate 'YYYY-MM-DD' date}}    => 2016-01-22
+{{formatDate 'LLLL', date, 'es'}}    => 'viernes, 22 de enero de 2016 0:00'
+{{formatDate 'LLLL', date, possibleI8nCodes}}    => 'Freitag, 22. Januar 2016 00:00'
 ```
 
 ### HTML
