@@ -95,6 +95,7 @@ H.registerHelpers(Handlebars);
 | [sum](#sum)                           | Sum of two numbers                                    |
 | [difference](#difference)             | Difference of two numbers                             |
 | [multiplication](#multiplication)             | Multiplication of two numbers                             |
+| [division](#division)             | Division of two numbers                             |
 | [ceil](#ceil)                         | Round a number upward to its nearest integer          |
 | [floor](#floor)                       | Round a number downward to its nearest integer        |
 | [abs](#abs)                           | Find the absolute value of a number                   |
@@ -797,6 +798,26 @@ Usage:
 ```
 {{multiplication 5 2}}      => 10
 {{multiplication 5.2 6.4}}  => 33.28
+```
+
+#### division
+
+A `division` helper calculating the division of two numbers.
+
+Parameters:
+
+```
+value1 [number] First number. (Required)
+value2 [number] Second number. (Required)
+```
+
+Returns `number`
+
+Usage:
+
+```
+{{division 4 2}}      => 2
+{{division 5.2 1.6}}  => 3.25
 ```
 
 #### ceil

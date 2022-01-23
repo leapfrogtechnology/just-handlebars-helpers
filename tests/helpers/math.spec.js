@@ -57,6 +57,24 @@ describe('math', () => {
     });
   });
 
+  describe('division', () => {
+    it('should return the division of two passed values', () => {
+      expect(math.division(4, 2)).toEqual(2);
+    });
+
+    it('helper should return the division of two passed values', () => {
+      const template = compile('{{division value 2}}');
+
+      expect(template({ value: 4 })).toEqual('2');
+    });
+
+    it('helper should also work with floats', () => {
+      const template = compile('{{division value 1.6}}');
+
+      expect(template({ value: 5.2 })).toEqual('3.25');
+    });
+  });
+
   describe('ceil', () => {
     it('should return the ceil value of a float number', () => {
       expect(math.ceil(5.666)).toEqual(6);

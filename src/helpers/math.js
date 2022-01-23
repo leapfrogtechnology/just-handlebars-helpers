@@ -41,6 +41,20 @@ export function multiplication(value1, value2) {
 }
 
 /**
+ * A division helper calculating the division of two numbers.
+ *
+ * @example
+ *      {{division 5 2}}  => 2.5
+ *
+ * @param {number} value1
+ * @param {number} value2
+ * @returns {number}
+ */
+export function division(value1, value2) {
+  return Number(value1) / Number(value2);
+}
+
+/**
  * A ceil helper to find the ceil value of the number.
  *
  * @example
