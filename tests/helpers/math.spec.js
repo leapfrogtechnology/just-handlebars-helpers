@@ -39,6 +39,24 @@ describe('math', () => {
     });
   });
 
+  describe('multiplication', () => {
+    it('should return the multiplication of two passed values', () => {
+      expect(math.multiplication(5, 6)).toEqual(30);
+    });
+
+    it('helper should return the multiplication of two passed values', () => {
+      const template = compile('{{multiplication value 5}}');
+
+      expect(template({ value: 6 })).toEqual('30');
+    });
+
+    it('helper should also work with floats', () => {
+      const template = compile('{{multiplication value 5.2}}');
+
+      expect(template({ value: 6.4 })).toEqual('33.28');
+    });
+  });
+
   describe('ceil', () => {
     it('should return the ceil value of a float number', () => {
       expect(math.ceil(5.666)).toEqual(6);

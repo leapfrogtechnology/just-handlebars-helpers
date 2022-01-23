@@ -27,6 +27,20 @@ export function difference(value1, value2) {
 }
 
 /**
+ * A multiplication helper calculating the multiplication of two numbers.
+ *
+ * @example
+ *      {{multiplication 5 2}}  => 10
+ *
+ * @param {number} value1
+ * @param {number} value2
+ * @returns {number}
+ */
+export function multiplication(value1, value2) {
+  return Number(value1) * Number(value2);
+}
+
+/**
  * A ceil helper to find the ceil value of the number.
  *
  * @example
