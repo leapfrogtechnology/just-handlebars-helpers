@@ -94,6 +94,7 @@ H.registerHelpers(Handlebars);
 | [join](#join)                         | Join elements of an array using a delimeter           |
 | [sum](#sum)                           | Sum of two numbers                                    |
 | [difference](#difference)             | Difference of two numbers                             |
+| [multiplication](#multiplication)             | Multiplication of two numbers                             |
 | [ceil](#ceil)                         | Round a number upward to its nearest integer          |
 | [floor](#floor)                       | Round a number downward to its nearest integer        |
 | [abs](#abs)                           | Find the absolute value of a number                   |
@@ -776,6 +777,26 @@ Usage:
 ```
 {{difference 5 2}}      => 3
 {{difference 7.2 3.4}}  => 3.8
+```
+
+#### multiplication
+
+A `multiplication` helper calculating the multiplication of two numbers.
+
+Parameters:
+
+```
+value1 [number] First number. (Required)
+value2 [number] Second number. (Required)
+```
+
+Returns `number`
+
+Usage:
+
+```
+{{multiplication 5 2}}      => 10
+{{multiplication 5.2 6.4}}  => 33.28
 ```
 
 #### ceil
