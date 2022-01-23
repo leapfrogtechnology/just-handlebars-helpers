@@ -55,6 +55,20 @@ export function division(value1, value2) {
 }
 
 /**
+ * A remainder helper calculating the remainder of two numbers.
+ *
+ * @example
+ *      {{remainder 5 2}}  => 1
+ *
+ * @param {number} value1
+ * @param {number} value2
+ * @returns {number}
+ */
+export function remainder(value1, value2) {
+  return Number(value1) % Number(value2);
+}
+
+/**
  * A ceil helper to find the ceil value of the number.
  *
  * @example
