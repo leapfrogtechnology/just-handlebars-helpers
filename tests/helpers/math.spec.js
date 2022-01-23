@@ -75,6 +75,24 @@ describe('math', () => {
     });
   });
 
+  describe('remainder', () => {
+    it('should return the remainder of two passed values', () => {
+      expect(math.remainder(5, 3)).toEqual(2);
+    });
+
+    it('helper should return the remainder of two passed values', () => {
+      const template = compile('{{remainder value 3}}');
+
+      expect(template({ value: 5 })).toEqual('2');
+    });
+
+    it('helper should also work with floats', () => {
+      const template = compile('{{remainder value 2.5}}');
+
+      expect(template({ value: 5.2 })).toEqual('0.20000000000000018');
+    });
+  });
+
   describe('ceil', () => {
     it('should return the ceil value of a float number', () => {
       expect(math.ceil(5.666)).toEqual(6);

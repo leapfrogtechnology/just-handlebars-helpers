@@ -96,6 +96,7 @@ H.registerHelpers(Handlebars);
 | [difference](#difference)             | Difference of two numbers                             |
 | [multiplication](#multiplication)             | Multiplication of two numbers                             |
 | [division](#division)             | Division of two numbers                             |
+| [remainder](#remainder)             | Remainder of two numbers                             |
 | [ceil](#ceil)                         | Round a number upward to its nearest integer          |
 | [floor](#floor)                       | Round a number downward to its nearest integer        |
 | [abs](#abs)                           | Find the absolute value of a number                   |
@@ -818,6 +819,26 @@ Usage:
 ```
 {{division 4 2}}      => 2
 {{division 5.2 1.6}}  => 3.25
+```
+
+#### remainder
+
+A `remainder` helper calculating the remainder of two numbers.
+
+Parameters:
+
+```
+value1 [number] First number. (Required)
+value2 [number] Second number. (Required)
+```
+
+Returns `number`
+
+Usage:
+
+```
+{{remainder 5 3}}      => 2
+{{remainder 5.2 2.5}}  => 0.20000000000000018
 ```
 
 #### ceil
