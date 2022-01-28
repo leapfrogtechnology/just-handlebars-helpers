@@ -5,7 +5,7 @@
 [![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
 [![Codecov](https://img.shields.io/codecov/c/github/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
-A lightweight package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
+A package with common [Handlebars](https://github.com/wycats/handlebars.js) helpers.
 
 ## Installation
 

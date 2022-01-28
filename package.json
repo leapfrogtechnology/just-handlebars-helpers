@@ -1,7 +1,7 @@
 {
   "name": "just-handlebars-helpers",
   "version": "1.0.19",
-  "description": "A lightweight package with common helpers for Handlebars",
+  "description": "A package with common helpers for Handlebars",
   "main": "index.js",
   "license": "MIT",
   "repository": "git@github.com/leapfrogtechnology/just-handlebars-helpers.git",
@@ -29,7 +29,6 @@
   "keywords": [
     "handlebars",
     "helpers",
-    "lightweight",
     "just-handlebars",
     "just-handlebars-helpers",
     "handlebars-helpers",
