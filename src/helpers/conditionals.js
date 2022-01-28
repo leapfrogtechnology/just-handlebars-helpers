@@ -128,7 +128,7 @@ export function ifx(condition, value1, value2) {
   // Check if user has omitted the last parameter
   // if that's the case, it would be the Handlebars options object
   // which it sends always as the last parameter.
-  if (isObject(value2) && value2.name === 'ifx' && value2.hasOwnProperty('hash')) {
+  if (isObject(value2) && value2.name === 'ifx' && Object.prototype.hasOwnProperty.call(value2, 'hash')) {
     // This means the user has skipped the last parameter,
     // so we should return an empty string ('') in the else case instead.
     value2 = '';

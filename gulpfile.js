@@ -12,7 +12,7 @@ const shimify = require('browserify-shimify');
  * Check for linter errors.
  */
 function lint() {
-  const sourceFiles = ['**/*.js', '!lib/**', '!dist/**', '!coverage/**', '!node_modules/**'];
+  const sourceFiles = ['**/*.js', '!tests/misc.js', '!lib/**', '!dist/**', '!coverage/**', '!node_modules/**'];
 
   return gulp
     .src(sourceFiles)
