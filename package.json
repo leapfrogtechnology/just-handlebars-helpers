@@ -16,6 +16,16 @@
     "Suman Gurung <gurung.suman15@gmail.com>",
     "Deepak Pandey <pandey.dip@gmail.com>"
   ],
+  "scripts": {
+    "test": "karma start --single-run",
+    "lint": "eslint --fix src tests gulpfile.js karma.conf.js index.js",
+    "codecov": "cat coverage/*/lcov.info | codecov",
+    "start": "karma start",
+    "clean": "rimraf dist/ lib/",
+    "build": "yarn clean && gulp",
+    "bump": "./release.sh bump",
+    "changelog": "./release.sh changelog"
+  },
   "keywords": [
     "handlebars",
     "helpers",
@@ -28,12 +38,6 @@
     "templating",
     "html"
   ],
-  "peerDependencies": {
-    "currencyformatter.js": ">= 1.0.4 < 2",
-    "handlebars": ">= 3.*",
-    "moment": ">= 2.22.0 < 3",
-    "sprintf-js": ">= 1.1.1 < 2"
-  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -67,14 +71,10 @@
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.0"
   },
-  "scripts": {
-    "test": "karma start --single-run",
-    "lint": "eslint --fix src tests gulpfile.js karma.conf.js index.js",
-    "codecov": "cat coverage/*/lcov.info | codecov",
-    "start": "karma start",
-    "clean": "rimraf dist/ lib/",
-    "build": "yarn clean && gulp",
-    "bump": "./release.sh bump",
-    "changelog": "./release.sh changelog"
+  "peerDependencies": {
+    "currencyformatter.js": ">= 1.0.4 < 2",
+    "handlebars": ">= 3.*",
+    "moment": ">= 2.22.0 < 3",
+    "sprintf-js": ">= 1.1.1 < 2"
   }
 }
