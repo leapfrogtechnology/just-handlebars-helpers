@@ -37,8 +37,7 @@ function transpile() {
 function bundle() {
   const config = {
     entries: './index.js',
-    standalone: 'H',
-    debug: true
+    standalone: 'H'
   };
 
   const shimifyConfig = {
