@@ -13,13 +13,16 @@ changelog() {
 
   echo "Generating changelog upto version: $NEXT"
   github_changelog_generator \
+    --user "leapfrogtechnology" \
+    --project "just-handlebars-helpers" \
+    --token $GITHUB_TOKEN \
     --no-verbose \
     --pr-label "**Changes**" \
     --bugs-label "**Bug Fixes**" \
     --issues-label "**Closed Issues**" \
     --issue-line-labels=ALL \
     --future-release="$NEXT" \
-    --release-branch=master \
+    --release-branch=main \
     --exclude-labels=unnecessary,duplicate,question,invalid,wontfix
 }
 
