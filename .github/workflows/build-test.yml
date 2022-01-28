@@ -4,11 +4,13 @@ on:
       - main
     paths-ignore:
       - "**.md"
+      - "dist/**"
   push:
     branches:
       - main
     paths-ignore:
       - "**.md"
+      - "dist/**"
 
 jobs:
   build:
