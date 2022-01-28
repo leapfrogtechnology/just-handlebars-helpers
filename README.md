@@ -1,7 +1,7 @@
 # Just Handlebars Helpers
 
 [![NPM Version](https://img.shields.io/npm/v/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
-[![NPM Downloads](https://img.shields.io/npm/dt/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
+[![NPM Downloads](https://img.shields.io/npm/dm/just-handlebars-helpers.svg?style=flat-square)](https://www.npmjs.com/package/just-handlebars-helpers)
 [![Travis](https://img.shields.io/travis/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://travis-ci.org/leapfrogtechnology/just-handlebars-helpers)
 [![Codecov](https://img.shields.io/codecov/c/github/leapfrogtechnology/just-handlebars-helpers.svg?style=flat-square)](https://codecov.io/github/leapfrogtechnology/just-handlebars-helpers?branch=master)
 
@@ -53,8 +53,8 @@ yarn add just-handlebars-helpers
 
 ```js
 // Require handlebars and just-handlebars-helpers
-const Handlebars = require('handlebars');
-const H = require('just-handlebars-helpers');
+const Handlebars = require("handlebars");
+const H = require("just-handlebars-helpers");
 
 // Register just-handlebars-helpers with handlebars
 H.registerHelpers(Handlebars);
@@ -910,7 +910,7 @@ Parameters:
 ```
 formatString [string] Format string based on moment.js (Required)
 date [date] The date/date-time that needs to be formatted. (set to current Date() if not provided)
-localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale 
+localeString [string] ISO 3166-1 locale code represented in https://github.com/moment/moment/tree/develop/locale
 or an array of possible locale codes, of which moment will use the first one it has a localization for.
 ```
 
