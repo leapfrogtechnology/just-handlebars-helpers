@@ -18,14 +18,6 @@ describe('strings', () => {
       expect(strings.excerpt('Just wow', 4)).toEqual('Just...');
     });
 
-    it('should use user-provided suffix instead of the default, if specified', () => {
-      expect(strings.excerpt('Just wow', 4, '')).toEqual('Just');
-    });
-
-    it('should use non-empty user-provided suffix instead of the default, if specified', () => {
-      expect(strings.excerpt('Just wow', 4, ' mysuffix')).toEqual('Just mysuffix');
-    });
-
     it('should extract all the characters from a string if the provided number of characters to be extracted is more than the number of characters', () => {
       expect(strings.excerpt('wow', 10)).toEqual('wow');
     });
@@ -45,10 +37,18 @@ describe('strings', () => {
     });
 
     it('should work as expected after compilation with user-provided suffix', () => {
-      const template = compile('{{excerpt string 10 ""}}');
+      const template = compile('{{excerpt string 10 suffix=""}}');
 
       expect(template({ string: 'That can only mean one thing' })).toEqual('That can o');
     });
+
+    it('should work as expected after compilation with user-provided suffix', () => {
+      const template = compile('{{excerpt string 10 suffix="asdf"}}');
+
+      expect(template({ string: 'That can only mean one thing' })).toEqual('That can oasdf');
+    });
+
+    
   });
 
   describe('sanitize', () => {
