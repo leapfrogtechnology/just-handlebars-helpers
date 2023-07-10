@@ -10,8 +10,9 @@ import { isFunction, isObject, isString, isArray } from '../util/utils';
  * @param {int} length
  * @returns {string}
  */
-export function excerpt(string, length) {
+export function excerpt(string, length, suffix) {
   length = parseInt(length) || 50;
+  suffix = isString(suffix) ? suffix : '...';
 
   if (typeof (string) !== 'string' || typeof (length) !== 'number') {
     return string;
@@ -21,7 +22,7 @@ export function excerpt(string, length) {
     return string;
   }
 
-  return string.slice(0, length) + '...';
+  return string.slice(0, length) + suffix;
 }
 
 /**
