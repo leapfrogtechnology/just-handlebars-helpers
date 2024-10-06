@@ -233,3 +233,73 @@ export function join(params, delimiter) {
 
   return params.join(delimiter);
 }
+
+/**
+ * Check if a string starts with a given substring.
+ * 
+ * @example 
+ *     {{startsWith 'Just Wow' 'Just'}}    => true
+ * 
+ * @param {string} str 
+ * @param {string} searchString 
+ * @returns {boolean}
+ */
+export function startsWith(str, searchString) {
+  if (typeof searchString !== 'string' || typeof str !== 'string') {
+    return false;
+  }
+
+  return str.startsWith(searchString);
+}
+
+/**
+ * Check if a string ends with a given substring.
+ * 
+ * @example
+ *    {{endsWith 'Just Wow' 'Wow'}}    => true
+ * 
+ * @param {string} str 
+ * @param {string} searchString 
+ * @returns {boolean}
+ */
+export function endsWith(str, searchString) {
+  if (typeof searchString !== 'string' || typeof str !== 'string') {
+    return false;
+  }
+
+  return str.endsWith(searchString);
+}
+
+/**
+ * Extract unique elements from given collection.
+ * 
+ * @example
+ *  {{unique ['a', 'b', 'c', 'a', 'b', 'c', 'd']}}    => ['a', 'b', 'c', 'd']
+ * 
+ * @param {array} collection 
+ * @returns {array}
+ */
+export function unique(collection) {
+  if (!isArray(collection) || collection.length === 0) {
+    return '';
+  }
+
+  return [...new Set(collection)];
+}
+
+/**
+ * Trim whitespace from both ends of a string.
+ *
+ * @example
+ *    {{trim '  Just Wow  '}}   => 'Just Wow'
+ *
+ * @param {string} string
+ * @returns {string}
+ */
+export function trim(string) {
+  if (typeof string === 'string') {
+    return string.trim();
+  }
+
+  return string;
+}
