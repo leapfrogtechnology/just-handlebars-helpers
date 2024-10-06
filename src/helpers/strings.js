@@ -235,42 +235,6 @@ export function join(params, delimiter) {
 }
 
 /**
- * Check if a string starts with a given substring.
- * 
- * @example 
- *     {{startsWith 'Just Wow' 'Just'}}    => true
- * 
- * @param {string} str 
- * @param {string} searchString 
- * @returns {boolean}
- */
-export function startsWith(str, searchString) {
-  if (typeof searchString !== 'string' || typeof str !== 'string') {
-    return false;
-  }
-
-  return str.startsWith(searchString);
-}
-
-/**
- * Check if a string ends with a given substring.
- * 
- * @example
- *    {{endsWith 'Just Wow' 'Wow'}}    => true
- * 
- * @param {string} str 
- * @param {string} searchString 
- * @returns {boolean}
- */
-export function endsWith(str, searchString) {
-  if (typeof searchString !== 'string' || typeof str !== 'string') {
-    return false;
-  }
-
-  return str.endsWith(searchString);
-}
-
-/**
  * Extract unique elements from given collection.
  * 
  * @example

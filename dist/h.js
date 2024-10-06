@@ -111,6 +111,8 @@ exports.and = and;
 exports.or = or;
 exports.coalesce = coalesce;
 exports.includes = includes;
+exports.startsWith = startsWith;
+exports.endsWith = endsWith;
 
 var _utils = require('../util/utils');
 
@@ -429,6 +431,42 @@ function includes(array, value) {
   }
 
   return false;
+}
+
+/**
+ * Check if a string starts with a given substring.
+ * 
+ * @example 
+ *     {{startsWith 'Just Wow' 'Just'}}    => true
+ * 
+ * @param {string} str 
+ * @param {string} searchString 
+ * @returns {boolean}
+ */
+function startsWith(str, searchString) {
+  if (typeof searchString !== 'string' || typeof str !== 'string') {
+    return false;
+  }
+
+  return str.startsWith(searchString);
+}
+
+/**
+ * Check if a string ends with a given substring.
+ * 
+ * @example
+ *    {{endsWith 'Just Wow' 'Wow'}}    => true
+ * 
+ * @param {string} str 
+ * @param {string} searchString 
+ * @returns {boolean}
+ */
+function endsWith(str, searchString) {
+  if (typeof searchString !== 'string' || typeof str !== 'string') {
+    return false;
+  }
+
+  return str.endsWith(searchString);
 }
 },{"../util/utils":9}],4:[function(require,module,exports){
 (function (global){(function (){
@@ -808,8 +846,6 @@ exports.first = first;
 exports.last = last;
 exports.concat = concat;
 exports.join = join;
-exports.startsWith = startsWith;
-exports.endsWith = endsWith;
 exports.unique = unique;
 exports.trim = trim;
 
@@ -1057,42 +1093,6 @@ function join(params, delimiter) {
   }
 
   return params.join(delimiter);
-}
-
-/**
- * Check if a string starts with a given substring.
- * 
- * @example 
- *     {{startsWith 'Just Wow' 'Just'}}    => true
- * 
- * @param {string} str 
- * @param {string} searchString 
- * @returns {boolean}
- */
-function startsWith(str, searchString) {
-  if (typeof searchString !== 'string' || typeof str !== 'string') {
-    return false;
-  }
-
-  return str.startsWith(searchString);
-}
-
-/**
- * Check if a string ends with a given substring.
- * 
- * @example
- *    {{endsWith 'Just Wow' 'Wow'}}    => true
- * 
- * @param {string} str 
- * @param {string} searchString 
- * @returns {boolean}
- */
-function endsWith(str, searchString) {
-  if (typeof searchString !== 'string' || typeof str !== 'string') {
-    return false;
-  }
-
-  return str.endsWith(searchString);
 }
 
 /**

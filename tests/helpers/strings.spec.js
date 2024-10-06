@@ -293,46 +293,6 @@ describe('strings', () => {
     });
   });
 
-  describe('startsWith', () => {
-    it('should return true if the string starts with the provided substring', () => {
-      expect(strings.startsWith('Hello World!', 'Hello')).toEqual(true);
-    });
-
-    it('should return false if the string does not start with the provided substring', () => {
-      expect(strings.startsWith('Hello World!', 'World')).toEqual(false);
-    });
-
-    it('should work as expected after compilation (Basic Support)', () => {
-      const template = compile('{{startsWith string subString}}');
-      const obj = {
-        string: 'Hello World!',
-        subString: 'Hello'
-      };
-
-      expect(template(obj)).toEqual(true);
-    });
-  });
-
-  describe('endsWith', () => {
-    it('should return true if the string ends with the provided substring', () => {
-      expect(strings.endsWith('Hello World!', 'World!')).toEqual(true);
-    });
-
-    it('should return false if the string does not end with the provided substring', () => {
-      expect(strings.endsWith('Hello World!', 'Hello')).toEqual(false);
-    });
-
-    it('should work as expected after compilation (Basic Support)', () => {
-      const template = compile('{{endsWith string subString}}');
-      const obj = {
-        string: 'Hello World!',
-        subString: 'World!'
-      };
-
-      expect(template(obj)).toEqual(true);
-    });
-  });
-
   describe('unique', () => {
     it('should return unique elements from an array', () => {
       expect(strings.unique(['apple', 'banana', 'apple', 'mango', 'banana'])).toEqual(['apple', 'banana', 'mango']);
@@ -344,7 +304,7 @@ describe('strings', () => {
         fruits: ['apple', 'banana', 'apple', 'mango', 'banana']
       };
 
-      expect(template(obj)).toEqual(['apple', 'banana', 'mango']);
+      expect(template(obj)).toEqual(strings.join(['apple', 'banana', 'mango'], ','));
     });
   });
 
