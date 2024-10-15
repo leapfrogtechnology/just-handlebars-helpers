@@ -19,7 +19,6 @@
   "scripts": {
     "test": "karma start --single-run",
     "lint": "eslint --fix src tests gulpfile.js karma.conf.js index.js",
-    "codecov": "cat coverage/*/lcov.info | codecov",
     "start": "karma start",
     "clean": "rimraf dist/ lib/",
     "build": "yarn clean && gulp",
@@ -44,7 +43,6 @@
     "browserify": "^16.2.2",
     "browserify-istanbul": "^2.0.0",
     "browserify-shimify": "0.1.0-0",
-    "codecov": "^3.0.2",
     "currencyformatter.js": "^1.0.5",
     "eslint": "^8.7.0",
     "eslint-config-leapfrog": "^2.0.1",
