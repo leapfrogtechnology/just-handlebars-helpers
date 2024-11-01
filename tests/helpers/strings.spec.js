@@ -293,4 +293,34 @@ describe('strings', () => {
     });
   });
 
+  describe('unique', () => {
+    it('should return unique elements from an array', () => {
+      expect(strings.unique(['apple', 'banana', 'apple', 'mango', 'banana'])).toEqual(['apple', 'banana', 'mango']);
+    });
+
+    it('should return unique elements from an array after compilation (Basic Support)', () => {
+      const template = compile('{{unique fruits}}');
+      const obj = {
+        fruits: ['apple', 'banana', 'apple', 'mango', 'banana']
+      };
+
+      expect(template(obj)).toEqual(strings.join(['apple', 'banana', 'mango'], ','));
+    });
+  });
+
+  describe('trim', () => {
+    it('should remove whitespace from both ends of a string', () => {
+      expect(strings.trim('  Just Wow  ')).toEqual('Just Wow');
+    });
+
+    it('should remove whitespace from both ends of a string after compilation (Basic Support)', () => {
+      const template = compile('{{trim string}}');
+      const obj = {
+        string: '  Just Wow  '
+      };
+
+      expect(template(obj)).toEqual('Just Wow');
+    });
+  });
+
 });
