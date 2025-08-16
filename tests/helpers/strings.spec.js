@@ -35,6 +35,20 @@ describe('strings', () => {
 
       expect(template({ string: 'That can only mean one thing' })).toEqual('That can o...');
     });
+
+    it('should work as expected after compilation with user-provided suffix', () => {
+      const template = compile('{{excerpt string 10 suffix=""}}');
+
+      expect(template({ string: 'That can only mean one thing' })).toEqual('That can o');
+    });
+
+    it('should work as expected after compilation with user-provided suffix', () => {
+      const template = compile('{{excerpt string 10 suffix="asdf"}}');
+
+      expect(template({ string: 'That can only mean one thing' })).toEqual('That can oasdf');
+    });
+
+    
   });
 
   describe('sanitize', () => {

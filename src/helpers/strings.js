@@ -1,4 +1,4 @@
-import { isFunction, isObject, isString, isArray } from '../util/utils';
+import { isFunction, isObject, isString, isArray, isUndefined } from '../util/utils';
 
 /**
  * Extract a few characters from a string. Default number of characters is 50.
@@ -8,10 +8,17 @@ import { isFunction, isObject, isString, isArray } from '../util/utils';
  *
  * @param {string} string
  * @param {int} length
+ * @param {any} args
  * @returns {string}
  */
-export function excerpt(string, length) {
+export function excerpt(string, length, ...args) {
   length = parseInt(length) || 50;
+  
+  let params = {};
+  if (isObject(args[0]) && isObject(args[0].hash)) {
+    params = args[0].hash;
+  }
+  let suffix = !isUndefined(params.suffix) ? params.suffix : '...';
 
   if (typeof (string) !== 'string' || typeof (length) !== 'number') {
     return string;
@@ -21,7 +28,7 @@ export function excerpt(string, length) {
     return string;
   }
 
-  return string.slice(0, length) + '...';
+  return string.slice(0, length) + suffix;
 }
 
 /**
