@@ -233,3 +233,37 @@ export function join(params, delimiter) {
 
   return params.join(delimiter);
 }
+
+/**
+ * Extract unique elements from given collection.
+ * 
+ * @example
+ *  {{unique ['a', 'b', 'c', 'a', 'b', 'c', 'd']}}    => ['a', 'b', 'c', 'd']
+ * 
+ * @param {array} collection 
+ * @returns {array}
+ */
+export function unique(collection) {
+  if (!isArray(collection) || collection.length === 0) {
+    return '';
+  }
+
+  return [...new Set(collection)];
+}
+
+/**
+ * Trim whitespace from both ends of a string.
+ *
+ * @example
+ *    {{trim '  Just Wow  '}}   => 'Just Wow'
+ *
+ * @param {string} string
+ * @returns {string}
+ */
+export function trim(string) {
+  if (typeof string === 'string') {
+    return string.trim();
+  }
+
+  return string;
+}
