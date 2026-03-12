@@ -481,4 +481,44 @@ describe('conditionals', () => {
       expect(template({ array: array, value: value })).toEqual('false');
     });
   });
+
+  describe('startsWith', () => {
+    it('should return true if the string starts with the provided substring', () => {
+      expect(conditionals.startsWith('Hello World!', 'Hello')).toEqual(true);
+    });
+
+    it('should return false if the string does not start with the provided substring', () => {
+      expect(conditionals.startsWith('Hello World!', 'World')).toEqual(false);
+    });
+
+    it('should work as expected after compilation (Basic Support)', () => {
+      const template = compile('{{startsWith string subString}}');
+      const obj = {
+        string: 'Hello World!',
+        subString: 'Hello'
+      };
+
+      expect(JSON.parse(template(obj))).toEqual(true);
+    });
+  });
+
+  describe('endsWith', () => {
+    it('should return true if the string ends with the provided substring', () => {
+      expect(conditionals.endsWith('Hello World!', 'World!')).toEqual(true);
+    });
+
+    it('should return false if the string does not end with the provided substring', () => {
+      expect(conditionals.endsWith('Hello World!', 'Hello')).toEqual(false);
+    });
+
+    it('should work as expected after compilation (Basic Support)', () => {
+      const template = compile('{{endsWith string subString}}');
+      const obj = {
+        string: 'Hello World!',
+        subString: 'World!'
+      };
+
+      expect(JSON.parse(template(obj))).toEqual(true);
+    });
+  });
 });
